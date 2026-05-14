@@ -14,7 +14,7 @@ export default function Join() {
         <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/10 px-5 py-4 text-sm font-medium text-white shadow-[0_0_28px_rgba(0,255,255,0.12)]">
           JOIN THE GENESIS QUEUE: Early GPU providers receive First-in-Line Priority and zero commission charges (Free! On us!) on their first 1,000 compute hours.
         </div>
-        <div className="mt-8 grid gap-8 md:grid-cols-2">
+        <div className="mt-8 grid gap-10 md:grid-cols-2">
           <section className="glass-panel p-6 space-y-4 flex flex-col">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Expression of Interest</p>
@@ -27,7 +27,7 @@ export default function Join() {
               <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.25em] text-primary">The Morphix Vault: Total Provider Privacy</p>
               Your private files and your leased compute exist in two different worlds. Our Trusted Execution Environments (TEE) create a hardware-level sandbox. The Pipe only sees the encrypted task; it is physically impossible for a renter to access or see your local drives or personal data.
             </div>
-            <form className="grid gap-4">
+            <form className="grid gap-3">
               <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Name" />
               <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Email" />
               <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Organization" />
@@ -46,10 +46,11 @@ export default function Join() {
             <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm text-muted-foreground">
               Access institutional-grade GPU clusters for 40% less than legacy cloud. Plus, our Permanent Zero Egress policy means moving your results is always free.
             </div>
-            <form className="grid gap-4">
+            <form className="grid gap-3">
               <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Name" />
               <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Email" />
-              <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Organization/Project Name" />
+              <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Organization" />
+              <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="e.g., Accenture or Startup Name" />
               <label className="flex items-center gap-3 text-sm text-muted-foreground">
                 <input type="checkbox" />
                 I Agree
