@@ -2,6 +2,19 @@ import React from "react";
 import { Link } from "wouter";
 
 export default function Join() {
+  const [submitted, setSubmitted] = React.useState(false);
+  const [loading, setLoading] = React.useState(false);
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (submitted || loading) return;
+    setLoading(true);
+    window.setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 1500);
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground pl-[260px]">
       <div className="mx-auto max-w-6xl px-8 py-10">
@@ -46,7 +59,7 @@ export default function Join() {
             <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm text-muted-foreground">
               Access institutional-grade GPU clusters for 40% less than legacy cloud. Plus, our Permanent Zero Egress policy means moving your results is always free.
             </div>
-            <form className="grid gap-3">
+            <form className="grid gap-3" onSubmit={handleSubmit}>
               <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Name" />
               <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Email" />
               <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Organization" />
@@ -55,12 +68,38 @@ export default function Join() {
                 <input type="checkbox" />
                 I Agree
               </label>
+              <button
+                type="submit"
+                disabled={submitted || loading}
+                className="rounded-2xl border border-[#00f2fe]/30 bg-white/[0.04] px-5 py-4 text-left text-white transition duration-300 hover:border-[#00f2fe]/70 hover:shadow-[0_0_28px_rgba(0,242,254,0.45)] disabled:cursor-not-allowed disabled:opacity-70"
+              >
+                <span className="block text-sm font-semibold tracking-[0.18em] uppercase">
+                  {submitted ? "SUBMITTED" : loading ? "VALIDATING CREDENTIALS..." : "CONFIRM EXPRESSION OF INTEREST"}
+                </span>
+                <span className="mt-1 block text-[11px] text-muted-foreground">
+                  Secure Enrollment into XGPU Early Access Pool
+                </span>
+              </button>
             </form>
           </section>
         </div>
-        <p className="mt-8 text-sm leading-6 text-muted-foreground">
-          Early Access is a non-binding Expression of Interest (EOI). You are simply securing your spot in the queue. No hardware access or financial commitment is required today.
-        </p>
+        {submitted ? (
+          <div className="mt-8 rounded-3xl border border-white/10 bg-white/[0.05] p-8 text-white shadow-[0_0_28px_rgba(0,242,254,0.12)] backdrop-blur-xl">
+            <h3 className="text-2xl font-semibold">Welcome to the Morphix Ecosystem</h3>
+            <p className="mt-3 text-sm leading-6 text-muted-foreground">
+              Your interest in the XGPU Network has been recorded. You are now positioned within our priority Early Access tier for the Q3 infrastructure rollout
+            </p>
+            <Link href="/">
+              <button className="mt-6 rounded-xl bg-primary px-5 py-3 text-sm font-semibold tracking-[0.16em] uppercase text-black">
+                ENTER DASHBOARD
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <p className="mt-8 text-sm leading-6 text-muted-foreground">
+            Early Access is a non-binding Expression of Interest (EOI). You are simply securing your spot in the queue. No hardware access or financial commitment is required today.
+          </p>
+        )}
       </div>
     </div>
   );
