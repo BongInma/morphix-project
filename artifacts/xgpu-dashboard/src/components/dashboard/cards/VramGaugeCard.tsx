@@ -16,8 +16,8 @@ export function VramGaugeCard({
   return (
     <div className="glass-panel w-full min-h-full p-8 pt-6 flex flex-col items-center justify-between text-center min-w-[125%]">
       <div className="flex flex-col items-center justify-start gap-4 w-full">
-        <div className="w-full">
-          <h3 className="text-[10px] font-bold tracking-[0.2em] text-white/80 uppercase text-center w-full">
+        <div className="w-full flex flex-col items-center text-center">
+          <h3 className="w-full text-[10px] font-bold leading-[1.1] tracking-[0.2em] text-white/80 uppercase text-center">
             VRAM Allocation
           </h3>
           <p className="mt-2 text-[11px] leading-[1.4] text-muted-foreground whitespace-normal break-words">
