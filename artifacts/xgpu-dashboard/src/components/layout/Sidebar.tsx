@@ -9,8 +9,8 @@ export function Sidebar({ live }: { live: boolean }) {
     { label: "JOIN EARLY ACCESS", icon: Sparkles, href: "/join", glow: true, primary: true },
     { label: "XGPU Dashboard", icon: Cpu, href: "/" },
     { label: "Grid Health", icon: Activity, href: "/grid-health" },
-    { label: "AptaFet Sync", icon: Waypoints, href: "/join", badge: "BETA" },
-    { label: "Settings", icon: Settings, href: "/join" },
+    { label: "AptaFet Sync", icon: Waypoints, href: "/aptafet", badge: "BETA" },
+    { label: "Settings", icon: Settings, href: "/settings" },
   ];
 
   return (
@@ -30,7 +30,7 @@ export function Sidebar({ live }: { live: boolean }) {
       {/* Navigation */}
       <nav className="flex-1 px-4 space-y-2">
         {navItems.map((item) => {
-          const isActive = location === item.href || item.active;
+          const isActive = location === item.href;
           return (
             <Link
               key={item.label}

@@ -6,7 +6,8 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Join from "@/pages/Join";
 import GridHealth from "@/pages/GridHealth";
-import UnderConstruction from "@/pages/UnderConstruction";
+import AptaFet from "@/pages/AptaFet";
+import Settings from "@/pages/Settings";
 
 const queryClient = new QueryClient();
 
@@ -16,8 +17,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/join" component={Join} />
       <Route path="/grid-health" component={GridHealth} />
-      <Route path="/settings" component={UnderConstruction} />
-      <Route path="/sync" component={UnderConstruction} />
+      <Route path="/aptafet" component={AptaFet} />
+      <Route path="/settings" component={Settings} />
       <Route component={NotFound} />
     </Switch>
   );
