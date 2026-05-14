@@ -1,7 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export function SupplyMapCard({ status }: { status: "offline" | "verifying" | "live" }) {
+export function SupplyMapCard({
+  status,
+  onStartHandshake,
+}: {
+  status: "offline" | "verifying" | "live";
+  onStartHandshake: () => void;
+}) {
   const nodes = [
     { x: "25%", y: "40%" },
     { x: "20%", y: "45%" },
@@ -39,6 +45,7 @@ export function SupplyMapCard({ status }: { status: "offline" | "verifying" | "l
         {status !== "live" && (
           <button
             type="button"
+            onClick={onStartHandshake}
             className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 rounded-xl border border-white/20 bg-white/5 px-5 py-3 text-sm font-bold tracking-[0.2em] text-white backdrop-blur-xl shadow-[0_0_30px_rgba(34,211,238,0.16)]"
           >
             INITIALIZE XGPU NODE

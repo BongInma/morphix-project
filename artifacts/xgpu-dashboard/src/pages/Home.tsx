@@ -75,6 +75,10 @@ export default function Home() {
     }, 3000);
   };
 
+  const startHandshake = () => {
+    handleToggle();
+  };
+
   const handleResilienceTest = () => {
     if (stressState === "critical") return;
     setStressState("critical");
@@ -106,6 +110,7 @@ export default function Home() {
             stressState={stressState}
             activityLogs={activityLogs}
             onResilienceTest={handleResilienceTest}
+            onStartHandshake={startHandshake}
           />
         </div>
       </main>
