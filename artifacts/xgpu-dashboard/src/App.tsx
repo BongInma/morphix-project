@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Join from "@/pages/Join";
+import GridHealth from "@/pages/GridHealth";
+import UnderConstruction from "@/pages/UnderConstruction";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +15,9 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/join" component={Join} />
+      <Route path="/grid-health" component={GridHealth} />
+      <Route path="/settings" component={UnderConstruction} />
+      <Route path="/sync" component={UnderConstruction} />
       <Route component={NotFound} />
     </Switch>
   );

@@ -7,10 +7,10 @@ export function Sidebar({ live }: { live: boolean }) {
 
   const navItems = [
     { label: "JOIN EARLY ACCESS", icon: Sparkles, href: "/join", glow: true, primary: true },
-    { label: "XGPU Dashboard", icon: Cpu, href: "/", active: true },
+    { label: "XGPU Dashboard", icon: Cpu, href: "/" },
     { label: "Grid Health", icon: Activity, href: "/grid-health" },
-    { label: "AptaFet Sync", icon: Waypoints, href: "/sync", badge: "BETA" },
-    { label: "Settings", icon: Settings, href: "/settings" },
+    { label: "AptaFet Sync", icon: Waypoints, href: "/join", badge: "BETA" },
+    { label: "Settings", icon: Settings, href: "/join" },
   ];
 
   return (
