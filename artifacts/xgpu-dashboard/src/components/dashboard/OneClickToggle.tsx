@@ -18,6 +18,11 @@ export function OneClickToggle({
       >
         {status === "verifying" ? "VERIFYING HARDWARE..." : isOnline ? "XGPU STATUS: LIVE" : "GRID STATUS: OFFLINE"}
       </span>
+      {status === "offline" && (
+        <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-cyan-300 animate-pulse">
+          CLICK TO CONNECT
+        </span>
+      )}
 
       <button
         onClick={onToggle}

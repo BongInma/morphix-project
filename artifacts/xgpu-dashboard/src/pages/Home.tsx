@@ -81,7 +81,7 @@ export default function Home() {
     setStats((current) => ({ ...current, vramPercent: 100 }));
     setActivityLogs((current) => [
       ...current,
-      "[CRITICAL] HOST DISCONNECT",
+      "[CRITICAL] Host Signal Lost... Initiating Instant Eviction.",
     ]);
     setTimeout(() => {
       setActivityLogs((current) => [
