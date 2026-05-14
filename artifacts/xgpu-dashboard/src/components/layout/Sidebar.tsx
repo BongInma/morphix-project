@@ -6,8 +6,8 @@ export function Sidebar({ live }: { live: boolean }) {
   const [location] = useLocation();
 
   const navItems = [
+    { label: "JOIN EARLY ACCESS", icon: Sparkles, href: "/join", glow: true, primary: true },
     { label: "XGPU Dashboard", icon: Cpu, href: "/", active: true },
-    { label: "JOIN EARLY ACCESS", icon: Sparkles, href: "/join", glow: true },
     { label: "Grid Health", icon: Activity, href: "/grid-health" },
     { label: "AptaFet Sync", icon: Waypoints, href: "/sync", badge: "BETA" },
     { label: "Settings", icon: Settings, href: "/settings" },
@@ -36,15 +36,16 @@ export function Sidebar({ live }: { live: boolean }) {
               key={item.label}
               href={item.href}
               className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 relative group overflow-hidden
+                ${item.primary ? "bg-[linear-gradient(135deg,#00f2fe_0%,#4facfe_100%)] text-black font-bold shadow-[0_0_20px_rgba(79,172,254,0.6)] animate-pulse" : ""}
                 ${item.glow ? "border border-primary/30 bg-primary/10 shadow-[0_0_24px_rgba(0,255,255,0.14)]" : ""}
                 ${isActive ? 'bg-white/10 text-white' : 'text-muted-foreground hover:bg-white/5 hover:text-white'}
               `}
             >
-              {isActive && (
+              {isActive && !item.primary && (
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_12px_rgba(0,255,255,0.8)]" />
               )}
-              <item.icon className={`w-5 h-5 ${isActive ? 'text-primary' : 'group-hover:text-white transition-colors'} ${live && item.label === "XGPU Dashboard" ? "animate-pulse" : ""}`} strokeWidth={1.5} />
-              <span className="text-sm font-medium tracking-wide uppercase">{item.label}</span>
+              <item.icon className={`w-5 h-5 ${item.primary ? "text-black" : isActive ? 'text-primary' : 'group-hover:text-white transition-colors'} ${live && item.label === "XGPU Dashboard" ? "animate-pulse" : ""}`} strokeWidth={1.5} />
+              <span className={`text-sm tracking-wide uppercase w-full text-center ${item.primary ? "font-bold text-black" : "font-medium"}`}>{item.label}</span>
               {item.badge && (
                 <span className="ml-auto text-[9px] font-bold px-2 py-0.5 rounded-full bg-primary/20 text-primary tracking-widest border border-primary/30">
                   {item.badge}

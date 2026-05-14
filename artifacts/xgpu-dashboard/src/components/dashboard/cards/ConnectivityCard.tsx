@@ -22,7 +22,7 @@ export function ConnectivityCard({
         ].map(([label, value]) => (
           <div key={label} className="min-h-[92px] min-w-fit w-full flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-4 pr-4 backdrop-blur-md text-center">
             <div className="block mb-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{label}</div>
-            <div className="text-[0.9rem] font-medium text-white/95 whitespace-normal">{value}</div>
+            <div className="text-[0.9rem] font-medium text-white/95 whitespace-normal break-words">{value}</div>
           </div>
         ))}
       </div>

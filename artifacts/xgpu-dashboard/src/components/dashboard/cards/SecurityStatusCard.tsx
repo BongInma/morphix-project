@@ -14,7 +14,7 @@ export function SecurityStatusCard({ items }: { items: string[] }) {
         {items.map((item) => (
           <div key={item} className="flex items-center justify-center gap-3 text-center">
             <span className="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(74,222,128,0.9)]" />
-            <span className="text-sm leading-6 text-white/90 whitespace-normal break-words text-center">{item}</span>
+            <span className="text-[0.85rem] leading-6 text-white/90 whitespace-normal break-words text-center">{item}</span>
           </div>
         ))}
       </div>
