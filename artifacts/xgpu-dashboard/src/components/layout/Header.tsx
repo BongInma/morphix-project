@@ -1,7 +1,13 @@
 import React from "react";
 import { OneClickToggle } from "../dashboard/OneClickToggle";
 
-export function Header() {
+export function Header({
+  status,
+  onToggle,
+}: {
+  status: "offline" | "verifying" | "live";
+  onToggle: () => void;
+}) {
   return (
     <header className="h-24 flex items-center justify-between px-8 border-b border-white/20 bg-background/30 backdrop-blur-md sticky top-0 z-20">
       <div className="flex flex-col">
@@ -17,7 +23,7 @@ export function Header() {
       </div>
 
       <div>
-        <OneClickToggle />
+        <OneClickToggle status={status} onToggle={onToggle} />
       </div>
     </header>
   );

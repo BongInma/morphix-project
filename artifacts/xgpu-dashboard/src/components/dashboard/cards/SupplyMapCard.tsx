@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export function SupplyMapCard() {
+export function SupplyMapCard({ status }: { status: "offline" | "verifying" | "live" }) {
   const nodes = [
     { x: "25%", y: "40%" },
     { x: "20%", y: "45%" },
@@ -35,6 +35,7 @@ export function SupplyMapCard() {
       </div>
       
       <div className="flex-1 relative overflow-hidden bg-background/50">
+        {status === "verifying" && <div className="absolute inset-0 bg-primary/10 animate-pulse" />}
         {/* Simple inline SVG world map outline */}
         <svg viewBox="0 0 1000 500" className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" preserveAspectRatio="xMidYMid slice">
           <path d="M150,150 Q180,120 220,130 T280,180 T260,250 T200,280 T140,220 Z" fill="currentColor" className="text-primary"/>
@@ -69,6 +70,7 @@ export function SupplyMapCard() {
             </linearGradient>
           </defs>
         </svg>
+        {status === "live" && <div className="absolute left-1/2 top-1/2 h-10 w-10 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-xl shadow-[0_0_50px_rgba(34,211,238,0.8)]" />}
       </div>
     </div>
   );

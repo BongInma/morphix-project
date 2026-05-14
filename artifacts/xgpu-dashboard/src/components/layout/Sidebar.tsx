@@ -2,7 +2,7 @@ import React from "react";
 import { Cpu, Activity, Waypoints, Settings } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
-export function Sidebar() {
+export function Sidebar({ live }: { live: boolean }) {
   const [location] = useLocation();
 
   const navItems = [
@@ -39,7 +39,7 @@ export function Sidebar() {
               {isActive && (
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-primary rounded-r-full shadow-[0_0_12px_rgba(0,255,255,0.8)]" />
               )}
-              <item.icon className={`w-5 h-5 ${isActive ? 'text-primary' : 'group-hover:text-white transition-colors'}`} strokeWidth={1.5} />
+              <item.icon className={`w-5 h-5 ${isActive ? 'text-primary' : 'group-hover:text-white transition-colors'} ${live && item.label === "XGPU Dashboard" ? "animate-pulse" : ""}`} strokeWidth={1.5} />
               <span className="text-sm font-medium tracking-wide uppercase">{item.label}</span>
               {item.badge && (
                 <span className="ml-auto text-[9px] font-bold px-2 py-0.5 rounded-full bg-primary/20 text-primary tracking-widest border border-primary/30">
