@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "XGPU Network"
+version = "1.0.0"
+id = "artifacts/xgpu-dashboard"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24337
+
+[services.development]
+run = "pnpm --filter @workspace/xgpu-dashboard run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/xgpu-dashboard", "run", "build" ]
+publicDir = "artifacts/xgpu-dashboard/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24337"
+BASE_PATH = "/"
