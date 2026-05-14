@@ -14,8 +14,8 @@ export default function Join() {
         <div className="mt-6 rounded-2xl border border-primary/30 bg-primary/10 px-5 py-4 text-sm font-medium text-white shadow-[0_0_28px_rgba(0,255,255,0.12)]">
           JOIN THE GENESIS QUEUE: Early GPU providers receive First-in-Line Priority and zero commission charges (Free! On us!) on their first 1,000 compute hours.
         </div>
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
-          <section className="glass-panel p-6 space-y-4">
+        <div className="mt-8 grid gap-8 md:grid-cols-2">
+          <section className="glass-panel p-6 space-y-4 flex flex-col">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Expression of Interest</p>
               <h1 className="mt-2 text-2xl font-semibold text-white">Join as a Resource Provider</h1>
@@ -38,7 +38,7 @@ export default function Join() {
               </label>
             </form>
           </section>
-          <section className="glass-panel p-6 space-y-4">
+          <section className="glass-panel p-6 space-y-4 flex flex-col">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Expression of Interest</p>
               <h2 className="mt-2 text-2xl font-semibold text-white">Join as a Compute Renter</h2>
@@ -49,7 +49,7 @@ export default function Join() {
             <form className="grid gap-4">
               <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Name" />
               <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Email" />
-              <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Monthly Spend" />
+              <input className="rounded-xl border border-white/10 bg-background/60 px-4 py-3" placeholder="Organization/Project Name" />
               <label className="flex items-center gap-3 text-sm text-muted-foreground">
                 <input type="checkbox" />
                 I Agree
@@ -58,7 +58,7 @@ export default function Join() {
           </section>
         </div>
         <p className="mt-8 text-sm leading-6 text-muted-foreground">
-          Alpha Registry is a non-binding Expression of Interest (EOI). You are simply securing your spot in the queue. No hardware access or financial commitment is required today.
+          Early Access is a non-binding Expression of Interest (EOI). You are simply securing your spot in the queue. No hardware access or financial commitment is required today.
         </p>
       </div>
     </div>
