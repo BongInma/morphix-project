@@ -18,9 +18,7 @@ export function VramGaugeCard({
       <div className="flex flex-col items-center justify-start gap-4 w-full">
         <div className="w-full flex flex-col items-center text-center px-0 mx-0">
           <h3 className="m-0 w-full text-center text-[10px] font-bold leading-[1.1] tracking-[0.2em] text-white/80 uppercase">
-            VRAM
-            {" "}
-            ALLOCATION
+            VRAM ALLOCATION
           </h3>
           <p className="mt-2 text-[11px] leading-[1.4] text-muted-foreground whitespace-normal break-words">
             GDDR6 Managed - High Efficiency Mode
