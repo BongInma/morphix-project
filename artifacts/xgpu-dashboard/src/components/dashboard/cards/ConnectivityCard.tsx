@@ -20,9 +20,9 @@ export function ConnectivityCard({
           ["Egress Status", metrics.egress],
           ["Peer Discovery", metrics.discovery],
         ].map(([label, value]) => (
-          <div key={label} className="min-h-[92px] w-auto flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-4 backdrop-blur-md">
+          <div key={label} className="min-h-[92px] min-w-fit w-full flex-1 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-4 pr-4 backdrop-blur-md">
             <div className="block mb-2 text-[10px] uppercase tracking-[0.2em] text-muted-foreground">{label}</div>
-            <div className="text-lg font-medium text-white/95">{value}</div>
+            <div className="text-[0.9rem] font-medium text-white/95 whitespace-normal">{value}</div>
           </div>
         ))}
       </div>
