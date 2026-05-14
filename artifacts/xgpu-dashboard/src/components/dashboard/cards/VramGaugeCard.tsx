@@ -14,17 +14,17 @@ export function VramGaugeCard({
   const offset = circumference * (1 - percent / 100);
 
   return (
-    <div className="glass-panel w-full h-full p-5 flex flex-col justify-between">
-      <div className="flex items-start justify-between gap-4">
-        <div>
+    <div className="glass-panel w-full min-h-full p-6 flex flex-col items-center justify-center text-center">
+      <div className="flex flex-col items-center justify-center gap-4 w-full">
+        <div className="w-full">
           <h3 className="text-[10px] font-bold tracking-[0.2em] text-white/80 uppercase">
             VRAM Allocation
           </h3>
-          <p className="mt-2 text-xs text-muted-foreground">
+          <p className="mt-2 text-xs text-muted-foreground whitespace-normal break-words">
             DDR6 Managed - High Efficiency Mode
           </p>
         </div>
-        <div className="text-right">
+        <div className="text-center">
           <div className="text-2xl font-mono text-white">{usedGb}GB</div>
           <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
             of {totalGb}GB
@@ -54,7 +54,7 @@ export function VramGaugeCard({
             </linearGradient>
           </defs>
         </svg>
-        <div className="absolute inset-0 flex flex-col items-center justify-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
           <div className="text-4xl font-mono text-white">{percent}%</div>
           <div className="text-[10px] uppercase tracking-[0.2em] text-cyan-300/80">
             Allocation

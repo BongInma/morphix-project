@@ -8,8 +8,8 @@ export function GridHealthCard({
   stressState: "stable" | "critical";
 }) {
   return (
-    <div className="glass-panel w-full h-full p-5 flex flex-col justify-between">
-      <div>
+    <div className="glass-panel w-full min-h-full p-6 flex flex-col items-center justify-center text-center">
+      <div className="w-full">
         <h3 className="text-[10px] font-bold tracking-[0.2em] text-white/80 uppercase">
           Grid Health
         </h3>
