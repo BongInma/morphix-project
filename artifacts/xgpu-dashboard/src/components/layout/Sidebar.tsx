@@ -17,12 +17,14 @@ export function Sidebar({ live }: { live: boolean }) {
     <div className="w-[260px] h-screen fixed left-0 top-0 flex flex-col border-r border-white/20 bg-background/50 backdrop-blur-2xl z-10">
       {/* Logo */}
       <div className="p-8 pb-10">
-        <h1 className="text-xl font-bold tracking-[0.2em] uppercase text-white">
-          MORPHIX
-        </h1>
-        <p className="text-[10px] tracking-[0.25em] text-muted-foreground mt-1 uppercase font-medium">
-          Systems Inc.
-        </p>
+        <Link href="/" className="block">
+          <h1 className="text-xl font-bold tracking-[0.2em] uppercase text-white">
+            MORPHIX
+          </h1>
+          <p className="text-[10px] tracking-[0.25em] text-muted-foreground mt-1 uppercase font-medium">
+            Systems Inc.
+          </p>
+        </Link>
       </div>
 
       {/* Navigation */}

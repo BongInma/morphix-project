@@ -3,9 +3,12 @@ import { Link } from "wouter";
 
 export default function Join() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen bg-background text-foreground pl-[260px]">
       <div className="mx-auto max-w-6xl px-8 py-10">
-        <Link href="/" className="inline-flex items-center text-sm tracking-[0.2em] uppercase text-white font-semibold">
+        <Link href="/" className="inline-flex items-center text-sm tracking-[0.2em] uppercase text-primary font-semibold">
+          ← Back to Dashboard
+        </Link>
+        <Link href="/" className="mt-6 inline-flex items-center text-sm tracking-[0.2em] uppercase text-white font-semibold">
           MORPHIX SYSTEMS INC.
         </Link>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
