@@ -4,11 +4,17 @@ import { VramGaugeCard } from "./cards/VramGaugeCard";
 import { SecurityStatusCard } from "./cards/SecurityStatusCard";
 import { ConnectivityCard } from "./cards/ConnectivityCard";
 import { YieldCalculatorCard } from "./cards/YieldCalculatorCard";
+import { SystemActivityCard } from "./cards/SystemActivityCard";
+import { AptaFetLockedCard } from "./cards/AptaFetLockedCard";
+import { GridHealthCard } from "./cards/GridHealthCard";
 
 export function BentoGrid({
   stats,
   sessionEarnings,
   status,
+  stressState,
+  activityLogs,
+  onResilienceTest,
 }: {
   stats: {
     vramUsedGb: number;
@@ -24,6 +30,9 @@ export function BentoGrid({
   };
   sessionEarnings: string;
   status: "offline" | "verifying" | "live";
+  stressState: "stable" | "critical";
+  activityLogs: string[];
+  onResilienceTest: () => void;
 }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-8">
@@ -44,6 +53,15 @@ export function BentoGrid({
       </div>
       <div className="md:col-span-2 min-h-[250px]">
         <YieldCalculatorCard amount={stats.yield} />
+      </div>
+      <div className="md:col-span-2 min-h-[250px]">
+        <GridHealthCard onResilienceTest={onResilienceTest} stressState={stressState} />
+      </div>
+      <div className="md:col-span-2 min-h-[250px]">
+        <SystemActivityCard logs={activityLogs} />
+      </div>
+      <div className="md:col-span-2 min-h-[250px]">
+        <AptaFetLockedCard />
       </div>
     </div>
   );
