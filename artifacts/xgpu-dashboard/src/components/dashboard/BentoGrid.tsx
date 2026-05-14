@@ -7,6 +7,7 @@ import { YieldCalculatorCard } from "./cards/YieldCalculatorCard";
 import { SystemActivityCard } from "./cards/SystemActivityCard";
 import { AptaFetLockedCard } from "./cards/AptaFetLockedCard";
 import { GridHealthCard } from "./cards/GridHealthCard";
+import { ManagedFleetsCard } from "./cards/ManagedFleetsCard";
 
 export function BentoGrid({
   stats,
@@ -64,6 +65,9 @@ export function BentoGrid({
       </div>
       <div className="md:col-span-2 min-h-[250px]">
         <AptaFetLockedCard />
+      </div>
+      <div className="md:col-span-4 min-h-[250px]">
+        <ManagedFleetsCard />
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import { Cpu, Activity, Waypoints, Settings } from "lucide-react";
+import { Cpu, Activity, Waypoints, Settings, Sparkles } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
 export function Sidebar({ live }: { live: boolean }) {
@@ -7,6 +7,7 @@ export function Sidebar({ live }: { live: boolean }) {
 
   const navItems = [
     { label: "XGPU Dashboard", icon: Cpu, href: "/", active: true },
+    { label: "Join Alpha Registry", icon: Sparkles, href: "/join", glow: true },
     { label: "Grid Health", icon: Activity, href: "/grid-health" },
     { label: "AptaFet Sync", icon: Waypoints, href: "/sync", badge: "BETA" },
     { label: "Settings", icon: Settings, href: "/settings" },
@@ -32,7 +33,8 @@ export function Sidebar({ live }: { live: boolean }) {
             <Link
               key={item.label}
               href={item.href}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 relative group
+              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 relative group overflow-hidden
+                ${item.glow ? "border border-primary/30 bg-primary/10 shadow-[0_0_24px_rgba(0,255,255,0.14)]" : ""}
                 ${isActive ? 'bg-white/10 text-white' : 'text-muted-foreground hover:bg-white/5 hover:text-white'}
               `}
             >
