@@ -6,11 +6,29 @@ import { WorkloadsCard } from "./cards/WorkloadsCard";
 import { InventoryCard } from "./cards/InventoryCard";
 import { EventsCard } from "./cards/EventsCard";
 import { LatencyCard } from "./cards/LatencyCard";
+import { VramGaugeCard } from "./cards/VramGaugeCard";
+import { SecurityStatusCard } from "./cards/SecurityStatusCard";
+import { ConnectivityCard } from "./cards/ConnectivityCard";
+import { YieldCalculatorCard } from "./cards/YieldCalculatorCard";
 
-export function BentoGrid() {
+export function BentoGrid({
+  stats,
+}: {
+  stats: {
+    vramUsedGb: number;
+    vramTotalGb: number;
+    vramPercent: number;
+    security: string[];
+    connectivity: {
+      latency: string;
+      egress: string;
+      discovery: string;
+    };
+    yield: string;
+  };
+}) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 p-8">
-      {/* Featured Top Row: Map + Earnings + Throughput */}
       <div className="md:col-span-3 h-[400px]">
         <SupplyMapCard />
       </div>
@@ -23,17 +41,34 @@ export function BentoGrid() {
         </div>
       </div>
 
-      {/* Bottom Row: Workloads, Inventory, Events, Latency */}
       <div className="md:col-span-2 min-h-[300px]">
         <WorkloadsCard />
       </div>
       <div className="md:col-span-1 min-h-[300px]">
-        <InventoryCard />
+        <VramGaugeCard
+          usedGb={stats.vramUsedGb}
+          totalGb={stats.vramTotalGb}
+          percent={stats.vramPercent}
+        />
       </div>
       <div className="md:col-span-1 min-h-[300px]">
+        <SecurityStatusCard items={stats.security} />
+      </div>
+
+      <div className="md:col-span-2 min-h-[250px]">
+        <ConnectivityCard metrics={stats.connectivity} />
+      </div>
+      <div className="md:col-span-2 min-h-[250px]">
+        <YieldCalculatorCard amount={stats.yield} />
+      </div>
+
+      <div className="md:col-span-2 min-h-[300px]">
+        <InventoryCard />
+      </div>
+      <div className="md:col-span-2 min-h-[300px]">
         <LatencyCard />
       </div>
-      
+
       <div className="md:col-span-4 min-h-[250px]">
         <EventsCard />
       </div>
