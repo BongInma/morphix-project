@@ -14,12 +14,15 @@ export function VramGaugeCard({
   const offset = circumference * (1 - percent / 100);
 
   return (
-    <div className="glass-panel w-full min-h-full p-8 pt-6 flex flex-col items-center justify-between text-center min-w-[125%]">
+    <div className="glass-panel w-full min-h-full px-4 py-6 flex flex-col items-center justify-between text-center min-w-[125%]">
       <div className="flex flex-col items-center justify-start gap-4 w-full">
-        <div className="w-full flex flex-col items-center text-center px-0 mx-0">
-          <h3 className="m-0 w-full text-center text-[10px] font-bold leading-[1.1] tracking-[0.2em] text-white/80 uppercase">
-            VRAM ALLOCATION
-          </h3>
+        <div className="flex w-auto flex-col items-center justify-center text-center">
+          <span className="m-0 p-0 text-center text-[10px] font-bold leading-[1.1] tracking-widest text-white/80 uppercase">
+            VRAM
+          </span>
+          <span className="m-0 p-0 text-center text-[10px] font-bold leading-[1.1] tracking-widest text-white/80 uppercase">
+            ALLOCATION
+          </span>
           <p className="mt-2 text-[11px] leading-[1.4] text-muted-foreground whitespace-normal break-words">
             GDDR6 Managed - High Efficiency Mode
           </p>
