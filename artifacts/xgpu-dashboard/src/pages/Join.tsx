@@ -52,22 +52,22 @@ export default function Join() {
               <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.25em] text-primary">The Morphix Vault: Total Provider Privacy</p>
               Your private files and your leased compute exist in two different worlds. Our Trusted Execution Environments (TEE) create a hardware-level sandbox. The Pipe only sees the encrypted task; it is physically impossible for a renter to access or see your local drives or personal data.
             </div>
-            <form className="mt-4 grid gap-4 flex-1" onSubmit={handleSubmitProvider}>
-              <label className="grid gap-2 text-sm text-muted-foreground">
+            <form className="mt-4 grid gap-3 flex-1" onSubmit={handleSubmitProvider}>
+              <label className="grid gap-1.5 text-sm text-slate-400">
                 <span>Name</span>
-                <input className="w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 py-2 text-sm leading-normal" placeholder="Name" />
+                <input className="h-[42px] w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 text-sm leading-normal" placeholder="Name" />
               </label>
-              <label className="grid gap-2 text-sm text-muted-foreground">
+              <label className="grid gap-1.5 text-sm text-slate-400">
                 <span>Email</span>
-                <input className="w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 py-2 text-sm leading-normal" placeholder="Email" />
+                <input className="h-[42px] w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 text-sm leading-normal" placeholder="Email" />
               </label>
-              <label className="grid gap-2 text-sm text-muted-foreground">
+              <label className="grid gap-1.5 text-sm text-slate-400">
                 <span>Organization</span>
-                <input className="w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 py-2 text-sm leading-normal" placeholder="Organization" />
+                <input className="h-[42px] w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 text-sm leading-normal" placeholder="Organization" />
               </label>
-              <label className="grid gap-2 text-sm text-muted-foreground">
+              <label className="grid gap-1.5 text-sm text-slate-400">
                 <span>GPU Fleet Size</span>
-                <input className="w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 py-2 text-sm leading-normal" placeholder="GPU Fleet Size" />
+                <input className="h-[42px] w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 text-sm leading-normal" placeholder="GPU Fleet Size" />
               </label>
               <label className="flex items-center gap-3 text-sm text-muted-foreground">
                 <input type="checkbox" />
@@ -95,22 +95,18 @@ export default function Join() {
             <div className="mt-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm text-muted-foreground">
               Access institutional-grade GPU clusters for 40% less than legacy cloud. Plus, our Permanent Zero Egress policy means moving your results is always free.
             </div>
-            <form className="mt-4 grid gap-4 flex-1" onSubmit={handleSubmitRenter}>
-              <label className="grid gap-2 text-sm text-muted-foreground">
+            <form className="mt-4 grid gap-3 flex-1" onSubmit={handleSubmitRenter}>
+              <label className="grid gap-1.5 text-sm text-slate-400">
                 <span>Name</span>
-                <input className="w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 py-2 text-sm leading-normal" placeholder="Name" />
+                <input className="h-[42px] w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 text-sm leading-normal" placeholder="Name" />
               </label>
-              <label className="grid gap-2 text-sm text-muted-foreground">
+              <label className="grid gap-1.5 text-sm text-slate-400">
                 <span>Email</span>
-                <input className="w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 py-2 text-sm leading-normal" placeholder="Email" />
+                <input className="h-[42px] w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 text-sm leading-normal" placeholder="Email" />
               </label>
-              <label className="grid gap-2 text-sm text-muted-foreground">
+              <label className="grid gap-1.5 text-sm text-slate-400">
                 <span>Organization</span>
-                <input className="w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 py-2 text-sm leading-normal" placeholder="Organization" />
-              </label>
-              <label className="grid gap-2 text-sm text-muted-foreground">
-                <span>Project / Fleet Details</span>
-                <input className="w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 py-2 text-sm leading-normal" placeholder="e.g., Accenture or Startup Name" />
+                <input className="h-[42px] w-full overflow-hidden rounded-xl border border-white/10 bg-background/60 px-2 text-sm leading-normal" placeholder="Organization" />
               </label>
               <label className="flex items-center gap-3 text-sm text-muted-foreground">
                 <input type="checkbox" />
