@@ -14,7 +14,7 @@ export function VramGaugeCard({
   const offset = circumference * (1 - percent / 100);
 
   return (
-    <div className="glass-panel w-full min-h-full px-4 py-6 flex flex-col items-center justify-between text-center min-w-[125%]">
+    <div className="glass-panel w-full min-h-full p-6 flex flex-col items-center justify-between text-center">
       <div className="flex flex-col items-center justify-start gap-4 w-full">
         <div className="flex w-auto flex-col items-center justify-center text-center">
           <span className="m-0 p-0 text-center text-[10px] font-bold leading-[1.1] tracking-widest text-white/80 uppercase">
@@ -35,8 +35,8 @@ export function VramGaugeCard({
         </div>
       </div>
 
-      <div className="relative mx-auto my-4">
-        <svg viewBox="0 0 120 120" className="w-44 h-44 -rotate-90">
+      <div className="relative mx-auto my-4 w-full max-w-[180px]">
+        <svg viewBox="0 0 120 120" className="w-full h-auto -rotate-90">
           <circle cx="60" cy="60" r={radius} fill="none" stroke="rgba(255,255,255,0.08)" strokeWidth="10" />
           <circle
             cx="60"
