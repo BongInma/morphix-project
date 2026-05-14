@@ -10,7 +10,7 @@ export function ConnectivityCard({
   };
 }) {
   return (
-    <div className="glass-panel relative z-10 w-full min-h-full p-6 flex flex-col items-center justify-center text-center">
+    <div className="glass-panel relative z-10 w-full min-h-full p-8 flex flex-col items-center justify-center text-center">
       <h3 className="text-[10px] font-bold tracking-[0.2em] text-white/80 uppercase mb-4 relative z-10">
         Connectivity Intelligence
       </h3>

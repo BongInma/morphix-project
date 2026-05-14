@@ -7,7 +7,7 @@ export function Sidebar({ live }: { live: boolean }) {
 
   const navItems = [
     { label: "XGPU Dashboard", icon: Cpu, href: "/", active: true },
-    { label: "Join Alpha Registry", icon: Sparkles, href: "/join", glow: true },
+    { label: "JOIN EARLY ACCESS", icon: Sparkles, href: "/join", glow: true },
     { label: "Grid Health", icon: Activity, href: "/grid-health" },
     { label: "AptaFet Sync", icon: Waypoints, href: "/sync", badge: "BETA" },
     { label: "Settings", icon: Settings, href: "/settings" },

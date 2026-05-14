@@ -4,7 +4,7 @@ export function ManagedFleetsCard() {
   const pixels = Array.from({ length: 100 });
 
   return (
-    <div className="glass-panel p-6 min-h-full flex flex-col items-center justify-center text-center gap-4">
+    <div className="glass-panel p-8 min-h-full flex flex-col items-center justify-center text-center gap-4">
       <div className="flex flex-col items-center justify-center gap-6 w-full">
         <div>
           <h3 className="text-xs uppercase tracking-[0.2em] text-white/70">Managed Fleets</h3>
