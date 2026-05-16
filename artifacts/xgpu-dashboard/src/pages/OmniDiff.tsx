@@ -430,7 +430,7 @@ export default function OmniDiff() {
       <SectionHeader scrollTo={scrollTo} />
 
       {/* Hero */}
-      <section className="w-full max-w-[1200px] mx-auto min-h-[85vh] flex flex-col justify-center items-center px-8 py-20 box-border">
+      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border">
         <div className="flex flex-col justify-center items-center w-full px-0">
           <div className="text-center w-full">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1F2937] bg-[#10B981]/5 mb-4">
@@ -620,8 +620,8 @@ export default function OmniDiff() {
             </div>
 
             <div className="flex justify-center w-full">
-              <div className="w-full max-w-[1120px] grid lg:grid-cols-[1.1fr_1.4fr] gap-6 mx-auto">
-                <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6">
+              <div className="w-full flex flex-row gap-12 items-start justify-between">
+                <div className="flex-1 min-w-0 rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6">
                   <div className="grid gap-5">
                     <div className="grid gap-2">
                       <label className="text-xs uppercase tracking-[0.12em] text-[#6B7280]">Hardware Tier</label>
@@ -673,8 +673,8 @@ export default function OmniDiff() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6 flex flex-col justify-between gap-5">
-                  <div className="grid sm:grid-cols-2 gap-4">
+                <div className="flex-1 min-w-0 rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6 flex flex-col justify-between gap-5">
+                  <div className="grid sm:grid-cols-2 gap-4 w-full">
                     <div className="rounded-2xl border border-[#374151] bg-[#11131A] p-4">
                       <p className="text-[11px] uppercase tracking-[0.12em] text-[#94A3B8] mb-2">Legacy Cloud Rate</p>
                       <p className="text-2xl font-bold font-mono text-white">{formatMoney(legacyRate)}/hr</p>
@@ -702,7 +702,7 @@ export default function OmniDiff() {
         </div>
       </section>
 
-      <section className="w-full px-6 py-16">
+      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border">
         <div className="flex flex-col justify-center items-center w-full max-w-[1200px] mx-auto px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
@@ -710,7 +710,7 @@ export default function OmniDiff() {
               <h2 className="text-2xl md:text-3xl font-bold">Global Network Status & Activity Ledger</h2>
             </div>
 
-            <div className="w-full grid lg:grid-cols-3 gap-6 items-stretch">
+            <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
               <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
@@ -731,7 +731,7 @@ export default function OmniDiff() {
                   <span className="text-xs uppercase tracking-[0.12em] text-[#6B7280]">Regional Node Health Check</span>
                 </div>
                 <div className="h-auto min-h-56 overflow-hidden rounded-xl border border-[#1F2937] bg-[#08110D]">
-                  <div className="h-auto animate-pulse-slow px-4 py-4 font-mono text-[12px] leading-7 text-[#A7F3D0]">
+                  <div className="h-auto min-h-56 animate-pulse-slow px-4 py-4 font-mono text-[12px] leading-7 text-[#A7F3D0]">
                     {[0, 1, 2, 3, 4, 5].map((i) => (
                       <p key={i} className={`${i === nodeTick ? "opacity-100" : "opacity-35"} transition-opacity duration-700`}>
                         {NODE_LOGS[i % NODE_LOGS.length]}
