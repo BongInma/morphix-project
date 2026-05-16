@@ -398,7 +398,7 @@ export default function OmniDiff() {
             </div>
             <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
               <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
-                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>40% to 60% lower inference fees than legacy centralized cloud providers.</span></li>
+                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand local GPU processing at a 40%–60% cost reduction compared to legacy AWS, Microsoft Azure, and Google Cloud pricing models.</span></li>
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Standardized container architecture ensuring zero vendor lock-in and zero data-egress fees.</span></li>
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand deployment with no corporate procurement bureaucracy or restrictive multi-year contracts.</span></li>
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Up to $1M SLA-backed liability insurance underwritten by Chubb & AIG syndicates, protecting corporate data payloads against transmission failures or operational downtime.</span></li>
