@@ -1,0 +1,32 @@
+The layout is completely broken across multiple views due to conflicting global CSS rules. We need to stop the cross-page interference immediately by resetting our sections and wrapping each one in an entirely isolated, clean layout template.
+
+Please update our page layout files using this strict, component-isolated approach:
+
+1. COMPONENT ISOLATION PRINCIPLE:
+- Do not use global CSS classes like '.section', '.container', or '.card' for the main structural wrappers of our middle sections. 
+- Instead, use explicit, separate inline styling or unique component wrappers for each page file so that changes to one section cannot physically cascade into or alter another.
+
+2. FIX PAGE 1 (Hero Split-Cards):
+- Set the root wrapper container for Page 1 to use an expansive, clean padding layout:
+  style={{ width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "6rem 2rem", minHeight: "90vh", display: "flex", flexDirection: "column", justifyContent: "center" }}
+- Ensure the two main split cards are cleanly balanced side-by-side without a tight middle squeeze, and verify that the content completely pushes the following section's text out of view until a user scrolls.
+
+3. FIX PAGE 2 & PAGE 6 (Locked States):
+- Keep the exact component logic, form inputs, and successful state messages for Page 2 and Page 6 completely preserved. Ensure they are wrapped cleanly so they center on the screen.
+
+4. RE-BUILD PAGES 3 & 4 (Calculator & Math Outputs Grid):
+- In the Calculator component file, use a dedicated horizontal split framework:
+  style={{ display: "flex", flexDirection: "row", gap: "3rem", width: "100%", maxWidth: "1200px", margin: "0 auto", justifyContent: "space-between", alignItems: "flex-start" }}
+- Ensure the parameter slider sits cleanly on the left and the rounded, whole-dollar cost comparison boxes sit symmetrically on the right.
+
+5. RE-BUILD PAGE 5 (Live Network Telemetry Ledger):
+- In the Telemetry component file, force a rigid 3-column row design:
+  style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", width: "100%", maxWidth: "1200px", margin: "0 auto" }}
+- Set the height of the individual terminal log panels to 'auto' with clean inner padding so the text rows do not overlap or bleed out.
+
+6. FIX PAGE 7 (Provider Confirmation View):
+- Copy the exact centering wrapper architecture from our successful Page 6 Renter message so that Page 7 sits perfectly level and balanced on the screen.
+
+7. VERTICAL FLOW GAP:
+- Ensure each main section component uses a natural, independent vertical spacer ('margin-bottom: 8rem;') to guarantee a smooth, professional endless-scroll flow down the viewport.
+-
