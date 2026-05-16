@@ -430,20 +430,20 @@ export default function OmniDiff() {
       <SectionHeader scrollTo={scrollTo} />
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 py-20 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1F2937] bg-[#10B981]/5 mb-6">
+      <section className="max-w-7xl mx-auto px-6 py-10 md:py-12 text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1F2937] bg-[#10B981]/5 mb-4">
           <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
           <span className="text-[#10B981] text-xs tracking-[0.2em] uppercase font-mono">Live Network Infrastructure</span>
         </div>
-        <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-4">
+        <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-2">
           Distributed AI Compute,{" "}
           <span style={{ color: "#10B981" }}>Redefined.</span>
         </h1>
-        <p className="text-[#6B7280] text-lg max-w-2xl mx-auto leading-relaxed">
+        <p className="text-[#6B7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
           OmniDiff bridges enterprise AI workloads with sovereign, localized GPU infrastructure.
           Zero latency. Zero lock-in. Powered by Morphix Systems Inc.
         </p>
-        <div className="flex flex-wrap justify-center gap-6 mt-10">
+        <div className="flex flex-wrap justify-center gap-6 mt-6">
           <div className="flex flex-col items-center">
             <span className="text-4xl font-bold font-mono text-[#10B981]">{counters.renterCounter.toLocaleString()}</span>
             <span className="text-[#4B5563] text-xs uppercase tracking-[0.15em] mt-1">Institutional Founders</span>
@@ -457,12 +457,12 @@ export default function OmniDiff() {
       </section>
 
       {/* Cards */}
-      <section className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid md:grid-cols-2 gap-8 items-stretch">
+      <section className="max-w-7xl mx-auto px-6 pb-12">
+        <div className="grid md:grid-cols-2 gap-8 items-stretch mt-4 md:mt-6">
 
           {/* Renter Card */}
-          <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8 flex flex-col scroll-mt-20 h-full">
-            <div className="grid h-full grid-rows-[auto_1fr_auto_auto] gap-6">
+          <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-6 md:p-6 flex flex-col scroll-mt-20 h-full">
+            <div className="grid h-full grid-rows-[auto_1fr_auto_auto] gap-4 md:gap-5">
               <div className="flex flex-col items-start">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
@@ -514,8 +514,8 @@ export default function OmniDiff() {
           </div>
 
           {/* Provider Card */}
-          <div ref={providerRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8 flex flex-col scroll-mt-20 h-full">
-            <div className="grid h-full grid-rows-[auto_1fr_auto_auto] gap-6">
+          <div ref={providerRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-6 md:p-6 flex flex-col scroll-mt-20 h-full">
+            <div className="grid h-full grid-rows-[auto_1fr_auto_auto] gap-4 md:gap-5">
               <div className="flex flex-col items-start">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
