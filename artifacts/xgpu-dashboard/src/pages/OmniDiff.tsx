@@ -48,6 +48,24 @@ const LEDGER_LOGS = [
   "🔒 Task #84922: LLM Inference Patch ... Completed (Saved 61% vs Google Cloud)",
 ];
 
+const VAULT_CARDS = [
+  {
+    title: "🔒 Cryptographic Payloads & AES-256 Isolation Protocol",
+    subtitle: "Technical Whitepaper v1.2",
+    action: "Preview Framework",
+  },
+  {
+    title: "💼 Underwriting & SLA Liability Coverage Framework",
+    subtitle: "Multi-Syndicate Placement Structure — Chubb, AIG, Lloyd's",
+    action: "Request Institutional Access",
+  },
+  {
+    title: "📊 DeRiskFi Sovereign Architecture Blueprint",
+    subtitle: "Decentralized Risk & Compute Scoring Engine Overview",
+    action: "Preview Framework",
+  },
+];
+
 function validateEmail(v: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 }
@@ -66,15 +84,7 @@ function SectionHeader({ scrollTo }: { scrollTo: (id: string) => void }) {
           {["Enterprise Renter View", "Hardware Provider View", "Sovereign Compliance"].map((label) => (
             <button
               key={label}
-              onClick={() =>
-                scrollTo(
-                  label.toLowerCase().includes("renter")
-                    ? "renter"
-                    : label.toLowerCase().includes("provider")
-                    ? "provider"
-                    : "compliance"
-                )
-              }
+              onClick={() => scrollTo(label.toLowerCase().includes("renter") ? "renter" : label.toLowerCase().includes("provider") ? "provider" : "compliance")}
               className="hover:text-white transition-colors"
             >
               {label}
@@ -351,6 +361,8 @@ export default function OmniDiff() {
   const [monthlyHours, setMonthlyHours] = useState(1200);
   const [nodeTick, setNodeTick] = useState(0);
   const [ledgerTick, setLedgerTick] = useState(0);
+  const [vaultOpen, setVaultOpen] = useState(false);
+  const [vaultSuccess, setVaultSuccess] = useState<Record<number, boolean>>({});
   const renterRef = useRef<HTMLDivElement>(null);
   const providerRef = useRef<HTMLDivElement>(null);
   const complianceRef = useRef<HTMLDivElement>(null);
@@ -385,6 +397,10 @@ export default function OmniDiff() {
   }, []);
 
   const scrollTo = (id: string) => {
+    if (id === "compliance") {
+      setVaultOpen((v) => !v);
+      return;
+    }
     const map: Record<string, React.RefObject<HTMLDivElement | null>> = {
       renter: renterRef,
       provider: providerRef,
@@ -403,6 +419,10 @@ export default function OmniDiff() {
     setCounters(data);
     setProviderDone(true);
     void refreshCounters();
+  };
+
+  const handleVaultAction = (index: number) => {
+    setVaultSuccess((current) => ({ ...current, [index]: true }));
   };
 
   return (
@@ -544,6 +564,49 @@ export default function OmniDiff() {
           </div>
         </div>
       </section>
+
+      {vaultOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8" onClick={() => setVaultOpen(false)}>
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-xl" />
+          <div
+            className="relative z-10 w-full max-w-5xl overflow-hidden rounded-3xl border border-[#1F2937] bg-[#0B0C0E]/95 shadow-[0_0_80px_rgba(0,0,0,0.65)]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4 border-b border-[#1F2937] px-6 py-5">
+              <div>
+                <p className="text-[#10B981] text-[10px] tracking-[0.2em] uppercase font-mono">Institutional Due Diligence & Compliance Vault</p>
+                <h2 className="text-2xl md:text-3xl font-bold mt-2">Compliance Vault</h2>
+              </div>
+              <button
+                onClick={() => setVaultOpen(false)}
+                className="h-10 w-10 rounded-full border border-[#1F2937] text-[#D1D5DB] hover:text-white hover:border-[#10B981] transition-colors"
+                aria-label="Close compliance vault"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3 p-6">
+              {VAULT_CARDS.map((card, index) => (
+                <div key={card.title} className="rounded-2xl border border-[#1F2937] bg-[#11131A] p-5 flex flex-col gap-4">
+                  <div>
+                    <h3 className="text-lg font-bold leading-snug">{card.title}</h3>
+                    <p className="text-xs uppercase tracking-[0.14em] text-[#6B7280] mt-2">{card.subtitle}</p>
+                  </div>
+                  <button
+                    onClick={() => handleVaultAction(index)}
+                    className="mt-auto rounded-lg border border-[#10B981] px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#10B981] hover:bg-[#10B981]/10 transition-colors"
+                  >
+                    {card.action}
+                  </button>
+                  <p className={`text-[11px] font-mono text-[#10B981] transition-opacity duration-300 ${vaultSuccess[index] ? "opacity-100" : "opacity-0"}`}>
+                    ✓ Secure Access Link Sent to Registered Corporate Email
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       <section className="max-w-7xl mx-auto px-6 pb-20">
         <div className="rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-6 md:p-8">
