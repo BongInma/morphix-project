@@ -390,7 +390,7 @@ export default function OmniDiff() {
                 <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                 <span className="text-[#10B981] text-[10px] tracking-[0.2em] uppercase font-mono">Enterprise Renters</span>
               </div>
-              <h2 className="text-2xl font-bold mb-2">Local AI Inference.<br />Zero Latency.</h2>
+              <h2 className="text-2xl font-bold mb-2">On-Demand High-Performance Compute (HPC) & AI Infrastructure.</h2>
               <p className="text-[#6B7280] text-sm leading-relaxed">
                 Bypass central power grid constraints and route your corporate workloads through localized,
                 high-performance Grade A Nodes right in your neighborhood.
@@ -399,7 +399,7 @@ export default function OmniDiff() {
             <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
               <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand local GPU processing at a 40%–60% cost reduction compared to legacy AWS, Microsoft Azure, and Google Cloud pricing models.</span></li>
-                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Standardized container architecture ensuring zero vendor lock-in and zero data-egress fees.</span></li>
+                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Plug-and-play architecture optimized for AI Inference/Training, Financial Backtesting, Risk Simulations, and Heavy Data Pipelines.</span></li>
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand deployment with no corporate procurement bureaucracy or restrictive multi-year contracts.</span></li>
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Up to $1M SLA-backed liability insurance underwritten by Chubb & AIG syndicates, protecting corporate data payloads against transmission failures or operational downtime.</span></li>
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
