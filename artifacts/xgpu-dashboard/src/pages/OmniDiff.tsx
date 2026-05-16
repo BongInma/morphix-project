@@ -315,18 +315,26 @@ function SuccessCard({ type, onClose }: { type: "renter" | "provider"; onClose: 
 }
 
 export default function OmniDiff() {
-  const [counters, setCounters] = useState<Counters>({ renterCounter: 438, gpuCounter: 12450 });
+  const [counters, setCounters] = useState<Counters>({ renterCounter: 435, gpuCounter: 12420 });
   const [renterDone, setRenterDone] = useState(false);
   const [providerDone, setProviderDone] = useState(false);
   const renterRef = useRef<HTMLDivElement>(null);
   const providerRef = useRef<HTMLDivElement>(null);
   const complianceRef = useRef<HTMLDivElement>(null);
 
+  const renterProgress = Math.min((counters.renterCounter / 500) * 100, 100);
+  const gpuProgress = Math.min((counters.gpuCounter / 15000) * 100, 100);
+
+  const refreshCounters = async () => {
+    try {
+      const r = await fetch(`${API}/counters`);
+      const d = await r.json();
+      setCounters(d);
+    } catch {}
+  };
+
   useEffect(() => {
-    fetch(`${API}/counters`)
-      .then((r) => r.json())
-      .then((d) => setCounters(d))
-      .catch(() => {});
+    refreshCounters();
   }, []);
 
   const scrollTo = (id: string) => {
@@ -341,11 +349,13 @@ export default function OmniDiff() {
   const onRenterSuccess = (data: Counters) => {
     setCounters(data);
     setRenterDone(true);
+    void refreshCounters();
   };
 
   const onProviderSuccess = (data: Counters) => {
     setCounters(data);
     setProviderDone(true);
+    void refreshCounters();
   };
 
   return (
@@ -405,6 +415,18 @@ export default function OmniDiff() {
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
               </ul>
             </div>
+            <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
+              <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
+                <span>Institutional Founders Claimed</span>
+                <span className="font-mono text-[#10B981]">{counters.renterCounter.toLocaleString()} / 500</span>
+              </div>
+              <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{ width: `${renterProgress}%`, backgroundColor: "#10B981" }}
+                />
+              </div>
+            </div>
             <p className="text-center text-[11px] font-mono text-[#10B981]/70">
               ⚡ First 500 organizations lock in a Guaranteed 15% Lifetime Discount on baseline contract capacities.
             </p>
@@ -441,6 +463,18 @@ export default function OmniDiff() {
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your physical clusters against workload-induced operational risks.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
               </ul>
+            </div>
+            <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
+              <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
+                <span>Verified Regional GPUs Reserved</span>
+                <span className="font-mono text-[#3B82F6]">{counters.gpuCounter.toLocaleString()} / 15,000</span>
+              </div>
+              <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
+                <div
+                  className="h-full rounded-full transition-all duration-700"
+                  style={{ width: `${gpuProgress}%`, backgroundColor: "#3B82F6" }}
+                />
+              </div>
             </div>
             {providerDone ? (
               <SuccessCard type="provider" onClose={() => setProviderDone(false)} />

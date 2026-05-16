@@ -23,25 +23,32 @@ function writeLeads(data: object) {
 
 router.get("/counters", (_req, res) => {
   const data = readLeads();
-  res.json({ renterCounter: data.renterCounter, gpuCounter: data.gpuCounter });
+  res.json({
+    renterCounter: 435 + (data.renter_leads?.length ?? 0),
+    gpuCounter: 12420 + (data.provider_leads?.length ?? 0),
+  });
 });
 
 router.post("/leads/renter", (req, res) => {
   const data = readLeads();
   data.renter_leads.push({ ...req.body, timestamp: new Date().toISOString() });
-  data.renterCounter = (data.renterCounter ?? 438) + 1;
   writeLeads(data);
-  res.json({ success: true, renterCounter: data.renterCounter, gpuCounter: data.gpuCounter });
+  res.json({
+    success: true,
+    renterCounter: 435 + data.renter_leads.length,
+    gpuCounter: 12420 + data.provider_leads.length,
+  });
 });
 
 router.post("/leads/provider", (req, res) => {
   const data = readLeads();
   data.provider_leads.push({ ...req.body, timestamp: new Date().toISOString() });
-  const gpuRange: string = req.body.estimatedGpus ?? "20-50";
-  const increment = gpuRange === "500+" ? 500 : parseInt(gpuRange.split("-")[0] ?? "20", 10) || 20;
-  data.gpuCounter = (data.gpuCounter ?? 12450) + increment;
   writeLeads(data);
-  res.json({ success: true, renterCounter: data.renterCounter, gpuCounter: data.gpuCounter });
+  res.json({
+    success: true,
+    renterCounter: 435 + data.renter_leads.length,
+    gpuCounter: 12420 + data.provider_leads.length,
+  });
 });
 
 export default router;
