@@ -430,7 +430,7 @@ export default function OmniDiff() {
       <SectionHeader scrollTo={scrollTo} />
 
       {/* Hero */}
-      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border">
+      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border" style={{ marginBottom: "8rem" }}>
         <div className="flex flex-col justify-center items-center w-full px-0">
           <div className="text-center w-full">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1F2937] bg-[#10B981]/5 mb-4">
@@ -620,7 +620,7 @@ export default function OmniDiff() {
             </div>
 
             <div className="flex justify-center w-full">
-              <div style={{ display: "flex", flexDirection: "row", gap: "2rem", width: "100%", justifyContent: "center" }}>
+              <div style={{ display: "flex", flexDirection: "row", gap: "3rem", width: "100%", maxWidth: "1200px", margin: "0 auto", justifyContent: "space-between", alignItems: "flex-start" }}>
                 <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6" style={{ flex: "1 1 0", minWidth: 0 }}>
                   <div className="grid gap-5">
                     <div className="grid gap-2">
@@ -702,7 +702,7 @@ export default function OmniDiff() {
         </div>
       </section>
 
-      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border">
+      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border" style={{ marginBottom: "8rem" }}>
         <div className="flex flex-col justify-center items-center w-full max-w-[1200px] mx-auto px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
@@ -710,7 +710,7 @@ export default function OmniDiff() {
               <h2 className="text-2xl md:text-3xl font-bold">Global Network Status & Activity Ledger</h2>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", width: "100%" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", width: "100%", maxWidth: "1200px", margin: "0 auto" }}>
               <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6">
                 <div className="flex items-center gap-2 mb-4">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />

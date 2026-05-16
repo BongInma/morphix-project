@@ -1,0 +1,25 @@
+Please execute a comprehensive layout correction pass across our application sections. Pages 2 and 6 are currently PERFECT—do not touch or modify any code related to those two views. We need to systematically repair the other sections using strictly isolated layouts.
+
+Please apply these targeted modifications to the component files:
+
+1. FIX PAGE 1 (Hero Split-Cards Layout):
+- Open the main Hero section component. Remove any rigid height properties ('height: 50vh' or tight padding) forcing the middle content to squeeze. 
+- Ensure it takes up ample space ('min-height: 90vh; padding: 6rem 2rem;') so it feels open and completely pushes the following section's text out of view until the user intentionally scrolls down.
+
+2. REPAIR PAGES 3 & 4 (Calculator & Math Outputs Grid):
+- Isolate the style attributes inside the Calculator component file. Force the main interface container to use a clean horizontal layout:
+  style={{ display: "flex", flexDirection: "row", gap: "3rem", width: "100%", maxWidth: "1200px", margin: "0 auto", justifyContent: "space-between", alignItems: "flex-start" }}
+- This will stop the calculator from looking squished or floating left-heavy, ensuring the slider panel and numeric results columns remain beautifully balanced.
+
+3. REPAIR PAGE 5 (Live Network Telemetry Grid):
+- Go directly to the Telemetry Ledger component file. Ensure the parent container uses a rigid horizontal 3-column architecture:
+  style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", width: "100%", maxWidth: "1200px", margin: "0 auto" }}
+- Ensure all internal container wrappers use 'height: auto' with zero hard clipping properties so transaction line entries fit cleanly inside their borders.
+
+4. FIX PAGE 7 (Provider Confirmation View):
+- Apply the exact same structural container parameters used in our successful Page 6 state to Page 7, ensuring it centers perfectly on the screen with clean margins.
+
+5. CLEAN DOCUMENT GAP RULE:
+- Add a uniform vertical spacer style attribute ('margin-bottom: 8rem;') exclusively to the bottom wrappers of the Page 1, Page 3, and Page 5 sections to ensure a seamless, professional endless-scroll flow.
+
+Let's lock down this configuration cleanly across the repository so all pages match our high enterprise design benchmark.
