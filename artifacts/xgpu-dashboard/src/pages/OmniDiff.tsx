@@ -30,6 +30,24 @@ function formatMoney(value: number) {
   return value.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 
+const NETWORK_METRICS = [
+  "Global Average Latency: 14.2ms",
+  "Active Network Uptime: 99.998%",
+  "Total Encrypted Data Scrambled (AES-256): 4.2 PB",
+];
+
+const NODE_LOGS = [
+  "[ONLINE] Node #PK-7104 (Quezon City, PH) — AMD MI300X — Verification Passed",
+  "[ONLINE] Node #US-2291 (Virginia, USA) — NVIDIA H100 — Verification Passed",
+  "[ONLINE] Node #EU-8840 (Frankfurt, DE) — NVIDIA A100 — Verification Passed",
+];
+
+const LEDGER_LOGS = [
+  "🔒 Task #84920: Financial Backtesting Model ... Completed (Saved 54% vs AWS)",
+  "🔒 Task #84921: Risk Mitigation Simulation ... Processing on Local Cluster",
+  "🔒 Task #84922: LLM Inference Patch ... Completed (Saved 61% vs Google Cloud)",
+];
+
 function validateEmail(v: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 }
@@ -331,6 +349,8 @@ export default function OmniDiff() {
   const [providerDone, setProviderDone] = useState(false);
   const [hardwareTier, setHardwareTier] = useState<HardwareTier>("NVIDIA H100 Cluster");
   const [monthlyHours, setMonthlyHours] = useState(1200);
+  const [nodeTick, setNodeTick] = useState(0);
+  const [ledgerTick, setLedgerTick] = useState(0);
   const renterRef = useRef<HTMLDivElement>(null);
   const providerRef = useRef<HTMLDivElement>(null);
   const complianceRef = useRef<HTMLDivElement>(null);
@@ -353,6 +373,15 @@ export default function OmniDiff() {
 
   useEffect(() => {
     refreshCounters();
+  }, []);
+
+  useEffect(() => {
+    const nodeTimer = window.setInterval(() => setNodeTick((v) => (v + 1) % NODE_LOGS.length), 4000);
+    const ledgerTimer = window.setInterval(() => setLedgerTick((v) => (v + 1) % LEDGER_LOGS.length), 3500);
+    return () => {
+      window.clearInterval(nodeTimer);
+      window.clearInterval(ledgerTimer);
+    };
   }, []);
 
   const scrollTo = (id: string) => {
@@ -597,6 +626,68 @@ export default function OmniDiff() {
                   <p className="text-[11px] uppercase tracking-[0.16em] text-[#6B7280] mb-2">Estimated Annual Corporate Capital Saved</p>
                   <p className="text-4xl md:text-5xl font-bold font-mono text-[#10B981]">{formatMoney(annualSavings)}</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <div className="rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-6 md:p-8">
+          <div className="flex flex-col gap-2 mb-6">
+            <p className="text-[#10B981] text-[10px] uppercase tracking-[0.2em] font-mono">Live Network Telemetry</p>
+            <h2 className="text-2xl md:text-3xl font-bold">Global Network Status & Activity Ledger</h2>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6">
+            <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
+                <span className="text-xs uppercase tracking-[0.12em] text-[#6B7280]">Live Performance Metrics</span>
+              </div>
+              <div className="space-y-4">
+                {NETWORK_METRICS.map((item) => (
+                  <div key={item} className="rounded-xl border border-[#1F2937] bg-[#11131A] px-4 py-3">
+                    <p className="text-sm md:text-base font-medium text-[#E5E7EB]">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
+                <span className="text-xs uppercase tracking-[0.12em] text-[#6B7280]">Regional Node Health Check</span>
+              </div>
+              <div className="h-56 overflow-hidden rounded-xl border border-[#1F2937] bg-[#08110D]">
+                <div className="h-full animate-pulse-slow px-4 py-3 font-mono text-[12px] leading-7 text-[#A7F3D0]">
+                  {[0, 1, 2, 3, 4, 5].map((i) => (
+                    <p key={i} className={`${i === nodeTick ? "opacity-100" : "opacity-35"} transition-opacity duration-700`}>
+                      {NODE_LOGS[i % NODE_LOGS.length]}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] animate-pulse" />
+                <span className="text-xs uppercase tracking-[0.12em] text-[#6B7280]">Secure Transaction Ledger</span>
+              </div>
+              <div className="space-y-3">
+                {[0, 1, 2, 3].map((i) => (
+                  <div
+                    key={i}
+                    className={`rounded-xl border px-4 py-3 font-mono text-[12px] leading-6 transition-all duration-700 ${
+                      i === ledgerTick
+                        ? "border-[#10B981]/40 bg-[#07130F] text-[#D1FAE5]"
+                        : "border-[#1F2937] bg-[#11131A] text-[#94A3B8] opacity-70"
+                    }`}
+                  >
+                    {LEDGER_LOGS[i % LEDGER_LOGS.length]}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
