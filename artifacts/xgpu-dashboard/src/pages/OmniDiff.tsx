@@ -391,6 +391,9 @@ export default function OmniDiff() {
                 <span className="text-[#10B981] text-[10px] tracking-[0.2em] uppercase font-mono">Enterprise Renters</span>
               </div>
               <h2 className="text-2xl font-bold mb-2">Local AI Inference.<br />Zero Latency.</h2>
+              <p className="text-[#10B981] text-xs italic tracking-[0.12em] uppercase">
+                (Non-Binding / Zero Financial Commitment)
+              </p>
               <p className="text-[#6B7280] text-sm leading-relaxed">
                 Bypass central power grid constraints and route your corporate workloads through localized,
                 high-performance Grade A Nodes right in your neighborhood.
@@ -420,6 +423,9 @@ export default function OmniDiff() {
                 <span className="text-[#3B82F6] text-[10px] tracking-[0.2em] uppercase font-mono">Hardware Providers</span>
               </div>
               <h2 className="text-2xl font-bold mb-2">Monetize Your Idle GPUs.<br />Offset Meralco Spikes.</h2>
+              <p className="text-[#3B82F6] text-xs italic tracking-[0.12em] uppercase">
+                (Non-Binding / Zero Hardware Allocation Commitment)
+              </p>
               <p className="text-[#6B7280] text-sm leading-relaxed">
                 Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield PHP revenues
                 while completely underwriting your future fleet replacement costs.

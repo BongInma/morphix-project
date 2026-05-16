@@ -8,6 +8,15 @@
       "useCase": "LLM Inference",
       "monthlyDemand": "500 – 2,000 GPU-hrs",
       "timestamp": "2026-05-16T14:14:46.230Z"
+    },
+    {
+      "fullName": "ROBERTO TIANGCO MATA",
+      "title": "CEO",
+      "company": "Morphix",
+      "email": "RTMDUBAI2003@YAHOO.COM",
+      "useCase": "LLM Inference",
+      "monthlyDemand": "< 500 GPU-hrs",
+      "timestamp": "2026-05-16T16:27:25.363Z"
     }
   ],
   "provider_leads": [
@@ -24,6 +33,6 @@
       "timestamp": "2026-05-16T14:23:38.349Z"
     }
   ],
-  "renterCounter": 439,
+  "renterCounter": 440,
   "gpuCounter": 12500
 }
