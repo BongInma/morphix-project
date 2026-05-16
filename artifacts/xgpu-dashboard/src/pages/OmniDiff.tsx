@@ -391,103 +391,109 @@ export default function OmniDiff() {
 
       {/* Cards */}
       <section className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-8 items-stretch">
 
           {/* Renter Card */}
-          <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8 flex flex-col justify-between gap-6 scroll-mt-20 min-h-[760px]">
-            <div className="flex flex-col items-start">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
-                <span className="text-[#10B981] text-[10px] tracking-[0.2em] uppercase font-mono">Enterprise Renters</span>
-              </div>
-              <h2 className="text-2xl font-bold mb-2">On-Demand High-Performance Compute (HPC) & AI Infrastructure.</h2>
-              <p className="text-[#6B7280] text-sm leading-relaxed">
-                Bypass central power grid constraints and route your corporate workloads through localized,
-                high-performance Grade A Nodes right in your neighborhood.
-              </p>
-            </div>
-            <div className="flex-1" />
-            <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
-              <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
-                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand local GPU processing at a 40%–60% cost reduction compared to legacy AWS, Microsoft Azure, and Google Cloud pricing models.</span></li>
-                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Plug-and-play architecture optimized for AI Inference/Training, Financial Backtesting, Risk Simulations, and Heavy Data Pipelines.</span></li>
-                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand deployment with no corporate procurement bureaucracy or restrictive multi-year contracts.</span></li>
-                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Up to $1M SLA-backed liability insurance underwritten by Chubb & AIG syndicates, protecting corporate data payloads against transmission failures or operational downtime.</span></li>
-                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
-                <span>Institutional Founders Claimed</span>
-                <span className="font-mono text-[#10B981]">{counters.renterCounter.toLocaleString()} / 500</span>
-              </div>
-              <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-700"
-                  style={{ width: `${renterProgress}%`, backgroundColor: "#10B981" }}
-                />
-              </div>
-            </div>
-            <p className="text-center text-[11px] font-mono text-[#10B981]/70">
-              ⚡ First 500 organizations lock in a Guaranteed 15% Lifetime Discount on baseline contract capacities.
-            </p>
-            {renterDone ? (
-              <SuccessCard type="renter" onClose={() => setRenterDone(false)} />
-            ) : (
-              <>
-                <RenterForm onSuccess={onRenterSuccess} />
-                <p className="text-center text-[11px] font-mono text-white/60">
-                  🔒 Non-Binding / Zero Financial Commitment
+          <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8 flex flex-col scroll-mt-20 h-full">
+            <div className="grid h-full grid-rows-[auto_1fr_auto_auto] gap-6">
+              <div className="flex flex-col items-start">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
+                  <span className="text-[#10B981] text-[10px] tracking-[0.2em] uppercase font-mono">Enterprise Renters</span>
+                </div>
+                <h2 className="text-2xl font-bold mb-2">On-Demand High-Performance Compute (HPC) & AI Infrastructure.</h2>
+                <p className="text-[#6B7280] text-sm leading-relaxed">
+                  Bypass central power grid constraints and route your corporate workloads through localized,
+                  high-performance Grade A Nodes right in your neighborhood.
                 </p>
-              </>
-            )}
+              </div>
+              <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
+                <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
+                  <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand local GPU processing at a 40%–60% cost reduction compared to legacy AWS, Microsoft Azure, and Google Cloud pricing models.</span></li>
+                  <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Plug-and-play architecture optimized for AI Inference/Training, Financial Backtesting, Risk Simulations, and Heavy Data Pipelines.</span></li>
+                  <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand deployment with no corporate procurement bureaucracy or restrictive multi-year contracts.</span></li>
+                  <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Up to $1M SLA-backed liability insurance underwritten by Chubb & AIG syndicates, protecting corporate data payloads against transmission failures or operational downtime.</span></li>
+                  <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
+                </ul>
+              </div>
+              <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
+                  <span>Institutional Founders Claimed</span>
+                  <span className="font-mono text-[#10B981]">{counters.renterCounter.toLocaleString()} / 500</span>
+                </div>
+                <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
+                  <div
+                    className="h-full rounded-full transition-all duration-700"
+                    style={{ width: `${renterProgress}%`, backgroundColor: "#10B981" }}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                <p className="text-center text-[11px] font-mono text-[#10B981]/70">
+                  ⚡ First 500 organizations lock in a Guaranteed 15% Lifetime Discount on baseline contract capacities.
+                </p>
+                {renterDone ? (
+                  <SuccessCard type="renter" onClose={() => setRenterDone(false)} />
+                ) : (
+                  <>
+                    <RenterForm onSuccess={onRenterSuccess} />
+                    <p className="text-center text-[11px] font-mono text-white/60">
+                      🔒 Non-Binding / Zero Financial Commitment
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
 
           {/* Provider Card */}
-          <div ref={providerRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8 flex flex-col justify-between gap-6 scroll-mt-20 min-h-[760px]">
-            <div className="flex flex-col items-start">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
-                <span className="text-[#3B82F6] text-[10px] tracking-[0.2em] uppercase font-mono">Hardware Providers</span>
-              </div>
-              <h2 className="text-2xl font-bold mb-2">Monetize Your Idle GPUs.<br />Offset Meralco Spikes.</h2>
-              <p className="text-[#6B7280] text-sm leading-relaxed">
-                Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield PHP revenues
-                while completely underwriting your future fleet replacement costs.
-              </p>
-            </div>
-            <div className="flex-1" />
-            <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
-              <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
-                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Monetize idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
-                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Complete flexibility: Monetize night-time idle windows (12 AM–8 AM) to offset local Meralco spikes, or dedicate clusters 24/7 for maximum revenue yield.</span></li>
-                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Lock in an elite 90% gross payout split for your first 12 months of deployment before resetting to our standard 80% tier.</span></li>
-                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your physical clusters against workload-induced operational risks.</span></li>
-                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
-              </ul>
-            </div>
-            <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
-              <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
-                <span>Verified Regional GPUs Reserved</span>
-                <span className="font-mono text-[#3B82F6]">{counters.gpuCounter.toLocaleString()} / 15,000</span>
-              </div>
-              <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
-                <div
-                  className="h-full rounded-full transition-all duration-700"
-                  style={{ width: `${gpuProgress}%`, backgroundColor: "#3B82F6" }}
-                />
-              </div>
-            </div>
-            {providerDone ? (
-              <SuccessCard type="provider" onClose={() => setProviderDone(false)} />
-            ) : (
-              <>
-                <ProviderForm onSuccess={onProviderSuccess} />
-                <p className="text-center text-[11px] font-mono text-white/60">
-                  ⚡ Early node deployments lock in a Guaranteed 90% Genesis Payout Split for year one.
+          <div ref={providerRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8 flex flex-col scroll-mt-20 h-full">
+            <div className="grid h-full grid-rows-[auto_1fr_auto_auto] gap-6">
+              <div className="flex flex-col items-start">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
+                  <span className="text-[#3B82F6] text-[10px] tracking-[0.2em] uppercase font-mono">Hardware Providers</span>
+                </div>
+                <h2 className="text-2xl font-bold mb-2">Monetize Your Idle GPUs.<br />Offset Meralco Spikes.</h2>
+                <p className="text-[#6B7280] text-sm leading-relaxed">
+                  Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield PHP revenues
+                  while completely underwriting your future fleet replacement costs.
                 </p>
-              </>
-            )}
+              </div>
+              <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
+                <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
+                  <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Monetize idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
+                  <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Complete flexibility: Monetize night-time idle windows (12 AM–8 AM) to offset local Meralco spikes, or dedicate clusters 24/7 for maximum revenue yield.</span></li>
+                  <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Lock in an elite 90% gross payout split for your first 12 months of deployment before resetting to our standard 80% tier.</span></li>
+                  <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your physical clusters against workload-induced operational risks.</span></li>
+                  <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
+                </ul>
+              </div>
+              <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
+                  <span>Verified Regional GPUs Reserved</span>
+                  <span className="font-mono text-[#3B82F6]">{counters.gpuCounter.toLocaleString()} / 15,000</span>
+                </div>
+                <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
+                  <div
+                    className="h-full rounded-full transition-all duration-700"
+                    style={{ width: `${gpuProgress}%`, backgroundColor: "#3B82F6" }}
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                {providerDone ? (
+                  <SuccessCard type="provider" onClose={() => setProviderDone(false)} />
+                ) : (
+                  <>
+                    <ProviderForm onSuccess={onProviderSuccess} />
+                    <p className="text-center text-[11px] font-mono text-white/60">
+                      🔒 Non-Binding / Zero Hardware Allocation Commitment
+                    </p>
+                  </>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
