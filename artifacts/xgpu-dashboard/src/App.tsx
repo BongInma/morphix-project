@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
+import OmniDiff from "@/pages/OmniDiff";
 import Home from "@/pages/Home";
 import Join from "@/pages/Join";
 import GridHealth from "@/pages/GridHealth";
@@ -14,7 +15,8 @@ const queryClient = new QueryClient();
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={Home} />
+      <Route path="/" component={OmniDiff} />
+      <Route path="/dashboard" component={Home} />
       <Route path="/join" component={Join} />
       <Route path="/grid-health" component={GridHealth} />
       <Route path="/aptafet" component={AptaFet} />
