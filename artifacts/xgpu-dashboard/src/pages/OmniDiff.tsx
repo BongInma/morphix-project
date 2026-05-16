@@ -463,7 +463,7 @@ export default function OmniDiff() {
       {/* Cards */}
       <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border">
         <div className="flex flex-col justify-center items-center w-full px-0">
-          <div className="w-full grid md:grid-cols-2 gap-8 items-stretch mt-0">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mt-0">
             <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-6 flex flex-col scroll-mt-20 h-full">
               <div className="grid h-full grid-rows-[auto_1fr_auto_auto] gap-4 md:gap-5">
                 <div className="flex flex-col items-start">
