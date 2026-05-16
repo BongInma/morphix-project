@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import omnidiffLogo from "@assets/OmniDiff_Logo_1778955724223.jpeg";
 
 const BASE = import.meta.env.BASE_URL?.replace(/\/$/, "") ?? "";
 const API = `${BASE}/api`;
@@ -29,13 +28,9 @@ function SectionHeader({ scrollTo }: { scrollTo: (id: string) => void }) {
     <header className="sticky top-0 z-50 border-b border-[#1F2937] bg-[#0B0C0E]/80 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
         <div className="flex flex-col leading-none">
-          <img
-            src={omnidiffLogo}
-            alt="OmniDiff"
-            className="max-h-8 w-auto object-contain"
-          />
+          <span className="text-white font-bold text-lg tracking-tight">OmniDiff</span>
           <span className="text-[#4B5563] text-[10px] tracking-[0.15em] uppercase">
-            POWERED BY MORPHIX SYSTEMS INC.
+            powered by Morphix Systems Inc.
           </span>
         </div>
         <nav className="hidden md:flex items-center gap-8 text-xs font-medium tracking-[0.1em] uppercase text-[#6B7280]">
