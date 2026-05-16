@@ -611,7 +611,7 @@ export default function OmniDiff() {
         </div>
       )}
 
-      <section className="w-full max-w-[1200px] mx-auto min-h-[85vh] flex flex-col justify-center items-center px-8 py-20 box-border">
+      <section className="w-full max-w-[1200px] mx-auto min-h-[85vh] flex flex-col justify-center items-center px-8 py-20 box-border" style={{ marginBottom: "6rem" }}>
         <div className="flex flex-col justify-center items-center w-full px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
@@ -702,7 +702,7 @@ export default function OmniDiff() {
         </div>
       </section>
 
-      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border" style={{ marginBottom: "8rem" }}>
+      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border" style={{ marginBottom: "6rem" }}>
         <div className="flex flex-col justify-center items-center w-full max-w-[1200px] mx-auto px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">

@@ -1,0 +1,28 @@
+Stop modifying global CSS sheets, unified wrappers, or shared layout variables immediately. The structural regressions across the views are wasting our compute credits. We are going to stabilize the entire layout stack by locking down each page directly inside its own file using isolated, explicit styling dimensions.
+
+Please execute these exact structural component updates step-by-step:
+
+1. PROTECT THE PASSABLE PAGES (Pages 1, 2, 6, & 7):
+- Do not modify or rewrite the foundational HTML structure, inputs, buttons, or inner text lines for Pages 1, 2, 6, and 7. 
+- Ensure their parent containers are wrapped strictly in standard, horizontal layout boundaries: 'style={{ width: "100%", maxWidth: "1200px", margin: "0 auto", padding: "4rem 2rem" }}' to keep them steady and prevent horizontal text shifting.
+
+2. TOTAL OVERHAUL OF PAGES 3 & 4 (The Calculator Section):
+- Open the Calculator file component. Strip out all global class names handling its main grid layout.
+- Force the root outer calculator container to expand fully and center perfectly:
+  style={{ width: "100%", maxWidth: "1200px", margin: "5rem auto", padding: "3rem 2rem", display: "flex", flexDirection: "column", alignItems: "center" }}
+- Inside it, force the inner parameters column (dropdown and slider track) and the cost comparisons column to split horizontally using a rigid row layout:
+  style={{ display: "flex", flexDirection: "row", gap: "3rem", width: "100%", justifyContent: "space-between", alignItems: "flex-start" }}
+- Ensure the input elements and comparison text metrics are completely clear, balanced, and readable without text-overlapping.
+
+3. TOTAL OVERHAUL OF PAGE 5 (The Telemetry Ledger Dashboard):
+- Open the Telemetry Ledger component file. Strip out all shared class overrides.
+- Force its outer layout container to follow the exact horizontal center axis as our other premium sections:
+  style={{ width: "100%", maxWidth: "1200px", margin: "5rem auto", padding: "3rem 2rem" }}
+- Structure the three internal logging panels into a strict, unchanging 3-column row architecture:
+  style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1.5rem", width: "100%" }}
+- Set all internal terminal log and task rows to 'height: auto' with adequate padding so lines have perfect breathing room and do not bleed over their borders.
+
+4. SEPARATION METRIC:
+- Ensure Pages 1, 3, and 5 use an independent vertical bottom margin ('margin-bottom: 6rem;') to force a clean, sequential, endless-scroll rhythm down the screen.
+
+Let's compile these isolated file updates now so the entire landing page locks into a uniform, enterprise-grade presentation layout.
