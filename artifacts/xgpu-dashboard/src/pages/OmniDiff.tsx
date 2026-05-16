@@ -426,11 +426,11 @@ export default function OmniDiff() {
   };
 
   return (
-    <div className="min-h-screen overflow-y-auto text-white" style={{ backgroundColor: "#0B0C0E", fontFamily: "'Inter', sans-serif" }}>
+    <div className="min-h-screen overflow-y-auto scroll-smooth snap-y snap-mandatory text-white" style={{ backgroundColor: "#0B0C0E", fontFamily: "'Inter', sans-serif" }}>
       <SectionHeader scrollTo={scrollTo} />
 
       {/* Hero */}
-      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border" style={{ marginBottom: "8rem" }}>
+      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border snap-start scroll-mt-24" style={{ marginBottom: "8rem" }}>
         <div className="flex flex-col justify-center items-center w-full px-0">
           <div className="text-center w-full">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1F2937] bg-[#10B981]/5 mb-4">
@@ -461,7 +461,7 @@ export default function OmniDiff() {
       </section>
 
       {/* Cards */}
-      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border">
+      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border snap-start scroll-mt-24">
         <div className="flex flex-col justify-center items-center w-full px-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch mt-0">
             <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-6 flex flex-col scroll-mt-20 h-full">
@@ -611,7 +611,7 @@ export default function OmniDiff() {
         </div>
       )}
 
-      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border">
+      <section className="w-full max-w-[1200px] mx-auto mb-24 flex flex-col justify-center items-center px-8 py-20 box-border snap-start scroll-mt-24">
         <div className="flex flex-col justify-center items-center w-full px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
@@ -767,7 +767,7 @@ export default function OmniDiff() {
       </section>
 
       {/* Compliance / Footer */}
-      <section ref={complianceRef} className="border-t border-[#1F2937] scroll-mt-20">
+      <section ref={complianceRef} className="border-t border-[#1F2937] snap-start scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 py-12">
           <div className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8">
             <div className="flex items-center gap-2 mb-4">
