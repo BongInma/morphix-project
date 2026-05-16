@@ -426,11 +426,11 @@ export default function OmniDiff() {
   };
 
   return (
-    <div className="min-h-screen text-white" style={{ backgroundColor: "#0B0C0E", fontFamily: "'Inter', sans-serif" }}>
+    <div className="min-h-screen overflow-y-auto text-white" style={{ backgroundColor: "#0B0C0E", fontFamily: "'Inter', sans-serif" }}>
       <SectionHeader scrollTo={scrollTo} />
 
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 py-10 md:py-12 text-center">
+      <section className="max-w-7xl mx-auto px-6 py-14 md:py-16 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1F2937] bg-[#10B981]/5 mb-4">
           <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
           <span className="text-[#10B981] text-xs tracking-[0.2em] uppercase font-mono">Live Network Infrastructure</span>
@@ -457,8 +457,8 @@ export default function OmniDiff() {
       </section>
 
       {/* Cards */}
-      <section className="max-w-7xl mx-auto px-6 pb-12">
-        <div className="grid md:grid-cols-2 gap-8 items-stretch mt-4 md:mt-6">
+      <section className="max-w-7xl mx-auto px-6 pb-16">
+        <div className="grid md:grid-cols-2 gap-8 items-stretch mt-6 md:mt-8">
 
           {/* Renter Card */}
           <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-6 md:p-6 flex flex-col scroll-mt-20 h-full">
@@ -608,8 +608,8 @@ export default function OmniDiff() {
         </div>
       )}
 
-      <section className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-6 md:p-8">
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
           <div className="flex flex-col gap-2 mb-6">
             <p className="text-[#10B981] text-[10px] uppercase tracking-[0.2em] font-mono">Institutional Arbitrage Calculator</p>
             <h2 className="text-2xl md:text-3xl font-bold">Compute Arbitrage Calculator</h2>
@@ -695,8 +695,8 @@ export default function OmniDiff() {
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 pb-20">
-        <div className="rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-6 md:p-8">
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
           <div className="flex flex-col gap-2 mb-6">
             <p className="text-[#10B981] text-[10px] uppercase tracking-[0.2em] font-mono">Live Network Telemetry</p>
             <h2 className="text-2xl md:text-3xl font-bold">Global Network Status & Activity Ledger</h2>
