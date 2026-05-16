@@ -4,6 +4,13 @@ const BASE = import.meta.env.BASE_URL?.replace(/\/$/, "") ?? "";
 const API = `${BASE}/api`;
 
 type Counters = { renterCounter: number; gpuCounter: number };
+type HardwareTier = "NVIDIA H100 Cluster" | "NVIDIA A100 Cluster" | "NVIDIA RTX 4090 Node";
+
+const HARDWARE_RATES: Record<HardwareTier, number> = {
+  "NVIDIA H100 Cluster": 4.76,
+  "NVIDIA A100 Cluster": 2.21,
+  "NVIDIA RTX 4090 Node": 0.9,
+};
 
 const INPUT =
   "w-full bg-[#0f1117] border rounded-lg px-4 py-3 text-sm text-white placeholder-[#4B5563] font-mono focus:outline-none transition-all duration-200";
@@ -17,6 +24,10 @@ function fieldClass(s: FieldState) {
   if (s === "valid") return `${INPUT} ${INPUT_VALID}`;
   if (s === "error") return `${INPUT} ${INPUT_ERROR}`;
   return `${INPUT} ${INPUT_DEFAULT}`;
+}
+
+function formatMoney(value: number) {
+  return value.toLocaleString("en-US", { style: "currency", currency: "USD" });
 }
 
 function validateEmail(v: string) {
@@ -318,12 +329,19 @@ export default function OmniDiff() {
   const [counters, setCounters] = useState<Counters>({ renterCounter: 435, gpuCounter: 12420 });
   const [renterDone, setRenterDone] = useState(false);
   const [providerDone, setProviderDone] = useState(false);
+  const [hardwareTier, setHardwareTier] = useState<HardwareTier>("NVIDIA H100 Cluster");
+  const [monthlyHours, setMonthlyHours] = useState(1200);
   const renterRef = useRef<HTMLDivElement>(null);
   const providerRef = useRef<HTMLDivElement>(null);
   const complianceRef = useRef<HTMLDivElement>(null);
 
   const renterProgress = Math.min((counters.renterCounter / 500) * 100, 100);
   const gpuProgress = Math.min((counters.gpuCounter / 15000) * 100, 100);
+  const legacyRate = HARDWARE_RATES[hardwareTier];
+  const omnidiffRate = legacyRate * 0.5;
+  const legacyMonthlyCost = legacyRate * monthlyHours;
+  const omnidiffMonthlyCost = omnidiffRate * monthlyHours;
+  const annualSavings = (legacyMonthlyCost - omnidiffMonthlyCost) * 12;
 
   const refreshCounters = async () => {
     try {
@@ -492,6 +510,93 @@ export default function OmniDiff() {
                     </p>
                   </>
                 )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-6 pb-20">
+        <div className="rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-6 md:p-8">
+          <div className="flex flex-col gap-2 mb-6">
+            <p className="text-[#10B981] text-[10px] uppercase tracking-[0.2em] font-mono">Institutional Arbitrage Calculator</p>
+            <h2 className="text-2xl md:text-3xl font-bold">Compute Arbitrage Calculator</h2>
+          </div>
+
+          <div className="grid lg:grid-cols-[1.1fr_1.4fr] gap-6">
+            <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6">
+              <div className="grid gap-5">
+                <div className="grid gap-2">
+                  <label className="text-xs uppercase tracking-[0.12em] text-[#6B7280]">Hardware Tier</label>
+                  <select
+                    value={hardwareTier}
+                    onChange={(e) => setHardwareTier(e.target.value as HardwareTier)}
+                    className={fieldClass("idle")}
+                  >
+                    {Object.keys(HARDWARE_RATES).map((tier) => (
+                      <option key={tier} value={tier}>
+                        {tier}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="grid gap-3">
+                  <div className="flex items-center justify-between gap-4">
+                    <label className="text-xs uppercase tracking-[0.12em] text-[#6B7280]">Required Operational Hours per Month</label>
+                    <span className="font-mono text-sm text-white">{monthlyHours.toLocaleString()} hrs</span>
+                  </div>
+                  <input
+                    type="range"
+                    min={100}
+                    max={10000}
+                    step={100}
+                    value={monthlyHours}
+                    onChange={(e) => setMonthlyHours(Number(e.target.value))}
+                    className="w-full accent-[#10B981]"
+                  />
+                  <div className="flex justify-between text-[11px] text-[#4B5563] font-mono">
+                    <span>100</span>
+                    <span>10,000</span>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="rounded-2xl border border-[#374151] bg-[#11131A] p-4">
+                    <p className="text-[11px] uppercase tracking-[0.12em] text-[#94A3B8] mb-2">Legacy Cloud Cost</p>
+                    <p className="text-3xl md:text-4xl font-bold font-mono text-[#E5E7EB]">{formatMoney(legacyMonthlyCost)}</p>
+                    <p className="text-xs text-[#6B7280] mt-2">AWS / Azure baseline monthly spend</p>
+                  </div>
+                  <div className="rounded-2xl border border-[#10B981]/40 bg-[#07130F] p-4">
+                    <p className="text-[11px] uppercase tracking-[0.12em] text-[#10B981] mb-2">OmniDiff Cost</p>
+                    <p className="text-3xl md:text-4xl font-bold font-mono text-[#10B981]">{formatMoney(omnidiffMonthlyCost)}</p>
+                    <p className="text-xs text-[#6B7280] mt-2">50% below legacy market rates</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-5 md:p-6 flex flex-col justify-between gap-5">
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="rounded-2xl border border-[#374151] bg-[#11131A] p-4">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[#94A3B8] mb-2">Legacy Cloud Rate</p>
+                  <p className="text-2xl font-bold font-mono text-white">{formatMoney(legacyRate)}/hr</p>
+                </div>
+                <div className="rounded-2xl border border-[#10B981]/40 bg-[#07130F] p-4">
+                  <p className="text-[11px] uppercase tracking-[0.12em] text-[#10B981] mb-2">OmniDiff Rate</p>
+                  <p className="text-2xl font-bold font-mono text-[#10B981]">{formatMoney(omnidiffRate)}/hr</p>
+                </div>
+              </div>
+
+              <div className="rounded-2xl border border-[#1F2937] bg-[#0F1117] p-4">
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280] mb-3">
+                  <span>Annual Capital Saved</span>
+                  <span className="font-mono text-[#10B981]">Real-time</span>
+                </div>
+                <div className="text-center">
+                  <p className="text-[11px] uppercase tracking-[0.16em] text-[#6B7280] mb-2">Estimated Annual Corporate Capital Saved</p>
+                  <p className="text-4xl md:text-5xl font-bold font-mono text-[#10B981]">{formatMoney(annualSavings)}</p>
+                </div>
               </div>
             </div>
           </div>
