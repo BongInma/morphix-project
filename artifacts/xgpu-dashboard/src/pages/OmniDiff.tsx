@@ -27,7 +27,7 @@ function fieldClass(s: FieldState) {
 }
 
 function formatMoney(value: number) {
-  return value.toLocaleString("en-US", { style: "currency", currency: "USD" });
+  return Math.round(value).toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 }
 
 const NETWORK_METRICS = [
