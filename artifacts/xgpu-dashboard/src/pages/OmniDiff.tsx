@@ -430,8 +430,8 @@ export default function OmniDiff() {
       <SectionHeader scrollTo={scrollTo} />
 
       {/* Hero */}
-      <section className="w-full px-6 py-16">
-        <div className="flex flex-col justify-center items-center w-full max-w-[1200px] mx-auto px-0">
+      <section className="w-full max-w-[1200px] mx-auto min-h-[85vh] flex flex-col justify-center items-center px-8 py-20 box-border">
+        <div className="flex flex-col justify-center items-center w-full px-0">
           <div className="text-center w-full">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1F2937] bg-[#10B981]/5 mb-4">
               <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
@@ -461,8 +461,8 @@ export default function OmniDiff() {
       </section>
 
       {/* Cards */}
-      <section className="w-full px-6 py-16">
-        <div className="flex flex-col justify-center items-center w-full max-w-[1200px] mx-auto px-0">
+      <section className="w-full max-w-[1200px] mx-auto min-h-[85vh] flex flex-col justify-center items-center px-8 py-20 box-border">
+        <div className="flex flex-col justify-center items-center w-full px-0">
           <div className="w-full grid md:grid-cols-2 gap-8 items-stretch mt-0">
             <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-6 flex flex-col scroll-mt-20 h-full">
               <div className="grid h-full grid-rows-[auto_1fr_auto_auto] gap-4 md:gap-5">
@@ -611,8 +611,8 @@ export default function OmniDiff() {
         </div>
       )}
 
-      <section className="w-full px-6 py-16">
-        <div className="flex flex-col justify-center items-center w-full max-w-[1200px] mx-auto px-0">
+      <section className="w-full max-w-[1200px] mx-auto min-h-[85vh] flex flex-col justify-center items-center px-8 py-20 box-border">
+        <div className="flex flex-col justify-center items-center w-full px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
               <p className="text-[#10B981] text-[10px] uppercase tracking-[0.2em] font-mono">Institutional Arbitrage Calculator</p>
