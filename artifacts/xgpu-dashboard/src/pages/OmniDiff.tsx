@@ -274,7 +274,7 @@ function ProviderForm({ onSuccess }: { onSuccess: (counters: Counters) => void }
         style={{ fontFamily: "'JetBrains Mono', monospace" }}
       >
         <option value="">Average Daily Idle Window</option>
-        {["12 AM – 4 AM", "12 AM – 8 AM", "10 PM – 6 AM", "Custom Schedule"].map((o) => (
+        {["Dedicated 24/7 Allocation", "Night Shift Only (12 AM - 8 AM)", "Flexible / Custom Schedule"].map((o) => (
           <option key={o} value={o}>{o}</option>
         ))}
       </select>
@@ -458,7 +458,7 @@ export default function OmniDiff() {
             <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E] mt-auto">
               <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Monetize idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
-                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Offset high local utility costs (Meralco spikes) and completely underwrite future equipment replacements.</span></li>
+                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Complete flexibility: Monetize night-time idle windows (12 AM–8 AM) to offset local Meralco spikes, or dedicate clusters 24/7 for maximum revenue yield.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Lock in an elite 90% gross payout split for your first 12 months of deployment before resetting to our standard 80% tier.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your physical clusters against workload-induced operational risks.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
