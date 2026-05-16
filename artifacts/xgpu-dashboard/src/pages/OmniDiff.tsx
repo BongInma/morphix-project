@@ -697,7 +697,6 @@ export default function OmniDiff() {
                   </div>
                 </div>
               </div>
-              </div>
             </div>
           </div>
         </div>
