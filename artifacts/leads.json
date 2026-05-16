@@ -17,6 +17,15 @@
       "useCase": "LLM Inference",
       "monthlyDemand": "< 500 GPU-hrs",
       "timestamp": "2026-05-16T16:27:25.363Z"
+    },
+    {
+      "fullName": "ROBERTO TIANGCO MATA",
+      "title": "CEO",
+      "company": "morphix",
+      "email": "RTMDUBAI2003@YAHOO.COM",
+      "useCase": "Training Workloads",
+      "monthlyDemand": "< 500 GPU-hrs",
+      "timestamp": "2026-05-16T18:30:01.916Z"
     }
   ],
   "provider_leads": [
@@ -31,6 +40,20 @@
         "NVIDIA RTX 4090"
       ],
       "timestamp": "2026-05-16T14:23:38.349Z"
+    },
+    {
+      "entityName": "morphix",
+      "address": "Grass Residences Tower 3 Unit 4054",
+      "contactName": "ROBERTO TIANGCO MATA",
+      "email": "RTMDUBAI2003@YAHOO.COM",
+      "estimatedGpus": "100-500",
+      "idleWindow": "Night Shift Only (12 AM - 8 AM)",
+      "gpuModels": [
+        "NVIDIA A100",
+        "NVIDIA H100",
+        "NVIDIA RTX 4090"
+      ],
+      "timestamp": "2026-05-16T18:36:39.033Z"
     }
   ],
   "renterCounter": 440,
