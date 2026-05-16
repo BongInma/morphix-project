@@ -1,0 +1,35 @@
+We are overwriting and pivoting this existing workspace into a highly premium, professional B2B web application called "OmniDiff", badged everywhere as "powered by Morphix Systems Inc." This app will serve our live Enterprise Renter / Hardware Provider signups and act as our core portal for VC fundraising.
+
+Please refactor the entire workspace using the following exact specifications:
+
+1. ARCHITECTURE & PERSISTENT STORAGE:
+- Create a lightweight backend using Node.js and Express.
+- Create a file named `leads.json` in the root folder to act as our database.
+- Initialize `leads.json` with two arrays: `renter_leads` and `provider_leads`.
+- Ensure that when forms are submitted, data is appended securely to this file so signups are never lost when the server restarts.
+
+2. GLOBAL UI/UX (DARK-TECH ENTERPRISE THEME):
+- Background color: Deep charcoal/near-black `#0B0C0E`.
+- Borders: Crisp, sharp grid appearance using `border: 1px solid #1F2937`.
+- Accents: Vibrant emerald green `#10B981` for active metrics and neon tech blue `#3B82F6` for data flow accents.
+- Fonts: Sans-serif for clean UI navigation; JetBrains Mono (or a clean system monospace) for numbers, capacities, and tickers to project data authority.
+- Header: Sticky glassmorphic navigation bar. Left side: "OmniDiff" (bold) with a secondary sub-text "powered by Morphix Systems Inc." Center links: "Enterprise Renter View", "Hardware Provider View", "Sovereign Compliance". Right side: "Secure Early Access" high-contrast CTA button.
+
+3. TWO-SIDED CONVERSION SPLIT-SCREEN:
+Directly below the hero, create a dual-card grid:
+- Left Card (Enterprise Renters): Headline: "Local AI Inference. Zero Latency." Subheadline: "Bypass central power grid constraints and route your corporate workloads through localized, high-performance Grade A Nodes right in your neighborhood." Include a tracker: "438 / 500 Institutional Founder Slots Claimed". Bind the 438 base value to a server-backed state variable `renterCounter`.
+- Right Card (Hardware Providers): Headline: "Monetize Your Idle GPUs. Offset Meralco Spikes." Subheadline: "Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield PHP revenues while completely underwriting your future fleet replacement costs." Include a live ticker: "12,450 / 15,000 Verified Regional GPUs Reserved". Bind the 12,450 base value to a server-backed state variable `gpuCounter`.
+- Apply an emerald green outer glow transition effect upon hovering over both primary CTA buttons.
+
+4. FORM VALIDATION & SUCCESS MODALS:
+- Renter Form fields to capture: Full Name, Corporate Title, Company Name, Corporate Email (validate as proper email format), Primary AI Use Case (Dropdown), and Estimated Monthly GPU Demand (Dropdown).
+- Provider Form fields to capture: Company/Franchise Entity Name, Primary Infrastructure Address, Contact Person Name, Corporate Email, Estimated Total GPUs Available (Dropdown: 20-50, 50-100, 100-500, 500+), Primary GPU Models Owned (Checkboxes), and Average Daily Idle Window (Dropdown).
+- Real-time Validation: Input fields turn crisp red on error and show a subtle green checkmark or border color change when valid.
+- Success Responses: Upon a successful database write, the modal must hide the form inputs and show the respective precise message:
+  * Renters: "Expression of Interest Successfully Registered. Thank you. Morphix Systems has locked in your priority placement. Your organization has been allocated 500 Pending Compute Hours..."
+  * Providers: "Expression of Interest Registered. Your hardware tier has been securely placed in our District Priority Queue. Morphix Systems engineering will reach out to your office shortly to provide our lightweight Node Daemon specifications..."
+
+5. COUNTER DYNAMICS:
+- On every successful write to `leads.json`, the backend must immediately update the live counters on the landing page. `renterCounter` increments by 1. `gpuCounter` increments dynamically based on the lower bound value selected in the provider's GPU dropdown (e.g., if they select "20-50", increment the counter by 20).
+
+Please rewrite the necessary frontend components and backend server files to execute this setup beautifully. Let me know when the architectural overhaul is ready for review.
