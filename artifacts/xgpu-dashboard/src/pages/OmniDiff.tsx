@@ -401,7 +401,7 @@ export default function OmniDiff() {
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>40% to 60% lower inference fees than legacy centralized cloud providers.</span></li>
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Standardized container architecture ensuring zero vendor lock-in and zero data-egress fees.</span></li>
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand deployment with no corporate procurement bureaucracy or restrictive multi-year contracts.</span></li>
-                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Comprehensive SLA-backed insurance coverage protecting corporate data payloads against transmission failures or operational downtime.</span></li>
+                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Up to $1M SLA-backed liability insurance underwritten by Chubb & AIG syndicates, protecting corporate data payloads against transmission failures or operational downtime.</span></li>
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
               </ul>
             </div>
@@ -430,7 +430,7 @@ export default function OmniDiff() {
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Monetize idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Offset high local utility costs (Meralco spikes) and completely underwrite future equipment replacements.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Retain an industry-leading 80% payout split before regional capacity caps close.</span></li>
-                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Enterprise-grade hardware liability coverage underwriting your physical clusters against any workload-induced operational risks.</span></li>
+                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your physical clusters against workload-induced operational risks.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
               </ul>
             </div>
