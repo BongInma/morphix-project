@@ -395,7 +395,7 @@ export default function OmniDiff() {
 
           {/* Renter Card */}
           <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8 flex flex-col justify-between gap-6 scroll-mt-20 min-h-[760px]">
-            <div className="flex-1 flex flex-col">
+            <div className="flex flex-col items-start">
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                 <span className="text-[#10B981] text-[10px] tracking-[0.2em] uppercase font-mono">Enterprise Renters</span>
@@ -406,7 +406,8 @@ export default function OmniDiff() {
                 high-performance Grade A Nodes right in your neighborhood.
               </p>
             </div>
-            <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E] mt-auto">
+            <div className="flex-1" />
+            <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
               <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand local GPU processing at a 40%–60% cost reduction compared to legacy AWS, Microsoft Azure, and Google Cloud pricing models.</span></li>
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Plug-and-play architecture optimized for AI Inference/Training, Financial Backtesting, Risk Simulations, and Heavy Data Pipelines.</span></li>
@@ -444,7 +445,7 @@ export default function OmniDiff() {
 
           {/* Provider Card */}
           <div ref={providerRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8 flex flex-col justify-between gap-6 scroll-mt-20 min-h-[760px]">
-            <div className="flex-1 flex flex-col">
+            <div className="flex flex-col items-start">
               <div className="flex items-center gap-2 mb-3">
                 <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
                 <span className="text-[#3B82F6] text-[10px] tracking-[0.2em] uppercase font-mono">Hardware Providers</span>
@@ -455,7 +456,8 @@ export default function OmniDiff() {
                 while completely underwriting your future fleet replacement costs.
               </p>
             </div>
-            <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E] mt-auto">
+            <div className="flex-1" />
+            <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
               <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Monetize idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Complete flexibility: Monetize night-time idle windows (12 AM–8 AM) to offset local Meralco spikes, or dedicate clusters 24/7 for maximum revenue yield.</span></li>
