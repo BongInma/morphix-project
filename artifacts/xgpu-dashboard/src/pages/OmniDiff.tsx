@@ -662,7 +662,7 @@ export default function OmniDiff() {
                   <div className="rounded-2xl border border-[#10B981]/40 bg-[#07130F] p-4">
                     <p className="text-[11px] uppercase tracking-[0.12em] text-[#10B981] mb-2">OmniDiff Cost</p>
                     <p className="text-3xl md:text-4xl font-bold font-mono text-[#10B981]">{formatMoney(omnidiffMonthlyCost)}</p>
-                    <p className="text-xs text-[#6B7280] mt-2">50% below legacy market rates</p>
+                    <p className="text-xs text-[#6B7280] mt-2">60% below legacy market rates</p>
                   </div>
                 </div>
               </div>
