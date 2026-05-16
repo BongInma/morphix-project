@@ -405,6 +405,9 @@ export default function OmniDiff() {
                 <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
               </ul>
             </div>
+            <p className="text-center text-[11px] font-mono text-[#10B981]/70">
+              ⚡ First 500 organizations lock in a Guaranteed 15% Lifetime Discount on baseline contract capacities.
+            </p>
             {renterDone ? (
               <SuccessCard type="renter" onClose={() => setRenterDone(false)} />
             ) : (
@@ -434,7 +437,7 @@ export default function OmniDiff() {
               <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Monetize idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Offset high local utility costs (Meralco spikes) and completely underwrite future equipment replacements.</span></li>
-                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Retain an industry-leading 80% payout split before regional capacity caps close.</span></li>
+                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Lock in an elite 90% gross payout split for your first 12 months of deployment before resetting to our standard 80% tier.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your physical clusters against workload-induced operational risks.</span></li>
                 <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
               </ul>
@@ -445,7 +448,7 @@ export default function OmniDiff() {
               <>
                 <ProviderForm onSuccess={onProviderSuccess} />
                 <p className="text-center text-[11px] font-mono text-white/60">
-                  🔒 Non-Binding / Zero Hardware Allocation Commitment
+                  ⚡ Early node deployments lock in a Guaranteed 90% Genesis Payout Split for year one.
                 </p>
               </>
             )}
