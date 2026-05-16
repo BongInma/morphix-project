@@ -397,16 +397,13 @@ export default function OmniDiff() {
               </p>
             </div>
             <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
-              <StatRow label="Institutional Founder Slots Claimed" value={`${counters.renterCounter.toLocaleString()} / 500`} />
-              <div className="mt-3">
-                <div className="h-2 rounded-full bg-[#1F2937] overflow-hidden">
-                  <div
-                    className="h-full rounded-full transition-all duration-700"
-                    style={{ width: `${Math.min((counters.renterCounter / 500) * 100, 100)}%`, backgroundColor: "#10B981" }}
-                  />
-                </div>
-                <p className="text-[#4B5563] text-[10px] mt-1.5 font-mono">{Math.max(0, 500 - counters.renterCounter)} founder slots remaining</p>
-              </div>
+              <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
+                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>40% to 60% lower inference fees than legacy centralized cloud providers.</span></li>
+                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Standardized container architecture ensuring zero vendor lock-in and zero data-egress fees.</span></li>
+                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand deployment with no corporate procurement bureaucracy or restrictive multi-year contracts.</span></li>
+                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Comprehensive SLA-backed insurance coverage protecting corporate data payloads against transmission failures or operational downtime.</span></li>
+                <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
+              </ul>
             </div>
             {renterDone ? (
               <SuccessCard type="renter" onClose={() => setRenterDone(false)} />
@@ -429,16 +426,13 @@ export default function OmniDiff() {
               </p>
             </div>
             <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
-              <StatRow label="Verified Regional GPUs Reserved" value={`${counters.gpuCounter.toLocaleString()} / 15,000`} />
-              <div className="mt-3">
-                <div className="h-2 rounded-full bg-[#1F2937] overflow-hidden">
-                  <div
-                    className="h-full rounded-full transition-all duration-700"
-                    style={{ width: `${Math.min((counters.gpuCounter / 15000) * 100, 100)}%`, backgroundColor: "#3B82F6" }}
-                  />
-                </div>
-                <p className="text-[#4B5563] text-[10px] mt-1.5 font-mono">{Math.max(0, 15000 - counters.gpuCounter).toLocaleString()} GPU slots remaining</p>
-              </div>
+              <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
+                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Monetize idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
+                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Offset high local utility costs (Meralco spikes) and completely underwrite future equipment replacements.</span></li>
+                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Retain an industry-leading 80% payout split before regional capacity caps close.</span></li>
+                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Enterprise-grade hardware liability coverage underwriting your physical clusters against any workload-induced operational risks.</span></li>
+                <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
+              </ul>
             </div>
             {providerDone ? (
               <SuccessCard type="provider" onClose={() => setProviderDone(false)} />

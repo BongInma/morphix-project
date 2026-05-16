@@ -1,6 +1,29 @@
 {
-  "renter_leads": [],
-  "provider_leads": [],
-  "renterCounter": 438,
-  "gpuCounter": 12450
+  "renter_leads": [
+    {
+      "fullName": "ROBERTO TIANGCO MATA",
+      "title": "Founder and CEO",
+      "company": "Morphix Systems Inc",
+      "email": "rtmata@zohomail.com",
+      "useCase": "LLM Inference",
+      "monthlyDemand": "500 – 2,000 GPU-hrs",
+      "timestamp": "2026-05-16T14:14:46.230Z"
+    }
+  ],
+  "provider_leads": [
+    {
+      "entityName": "Morphix Systems Inc",
+      "address": "Grass Residences Tower 3 Unit 4054",
+      "contactName": "ROBERTO TIANGCO MATA",
+      "email": "RTMDUBAI2003@YAHOO.COM",
+      "estimatedGpus": "50-100",
+      "idleWindow": "12 AM – 8 AM",
+      "gpuModels": [
+        "NVIDIA RTX 4090"
+      ],
+      "timestamp": "2026-05-16T14:23:38.349Z"
+    }
+  ],
+  "renterCounter": 439,
+  "gpuCounter": 12500
 }
