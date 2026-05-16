@@ -461,8 +461,8 @@ export default function OmniDiff() {
       </section>
 
       {/* Cards */}
-      <section id="cards" className="w-full snap-start scroll-mt-24 flex items-center justify-center px-8 py-16 box-border">
-        <div className="w-full max-w-[1200px]">
+      <section id="cards" className="w-full flex items-center justify-center px-8 py-0 box-border" style={{ minHeight: "calc(100vh - 4rem)" }}>
+        <div className="w-full max-w-[1200px] py-8">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
             <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-6 flex flex-col scroll-mt-20">
               <div className="grid grid-rows-[auto_1fr_auto_auto] gap-4 md:gap-5">
