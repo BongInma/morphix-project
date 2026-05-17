@@ -641,7 +641,7 @@ export default function OmniDiff() {
         </div>
       </section>
 
-      <section id="telemetry" className="w-full snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-start justify-center px-6 py-0" style={{ paddingTop: "0" }}>
+      <section id="telemetry" className="w-full snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-start justify-center px-6 py-0" style={{ paddingTop: "0", marginTop: "-2rem" }}>
         <div className="w-full max-w-[1200px] flex flex-col justify-center items-center px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
