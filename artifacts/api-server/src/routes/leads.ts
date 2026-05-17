@@ -1,13 +1,13 @@
 import { Router } from "express";
 import { writeFile } from "fs/promises";
 import { existsSync, readFileSync, writeFileSync } from "fs";
-import { join, dirname } from "path";
+import { join } from "path";
 import { fileURLToPath } from "url";
 import { z } from "zod";
 import { logger } from "../lib/logger";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const LEADS_PATH = join(__dirname, "../../leads.json");
+const WORKSPACE_ROOT = join(fileURLToPath(new URL("../../..", import.meta.url)), "");
+const LEADS_PATH = join(WORKSPACE_ROOT, "leads.json");
 
 const router = Router();
 
