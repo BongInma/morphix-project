@@ -568,6 +568,7 @@ export default function OmniDiff() {
                     Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield PHP revenues
                     that could underwrite your future GPU replacement costs.
                   </p>
+                  <span className="block h-2 sm:h-3" />
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
                   <ul className="space-y-3 text-sm leading-5 text-[#D1D5DB]">
