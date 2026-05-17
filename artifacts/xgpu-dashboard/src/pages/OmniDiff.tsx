@@ -543,7 +543,6 @@ export default function OmniDiff() {
                   </p>
                   <span className="block h-2 sm:h-3" />
                   <span className="block h-2 sm:h-3" />
-                  <span className="block h-2 sm:h-3" />
                   {renterDone ? (
                     <SuccessCard type="renter" onClose={() => setRenterDone(false)} />
                   ) : (
