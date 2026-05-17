@@ -354,7 +354,7 @@ export default function OmniDiff() {
   const renterProgress = Math.min((counters.renterCounter / 500) * 100, 100);
   const gpuProgress = Math.min((counters.gpuCounter / 15000) * 100, 100);
   const legacyRate = HARDWARE_RATES[hardwareTier];
-  const omnidiffRate = legacyRate * 0.5;
+  const omnidiffRate = legacyRate * 0.4;
   const legacyMonthlyCost = legacyRate * monthlyHours;
   const omnidiffMonthlyCost = omnidiffRate * monthlyHours;
   const annualSavings = (legacyMonthlyCost - omnidiffMonthlyCost) * 12;
