@@ -63,7 +63,7 @@ function SectionHeader({ scrollTo }: { scrollTo: (id: string) => void }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
         <div className="flex flex-col leading-none">
           <span className="text-white font-bold text-lg tracking-tight">OmniDiff</span>
-          <span className="text-[#4B5563] text-[9px] sm:text-[10px] font-bold tracking-[0.08em] sm:tracking-[0.15em]" style={{ fontFamily: "'Inter', sans-serif", WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textTransform: "none", letterSpacing: "0.12em" }}>
+          <span className="text-[#4B5563] text-[10px] sm:text-[11px] font-bold tracking-[0.08em] sm:tracking-[0.15em]" style={{ fontFamily: "'Inter', sans-serif", WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textTransform: "none", letterSpacing: "0.12em" }}>
             Powered by Morphix Systems Inc.
           </span>
         </div>
