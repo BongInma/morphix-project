@@ -705,7 +705,7 @@ export default function OmniDiff() {
       </section>
 
       {/* Telemetry */}
-      <section id="telemetry" className="w-full scroll-mt-16 flex items-start justify-center px-4 sm:px-6 py-6 sm:py-10">
+      <section id="telemetry" className="w-full scroll-mt-16 flex items-start justify-center px-4 sm:px-6 py-2 sm:py-4">
         <div className="w-full max-w-[1200px] flex flex-col justify-center items-center px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-5 sm:p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
