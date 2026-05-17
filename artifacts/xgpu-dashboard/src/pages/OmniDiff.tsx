@@ -406,7 +406,7 @@ export default function OmniDiff() {
       provider: providerRef,
       compliance: complianceRef,
     };
-    map[id]?.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    map[id]?.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   const onRenterSuccess = (data: Counters) => {
@@ -463,7 +463,7 @@ export default function OmniDiff() {
       {/* Cards */}
       <section id="cards" className="w-full flex items-center justify-center px-8 py-0 box-border" style={{ minHeight: "calc(100vh - 4rem)" }}>
         <div className="w-full max-w-[1200px] flex items-center justify-center py-0">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch self-center">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center self-center">
             <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-6 flex flex-col scroll-mt-20">
               <div className="grid grid-rows-[auto_1fr_auto_auto] gap-4 md:gap-5 self-stretch">
                 <div className="flex flex-col items-start">
