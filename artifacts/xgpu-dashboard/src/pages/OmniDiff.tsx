@@ -514,7 +514,7 @@ export default function OmniDiff() {
                   <h2 className="text-xl sm:text-2xl font-bold mb-2">On-Demand High-Performance Compute (HPC) & AI Infrastructure.</h2>
                   <p className="text-[#6B7280] text-sm leading-relaxed">
                     Bypass central power grid constraints and route your corporate workloads through localized,
-                    high-performance Grade A Nodes right in your neighborhood.
+                    high-performance Grade A Nodes right in your regional area of operation.
                   </p>
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
