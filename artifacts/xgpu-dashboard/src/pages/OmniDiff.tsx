@@ -412,7 +412,7 @@ export default function OmniDiff() {
       <SectionHeader scrollTo={scrollTo} />
 
       {/* Hero */}
-      <section id="hero" className="w-full snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-center justify-center px-8 py-20 box-border" style={{ paddingBottom: "5rem" }}>
+      <section id="hero" className="w-full snap-start scroll-mt-24 min-h-[calc(100vh-4rem+5rem)] flex items-center justify-center px-8 py-20 box-border">
         <div className="w-full max-w-[1200px] flex flex-col justify-center items-center px-0">
           <div className="text-center w-full">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1F2937] bg-[#10B981]/5 mb-4">
@@ -427,7 +427,7 @@ export default function OmniDiff() {
               OmniDiff bridges enterprise AI workloads with sovereign, localized GPU infrastructure.
               Zero latency. Zero lock-in. Powered by Morphix Systems Inc.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 mt-6 mb-8">
+            <div className="flex flex-wrap justify-center gap-6 mt-6">
               <div className="flex flex-col items-center">
                 <span className="text-4xl font-bold font-mono text-[#10B981]">{counters.renterCounter.toLocaleString()}</span>
                 <span className="text-[#4B5563] text-xs uppercase tracking-[0.15em] mt-1">Institutional Founders</span>
