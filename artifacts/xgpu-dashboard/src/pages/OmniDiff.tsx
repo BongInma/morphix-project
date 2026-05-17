@@ -480,7 +480,7 @@ export default function OmniDiff() {
               Distributed AI Compute,{" "}
               <span style={{ color: "#10B981" }}>Redefined.</span>
             </h1>
-            <p className="text-[#6B7280] text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed px-2">
+            <p className="text-[#6B7280] text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed px-4 sm:px-8 text-center">
               <span className="block">OmniDiff bridges enterprise AI workloads with sovereign, localized GPU infrastructure.</span>
               <span className="block">Zero-Trust Data Privacy. Zero latency. Zero lock-in.</span>
               <span className="block">Powered by Morphix Systems Inc.</span>
