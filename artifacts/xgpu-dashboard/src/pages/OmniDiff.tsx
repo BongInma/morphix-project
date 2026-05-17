@@ -705,7 +705,7 @@ export default function OmniDiff() {
       </section>
 
       {/* Telemetry */}
-      <section id="telemetry" className="w-full scroll-mt-16 flex items-start justify-center px-4 sm:px-6 py-0 sm:py-2">
+      <section id="telemetry" className="w-full scroll-mt-16 flex items-start justify-center px-4 sm:px-6 py-0">
         <div className="w-full max-w-[1200px] flex flex-col justify-center items-center px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-5 sm:p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
@@ -817,7 +817,7 @@ export default function OmniDiff() {
           </p>
         </div>
       </section>
-      <footer style={{ width: "100%", maxWidth: "1200px", margin: "0.25rem auto 0.5rem auto", padding: "0.25rem 1rem", textAlign: "center", borderTop: "1px solid rgba(255, 255, 255, 0.1)", color: "rgba(255, 255, 255, 0.4)", fontSize: "0.75rem", lineHeight: "1.2" }}>
+      <footer style={{ width: "100%", maxWidth: "1200px", margin: "0.25rem auto 0.5rem auto", padding: "0.25rem 1rem", textAlign: "center", borderTop: "1px solid rgba(255, 255, 255, 0.1)", color: "#FFFFFF", fontSize: "0.75rem", lineHeight: "1.2" }}>
         Disclaimer: All pre-launch incentives, including early renter lifetime discounts and premium hardware provider revenue share allocations described herein, represent promotional expressions of interest frameworks only. Final terms, priority routing metrics, and yield percentages are strictly subject to execution of definitive corporate platform contracts, service level agreements (SLAs), and verified hardware enrollment compliance parameters. Void where prohibited.
       </footer>
     </div>
