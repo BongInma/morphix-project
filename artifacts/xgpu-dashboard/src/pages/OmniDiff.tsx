@@ -550,7 +550,7 @@ export default function OmniDiff() {
         </div>
       </section>
 
-      <section id="calculator" className="w-full snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-center justify-center px-8 py-20 box-border">
+      <section id="calculator" className="w-full snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-start justify-center px-8 py-10 box-border" style={{ paddingTop: "0" }}>
         <div className="w-full max-w-[1200px] flex flex-col justify-center items-center px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
