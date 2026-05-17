@@ -519,8 +519,8 @@ export default function OmniDiff() {
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
                   <ul className="space-y-3 text-sm leading-5 text-[#D1D5DB]">
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>On-demand local GPU processing at a 40%–60% cost reduction of your legacy cloud/data center costs with AWS, Microsoft Azure and Google Cloud.</span></li>
-                    <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>Plug-and-play architecture optimized for your AI Inference/Training, Financial Backtesting, Risk Simulations, and Heavy Data Pipelines.</span></li>
-                    <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>On-demand deployment with your corporate procurement bureaucracy removed, with no restrictive multi-year contracts. No vendor lock-in. No egress fees.</span></li>
+                    <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>Plug-and-play architecture optimized for your AI Inference/Training, Financial Backtesting, Heavy Data  Pipelines and Risk Simulations.</span></li>
+                    <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>On-demand deployment. No corporate procurement bureaucracy. No restrictive multi-year contracts. No vendor lock-in. No egress fees.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>Up to $1M SLA-backed liability insurance underwritten by Chubb & AIG syndicates, protecting your corporate data payloads against transmission failures or operational downtime.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
                   </ul>
