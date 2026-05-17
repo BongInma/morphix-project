@@ -574,7 +574,7 @@ export default function OmniDiff() {
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Monetize idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Complete flexibility: Monetize night-time idle windows (12 AM–8 AM) to offset local Meralco spikes, or dedicate clusters 24/7 for maximum revenue yield.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Lock in an elite 90% gross payout split for your first 12 months of deployment before resetting to our standard 80% tier.</span></li>
-                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your physical clusters against workload-induced operational risks.</span></li>
+                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your GPU clusters against workload-induced operational risks.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
                   </ul>
                 </div>
