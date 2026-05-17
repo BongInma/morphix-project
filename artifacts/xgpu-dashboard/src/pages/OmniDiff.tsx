@@ -412,7 +412,7 @@ export default function OmniDiff() {
       <SectionHeader scrollTo={scrollTo} />
 
       {/* Hero */}
-      <section id="hero" className="w-full snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-center justify-center px-8 py-20 box-border">
+      <section id="hero" className="w-full snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-center justify-center px-8 py-20 box-border" style={{ paddingBottom: "3rem" }}>
         <div className="w-full max-w-[1200px] flex flex-col justify-center items-center px-0">
           <div className="text-center w-full">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#1F2937] bg-[#10B981]/5 mb-4">
