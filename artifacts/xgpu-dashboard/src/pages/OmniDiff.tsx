@@ -573,9 +573,9 @@ export default function OmniDiff() {
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
                   <ul className="space-y-3 text-sm leading-5 text-[#D1D5DB]">
-                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Monetize your idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
-                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Complete flexibility: Monetize your night-time idle windows (12 AM–8 AM) to offset your Meralco electric bills, or dedicate clusters 24/7 for maximum revenue yield.</span></li>
-                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Lock in an elite 90% gross payout split for your first 12 months of deployment before resetting to our standard 80% tier.</span></li>
+                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Monetize Global Nighttime Idle Windows: Automatically lease out your hardware's idle/off-peak hours to offset your local Meralco electricity bills and generate predictable PHP revenue streams.</span></li>
+                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Absolute Operational Flexibility: Choose to dedicate your enterprise clusters 24/7 to capture maximum network yields or monetize specific off-peak windows.</span></li>
+                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Genesis Node Allocation: Retain 90% net compute revenue for the first 12 months then lock 85% lifetime share thereafter.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your GPU clusters against workload-induced operational risks.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
                   </ul>
@@ -602,7 +602,7 @@ export default function OmniDiff() {
                         🔒 Non-Binding / Zero Hardware Allocation Commitment
                       </p>
                       <p style={{ display: "block", marginTop: "0.75rem", fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.5)", textAlign: "center", fontStyle: "italic", lineHeight: "1.3" }}>
-                        🔒 Genesis Pool: First 15K qualified GPUs earn 90% in Year 1; then 85% lifetime. Yield decreases automatically after the first 15K.
+                        Note: The premium 90% revenue payout is strictly limited to the first 15,000 qualified GPU node commitments. Late registrations transition to 80% revenue split.
                       </p>
                     </>
                   )}
