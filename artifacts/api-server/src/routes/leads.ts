@@ -26,17 +26,27 @@ const INITIAL_STORE: LeadStore = {
 };
 
 const RenterLeadSchema = z.object({
-  name: z.string().min(1).max(200),
+  name: z.string().min(1).max(200).optional(),
+  fullName: z.string().min(1).max(200).optional(),
+  title: z.string().max(200).optional(),
   email: z.string().email().max(254),
   company: z.string().max(200).optional(),
+  useCase: z.string().max(200).optional(),
+  monthlyDemand: z.string().max(200).optional(),
   message: z.string().max(2000).optional(),
 });
 
 const ProviderLeadSchema = z.object({
-  name: z.string().min(1).max(200),
+  name: z.string().min(1).max(200).optional(),
+  contactName: z.string().min(1).max(200).optional(),
+  entityName: z.string().max(200).optional(),
+  address: z.string().max(500).optional(),
   email: z.string().email().max(254),
   gpuModel: z.string().max(200).optional(),
+  gpuModels: z.string().max(500).optional(),
   gpuCount: z.number().int().min(1).max(100000).optional(),
+  estimatedGpus: z.string().max(200).optional(),
+  idleWindow: z.string().max(200).optional(),
   message: z.string().max(2000).optional(),
 });
 
@@ -90,7 +100,17 @@ router.post("/leads/renter", (req, res) => {
     return;
   }
   const data = getStore();
-  data.renter_leads.push({ ...result.data, timestamp: new Date().toISOString() });
+  data.renter_leads.push({
+    name: result.data.name ?? result.data.fullName ?? "",
+    fullName: result.data.fullName ?? result.data.name ?? "",
+    title: result.data.title,
+    email: result.data.email,
+    company: result.data.company,
+    useCase: result.data.useCase,
+    monthlyDemand: result.data.monthlyDemand,
+    message: result.data.message,
+    timestamp: new Date().toISOString(),
+  });
   scheduleWrite();
   res.json({
     success: true,
@@ -106,7 +126,20 @@ router.post("/leads/provider", (req, res) => {
     return;
   }
   const data = getStore();
-  data.provider_leads.push({ ...result.data, timestamp: new Date().toISOString() });
+  data.provider_leads.push({
+    name: result.data.name ?? result.data.contactName ?? "",
+    contactName: result.data.contactName ?? result.data.name ?? "",
+    entityName: result.data.entityName,
+    address: result.data.address,
+    email: result.data.email,
+    gpuModel: result.data.gpuModel,
+    gpuModels: result.data.gpuModels,
+    gpuCount: result.data.gpuCount,
+    estimatedGpus: result.data.estimatedGpus,
+    idleWindow: result.data.idleWindow,
+    message: result.data.message,
+    timestamp: new Date().toISOString(),
+  });
   scheduleWrite();
   res.json({
     success: true,
