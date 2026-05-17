@@ -378,7 +378,7 @@ function SuccessCard({ type, onClose }: { type: "renter" | "provider"; onClose: 
       </h3>
       <p className="text-sm text-[#9CA3AF] leading-6">
         {isRenter
-          ? "Thank you. Morphix Systems has locked in your priority placement. Your organization has been allocated 500 free Pending Compute Hours, reserved at the Institutional Founder rate, valid through the end of the Q3 infrastructure rollout window."
+          ? "Thank you. Morphix Systems has locked in your priority placement. Your organization has been allocated 500 free Pending Compute Hours, as a pioneer member of the OmniDiff Founder's Circle, valid through the end of the Q3-Q4 2026 infrastructure rollout window."
           : "Your hardware tier has been securely placed in our District Priority Queue. Morphix Systems engineering will reach out to your office shortly to provide our lightweight Node Daemon specifications, remote attestation protocols, and onboarding documentation."}
       </p>
       <button
