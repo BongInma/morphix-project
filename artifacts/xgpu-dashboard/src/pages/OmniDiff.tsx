@@ -227,7 +227,7 @@ function RenterForm({ onSuccess }: { onSuccess: (counters: Counters) => void }) 
       <button
         type="submit"
         disabled={loading}
-        className="w-full py-4 rounded-lg text-sm font-bold tracking-[0.12em] uppercase bg-[#10B981] text-black hover:bg-[#059669] active:bg-[#047857] transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] disabled:opacity-60 disabled:cursor-not-allowed touch-manipulation"
+        className="relative z-10 w-full py-4 rounded-lg text-sm font-bold tracking-[0.12em] uppercase bg-[#10B981] text-black hover:bg-[#059669] active:bg-[#047857] transition-all shadow-[0_0_20px_rgba(16,185,129,0.3)] disabled:opacity-60 disabled:cursor-not-allowed touch-manipulation"
       >
         {loading ? "Submitting..." : "CONFIRM EXPRESSION OF INTEREST"}
       </button>
@@ -357,7 +357,7 @@ function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { 
       <button
         type="submit"
         disabled={loading}
-        className="w-full py-4 rounded-lg text-sm font-bold tracking-[0.12em] uppercase bg-[#3B82F6] text-white hover:bg-[#2563EB] active:bg-[#1D4ED8] transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] disabled:opacity-60 disabled:cursor-not-allowed touch-manipulation"
+        className="relative z-10 w-full py-4 rounded-lg text-sm font-bold tracking-[0.12em] uppercase bg-[#3B82F6] text-white hover:bg-[#2563EB] active:bg-[#1D4ED8] transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] disabled:opacity-60 disabled:cursor-not-allowed touch-manipulation"
       >
         {loading ? "Submitting..." : ctaLabel}
       </button>
