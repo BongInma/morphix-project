@@ -1,6 +1,25 @@
 {
-  "renter_leads": [],
-  "provider_leads": [],
+  "renter_leads": [
+    {
+      "name": "ROBERTO TIANGCO MATA",
+      "fullName": "ROBERTO TIANGCO MATA",
+      "email": "RTMDUBAI2003@YAHOO.COM",
+      "company": "Morit",
+      "message": "CEO | Computer Vision | 500 – 2,000 GPU-hrs",
+      "timestamp": "2026-05-17T03:45:49.316Z"
+    }
+  ],
+  "provider_leads": [
+    {
+      "name": "ROBERTO TIANGCO MATA",
+      "contactName": "ROBERTO TIANGCO MATA",
+      "email": "RTMDUBAI2003@YAHOO.COM",
+      "gpuModel": "NVIDIA A100",
+      "gpuCount": 50,
+      "message": "meor | Grass Residences Tower 3 Unit 4054 | Flexible / Custom Schedule",
+      "timestamp": "2026-05-17T03:46:27.524Z"
+    }
+  ],
   "renterCounter": 438,
   "gpuCounter": 12450
 }

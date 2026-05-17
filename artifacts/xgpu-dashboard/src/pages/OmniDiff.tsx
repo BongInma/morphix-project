@@ -484,7 +484,7 @@ export default function OmniDiff() {
                   <ul className="space-y-2 text-sm leading-5 text-[#D1D5DB]">
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand local GPU processing at a 40%–60% cost reduction compared to legacy AWS, Microsoft Azure, and Google Cloud pricing models.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Plug-and-play architecture optimized for AI Inference/Training, Financial Backtesting, Risk Simulations, and Heavy Data Pipelines.</span></li>
-                    <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand deployment with no corporate procurement bureaucracy or restrictive multi-year contracts.</span></li>
+                    <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand deployment with no corporate procurement bureaucracy or restrictive multi-year contracts. No vendor lock-in. No egress fees.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Up to $1M SLA-backed liability insurance underwritten by Chubb & AIG syndicates, protecting corporate data payloads against transmission failures or operational downtime.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
                   </ul>
