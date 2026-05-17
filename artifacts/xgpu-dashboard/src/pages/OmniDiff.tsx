@@ -130,7 +130,12 @@ function RenterForm({ onSuccess }: { onSuccess: (counters: Counters) => void }) 
       const r = await fetch(`${API}/leads/renter`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(fields),
+        body: JSON.stringify({
+          name: fields.fullName,
+          email: fields.email,
+          company: fields.company,
+          message: `${fields.title} | ${fields.useCase} | ${fields.monthlyDemand}`,
+        }),
       });
       const data = (await r.json()) as Partial<Counters> | null;
       setLoading(false);
@@ -238,7 +243,13 @@ function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { 
       const r = await fetch(`${API}/leads/provider`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...fields, gpuModels: gpuModelsSelected }),
+        body: JSON.stringify({
+          name: fields.contactName,
+          email: fields.email,
+          gpuModel: gpuModelsSelected.join(", "),
+          gpuCount: Number.parseInt(fields.estimatedGpus, 10) || 1,
+          message: `${fields.entityName} | ${fields.address} | ${fields.idleWindow}`,
+        }),
       });
       const data = (await r.json()) as Partial<Counters> | null;
       setLoading(false);
