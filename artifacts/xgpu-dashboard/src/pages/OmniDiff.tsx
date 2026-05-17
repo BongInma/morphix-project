@@ -601,6 +601,9 @@ export default function OmniDiff() {
                       <p className="text-center text-[10px] sm:text-[11px] font-mono text-white/60">
                         🔒 Non-Binding / Zero Hardware Allocation Commitment
                       </p>
+                      <p style={{ display: "block", marginTop: "0.75rem", fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.5)", textAlign: "center", fontStyle: "italic", lineHeight: "1.3" }}>
+                        🔒 Genesis Pool: First 15K qualified GPUs earn 90% in Year 1; then 85% lifetime. Yield decreases automatically after the first 15K.
+                      </p>
                     </>
                   )}
                 </div>
