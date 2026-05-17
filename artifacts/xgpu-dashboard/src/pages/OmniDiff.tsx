@@ -501,17 +501,17 @@ export default function OmniDiff() {
       </section>
 
       {/* Cards */}
-      <section id="cards" className="w-full flex justify-center px-4 sm:px-8 py-0 box-border" style={{ minHeight: "auto", marginTop: "0" }}>
-        <div className="w-full max-w-[1200px] py-0">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-start">
-            <div ref={renterRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-4 sm:p-5 md:p-6 flex flex-col scroll-mt-20">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col items-start">
+      <section id="cards" className="w-full flex justify-center overflow-x-clip px-4 sm:px-8 py-0 box-border" style={{ minHeight: "auto", marginTop: "0" }}>
+        <div className="w-full max-w-[1200px] py-0 overflow-x-clip">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-start min-w-0">
+            <div ref={renterRef} className="min-w-0 overflow-hidden rounded-2xl border border-[#1F2937] bg-[#0f1117] p-4 sm:p-5 md:p-6 flex flex-col scroll-mt-20">
+              <div className="flex min-w-0 flex-col gap-4">
+                <div className="flex min-w-0 flex-col items-start">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
                     <span className="text-[#10B981] text-[10px] tracking-[0.2em] uppercase font-mono">Enterprise Renters</span>
                   </div>
-                  <h2 className="text-xl sm:text-2xl font-bold mb-2">On-Demand High-Performance Compute (HPC) & AI Infrastructure.</h2>
+                  <h2 className="text-xl sm:text-2xl font-bold mb-2 break-words">On-Demand High-Performance Compute (HPC) & AI Infrastructure.</h2>
                   <p className="text-[#6B7280] text-sm leading-relaxed">
                     Bypass central power grid constraints and route your corporate workloads through localized,
                     high-performance Grade A Nodes right in your regional area of operation.
@@ -528,8 +528,8 @@ export default function OmniDiff() {
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
-                    <span>Institutional Founders Claimed</span>
-                    <span className="font-mono text-[#10B981]">{renterCounter.toLocaleString()} / 500</span>
+                    <span className="min-w-0">Institutional Founders Claimed</span>
+                    <span className="font-mono text-[#10B981] whitespace-nowrap">{renterCounter.toLocaleString()} / 500</span>
                   </div>
                   <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
                     <div
@@ -538,7 +538,7 @@ export default function OmniDiff() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col items-center gap-3">
+                <div className="flex min-w-0 flex-col items-center gap-3">
                   <p className="text-center text-[10px] sm:text-[11px] font-mono text-[#10B981]/70">
                     ⚡ First 500 organizations lock in a Guaranteed 15% Lifetime Discount on initial contracted capacities.
                   </p>
@@ -556,14 +556,14 @@ export default function OmniDiff() {
               </div>
             </div>
 
-            <div ref={providerRef} className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-4 sm:p-5 md:p-6 flex flex-col scroll-mt-20">
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-col items-start">
+            <div ref={providerRef} className="min-w-0 overflow-hidden rounded-2xl border border-[#1F2937] bg-[#0f1117] p-4 sm:p-5 md:p-6 flex flex-col scroll-mt-20">
+              <div className="flex min-w-0 flex-col gap-4">
+                <div className="flex min-w-0 flex-col items-start">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
                     <span className="text-[#3B82F6] text-[10px] tracking-[0.2em] uppercase font-mono">Hardware Providers</span>
                   </div>
-                  <h2 className="text-xl sm:text-2xl font-bold mb-2">Monetize Your Idle GPUs.<br />Offset Meralco Spikes.</h2>
+                  <h2 className="text-xl sm:text-2xl font-bold mb-2 break-words">Monetize Your Idle GPUs.<br />Offset Meralco Spikes.</h2>
                   <p className="text-[#6B7280] text-sm leading-relaxed">
                     Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield PHP revenues
                     that could underwrite your future GPU replacement costs.
@@ -580,8 +580,8 @@ export default function OmniDiff() {
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
-                    <span>Verified Regional GPUs Reserved</span>
-                    <span className="font-mono text-[#3B82F6]">{gpuCounter.toLocaleString()} / 15,000</span>
+                    <span className="min-w-0">Verified Regional GPUs Reserved</span>
+                    <span className="font-mono text-[#3B82F6] whitespace-nowrap">{gpuCounter.toLocaleString()} / 15,000</span>
                   </div>
                   <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
                     <div
@@ -590,7 +590,7 @@ export default function OmniDiff() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col items-center gap-3">
+                <div className="flex min-w-0 flex-col items-center gap-3">
                   {providerDone ? (
                     <SuccessCard type="provider" onClose={() => setProviderDone(false)} />
                   ) : (
