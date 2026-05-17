@@ -568,41 +568,6 @@ export default function OmniDiff() {
         </div>
       </section>
 
-      {vaultOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8" onClick={() => setVaultOpen(false)}>
-          <div className="absolute inset-0 bg-black/70 backdrop-blur-xl" />
-          <div
-            className="relative z-10 w-full max-w-5xl overflow-hidden rounded-3xl border border-[#1F2937] bg-[#0B0C0E]/95 shadow-[0_0_80px_rgba(0,0,0,0.65)]"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-start justify-between gap-4 border-b border-[#1F2937] px-6 py-5">
-              <div>
-                <p className="text-[#10B981] text-[10px] tracking-[0.2em] uppercase font-mono">Institutional Due Diligence & Compliance Vault</p>
-                <h2 className="text-2xl md:text-3xl font-bold mt-2">Compliance Vault</h2>
-              </div>
-              <button
-                onClick={() => setVaultOpen(false)}
-                className="h-10 w-10 rounded-full border border-[#1F2937] text-[#D1D5DB] hover:text-white hover:border-[#10B981] transition-colors"
-                aria-label="Close compliance vault"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="grid gap-4 md:grid-cols-3 p-6">
-              {VAULT_CARDS.map((card, index) => (
-                <div key={card.title} className="rounded-2xl border border-[#1F2937] bg-[#11131A] p-5 flex flex-col gap-4">
-                  <div>
-                    <h3 className="text-lg font-bold leading-snug">{card.title}</h3>
-                    <p className="text-xs uppercase tracking-[0.14em] text-[#6B7280] mt-2">{card.subtitle}</p>
-                  </div>
-                  <p className="text-sm text-[#D1D5DB] leading-6">{card.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
       <section id="calculator" className="w-full snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-center justify-center px-8 py-20 box-border">
         <div className="w-full max-w-[1200px] flex flex-col justify-center items-center px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-8 md:p-12">
