@@ -481,7 +481,9 @@ export default function OmniDiff() {
               <span style={{ color: "#10B981" }}>Redefined.</span>
             </h1>
             <p className="text-[#6B7280] text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed px-2">
-              OmniDiff bridges enterprise AI workloads with sovereign, localized GPU infrastructure. Zero-Trust Data Privacy. Zero latency. Zero lock-in. Powered by Morphix Systems Inc.
+              OmniDiff bridges enterprise AI workloads with sovereign, localized GPU infrastructure.
+              Zero-Trust Data Privacy. Zero latency. Zero lock-in.
+              Powered by Morphix Systems Inc.
             </p>
             <div className="flex flex-wrap justify-center gap-6 sm:gap-10 mt-8">
               <div className="flex flex-col items-center">
