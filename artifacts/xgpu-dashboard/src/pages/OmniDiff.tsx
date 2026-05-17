@@ -743,6 +743,13 @@ export default function OmniDiff() {
           </div>
         </div>
       )}
+      <section className="border-t border-[#1F2937] px-6 py-8">
+        <div className="max-w-7xl mx-auto">
+          <p className="text-center text-[#374151] text-xs font-mono">
+            © 2026 Morphix Systems Inc. — OmniDiff Platform. All expressions of interest are non-binding EOIs.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
