@@ -706,7 +706,7 @@ export default function OmniDiff() {
       </section>
 
       {/* Compliance / Footer */}
-      <section id="compliance" ref={complianceRef} className="border-t border-[#1F2937] snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-12" style={{ marginTop: "0" }}>
+      <section id="compliance" ref={complianceRef} className="border-t border-[#1F2937] snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-12" style={{ marginTop: "-3rem" }}>
         <div className="max-w-7xl mx-auto w-full">
           <div className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8">
             <div className="flex items-center gap-2 mb-4">
