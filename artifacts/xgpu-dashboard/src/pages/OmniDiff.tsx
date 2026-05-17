@@ -595,9 +595,7 @@ export default function OmniDiff() {
                     <h3 className="text-lg font-bold leading-snug">{card.title}</h3>
                     <p className="text-xs uppercase tracking-[0.14em] text-[#6B7280] mt-2">{card.subtitle}</p>
                   </div>
-                  <p className={`text-[11px] font-mono text-[#10B981] transition-opacity duration-300 ${vaultSuccess[index] ? "opacity-100" : "opacity-0"}`}>
-                    ✓ Secure Access Link Sent to Registered Corporate Email
-                  </p>
+                  <p className="text-sm text-[#D1D5DB] leading-6">{card.description}</p>
                 </div>
               ))}
             </div>
