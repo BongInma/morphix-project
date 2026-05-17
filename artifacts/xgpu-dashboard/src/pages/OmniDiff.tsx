@@ -282,7 +282,7 @@ function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { 
           email: fields.email,
           gpuModel: gpuModelsSelected.join(", "),
           gpuCount: Number.parseInt(fields.estimatedGpus, 10) || 1,
-          message: `${fields.entityName} | ${fields.address} | ${fields.idleWindow}`,
+          message: `${fields.entityName} | ${fields.idleWindow}`,
         }),
       });
       const data = (await r.json()) as Partial<Counters> | null;
