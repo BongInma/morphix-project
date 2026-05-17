@@ -52,17 +52,14 @@ const VAULT_CARDS = [
   {
     title: "🔒 Cryptographic Payloads & AES-256 Isolation Protocol",
     subtitle: "Technical Whitepaper v1.2",
-    action: "Preview Framework",
   },
   {
     title: "💼 Underwriting & SLA Liability Coverage Framework",
     subtitle: "Multi-Syndicate Placement Structure — Chubb, AIG, Lloyd's",
-    action: "Request Institutional Access",
   },
   {
     title: "📊 DeRiskFi Sovereign Architecture Blueprint",
     subtitle: "Decentralized Risk & Compute Scoring Engine Overview",
-    action: "Preview Framework",
   },
 ];
 
