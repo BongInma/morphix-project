@@ -15,6 +15,14 @@
       "company": "xxxxx",
       "message": "ceo | Computer Vision | 500 – 2,000 GPU-hrs",
       "timestamp": "2026-05-17T03:53:21.445Z"
+    },
+    {
+      "name": "ROBERTO TIANGCO MATA",
+      "fullName": "ROBERTO TIANGCO MATA",
+      "email": "RTMDUBAI2003@YAHOO.COM",
+      "company": "morphix",
+      "message": "ceo | LLM Inference | 500 – 2,000 GPU-hrs",
+      "timestamp": "2026-05-17T09:11:03.845Z"
     }
   ],
   "provider_leads": [
@@ -26,6 +34,15 @@
       "gpuCount": 50,
       "message": "meor | Grass Residences Tower 3 Unit 4054 | Flexible / Custom Schedule",
       "timestamp": "2026-05-17T03:46:27.524Z"
+    },
+    {
+      "name": "ROBERTO TIANGCO MATA",
+      "contactName": "ROBERTO TIANGCO MATA",
+      "email": "RTMDUBAI2003@YAHOO.COM",
+      "gpuModel": "NVIDIA A100",
+      "gpuCount": 50,
+      "message": "ccc | Grass Residences Tower 3 Unit 4054 | Flexible / Custom Schedule",
+      "timestamp": "2026-05-17T09:11:30.066Z"
     }
   ],
   "renterCounter": 438,
