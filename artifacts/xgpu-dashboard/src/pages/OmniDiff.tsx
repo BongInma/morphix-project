@@ -358,6 +358,8 @@ export default function OmniDiff() {
   const legacyMonthlyCost = legacyRate * monthlyHours;
   const omnidiffMonthlyCost = omnidiffRate * monthlyHours;
   const annualSavings = (legacyMonthlyCost - omnidiffMonthlyCost) * 12;
+  const renterCounter = counters?.renterCounter ?? 435;
+  const gpuCounter = counters?.gpuCounter ?? 12420;
 
   const refreshCounters = async () => {
     try {
@@ -431,12 +433,12 @@ export default function OmniDiff() {
             </p>
             <div className="flex flex-wrap justify-center gap-6 mt-6">
               <div className="flex flex-col items-center">
-                <span className="text-4xl font-bold font-mono text-[#10B981]">{counters.renterCounter.toLocaleString()}</span>
+                <span className="text-4xl font-bold font-mono text-[#10B981]">{renterCounter.toLocaleString()}</span>
                 <span className="text-[#4B5563] text-xs uppercase tracking-[0.15em] mt-1">Institutional Founders</span>
               </div>
               <div className="w-px bg-[#1F2937] hidden md:block" />
               <div className="flex flex-col items-center">
-                <span className="text-4xl font-bold font-mono text-[#3B82F6]">{counters.gpuCounter.toLocaleString()}</span>
+                <span className="text-4xl font-bold font-mono text-[#3B82F6]">{gpuCounter.toLocaleString()}</span>
                 <span className="text-[#4B5563] text-xs uppercase tracking-[0.15em] mt-1">Verified Regional GPUs</span>
               </div>
             </div>
@@ -473,7 +475,7 @@ export default function OmniDiff() {
                 <div className="rounded-xl border border-[#1F2937] p-3 md:p-4 bg-[#0B0C0E]">
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
                     <span>Institutional Founders Claimed</span>
-                    <span className="font-mono text-[#10B981]">{counters.renterCounter.toLocaleString()} / 500</span>
+                    <span className="font-mono text-[#10B981]">{renterCounter.toLocaleString()} / 500</span>
                   </div>
                   <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
                     <div
@@ -525,7 +527,7 @@ export default function OmniDiff() {
                 <div className="rounded-xl border border-[#1F2937] p-3 md:p-4 bg-[#0B0C0E]">
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
                     <span>Verified Regional GPUs Reserved</span>
-                    <span className="font-mono text-[#3B82F6]">{counters.gpuCounter.toLocaleString()} / 15,000</span>
+                    <span className="font-mono text-[#3B82F6]">{gpuCounter.toLocaleString()} / 15,000</span>
                   </div>
                   <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
                     <div
