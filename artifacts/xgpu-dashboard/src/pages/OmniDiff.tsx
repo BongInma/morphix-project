@@ -566,7 +566,7 @@ export default function OmniDiff() {
                   <h2 className="text-xl sm:text-2xl font-bold mb-2">Monetize Your Idle GPUs.<br />Offset Meralco Spikes.</h2>
                   <p className="text-[#6B7280] text-sm leading-relaxed">
                     Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield PHP revenues
-                    while completely underwriting your future fleet replacement costs.
+                    that could underwrite your future GPU replacement costs.
                   </p>
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
