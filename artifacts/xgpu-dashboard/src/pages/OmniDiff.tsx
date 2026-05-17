@@ -443,7 +443,7 @@ export default function OmniDiff() {
       </section>
 
       {/* Cards */}
-      <section id="cards" className="w-full flex justify-center px-8 py-0 box-border" style={{ minHeight: "auto", marginTop: "-2rem" }}>
+      <section id="cards" className="w-full flex justify-center px-8 py-0 box-border" style={{ minHeight: "auto", marginTop: "0" }}>
         <div className="w-full max-w-[1200px] py-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch self-center">
             <div ref={renterRef} className="h-full rounded-2xl border border-[#1F2937] bg-[#0f1117] p-5 md:p-6 flex flex-col scroll-mt-20">
