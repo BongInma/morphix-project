@@ -30,6 +30,10 @@ function formatMoney(value: number) {
   return Math.round(value).toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
 }
 
+function formatRate(value: number) {
+  return value.toLocaleString("en-US", { style: "currency", currency: "USD", minimumFractionDigits: 1, maximumFractionDigits: 1 });
+}
+
 const NETWORK_METRICS = [
   "Global Average Latency: 14.2ms",
   "Active Network Uptime: 99.998%",
@@ -672,11 +676,11 @@ export default function OmniDiff() {
                   <div className="grid grid-cols-2 gap-3 sm:gap-4">
                     <div className="rounded-2xl border border-[#374151] bg-[#11131A] p-3 sm:p-4">
                       <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] text-[#94A3B8] mb-2">Legacy Rate</p>
-                      <p className="text-xl sm:text-2xl font-bold font-mono text-white">{formatMoney(legacyRate)}/hr</p>
+                      <p className="text-xl sm:text-2xl font-bold font-mono text-white truncate">{formatRate(legacyRate)}/hr</p>
                     </div>
                     <div className="rounded-2xl border border-[#10B981]/40 bg-[#07130F] p-3 sm:p-4">
                       <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] text-[#10B981] mb-2">OmniDiff Rate</p>
-                      <p className="text-xl sm:text-2xl font-bold font-mono text-[#10B981]">{formatMoney(omnidiffRate)}/hr</p>
+                      <p className="text-xl sm:text-2xl font-bold font-mono text-[#10B981] truncate">{formatRate(omnidiffRate)}/hr</p>
                     </div>
                   </div>
 
