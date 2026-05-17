@@ -595,12 +595,6 @@ export default function OmniDiff() {
                     <h3 className="text-lg font-bold leading-snug">{card.title}</h3>
                     <p className="text-xs uppercase tracking-[0.14em] text-[#6B7280] mt-2">{card.subtitle}</p>
                   </div>
-                  <button
-                    onClick={() => handleVaultAction(index)}
-                    className="mt-auto rounded-lg border border-[#10B981] px-4 py-3 text-xs font-bold uppercase tracking-[0.12em] text-[#10B981] hover:bg-[#10B981]/10 transition-colors"
-                  >
-                    {card.action}
-                  </button>
                   <p className={`text-[11px] font-mono text-[#10B981] transition-opacity duration-300 ${vaultSuccess[index] ? "opacity-100" : "opacity-0"}`}>
                     ✓ Secure Access Link Sent to Registered Corporate Email
                   </p>
