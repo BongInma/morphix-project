@@ -540,7 +540,7 @@ export default function OmniDiff() {
                 </div>
                 <div className="flex flex-col items-center gap-3">
                   <p className="text-center text-[10px] sm:text-[11px] font-mono text-[#10B981]/70">
-                    ⚡ First 500 organizations lock in a Guaranteed 15% Lifetime Discount on baseline contract capacities.
+                    ⚡ First 500 organizations lock in a Guaranteed 15% Lifetime Discount on initial contracted capacities.
                   </p>
                   {renterDone ? (
                     <SuccessCard type="renter" onClose={() => setRenterDone(false)} />
