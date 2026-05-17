@@ -48,21 +48,6 @@ const LEDGER_LOGS = [
   "🔒 Task #84922: LLM Inference Patch ... Completed (Saved 61% vs Google Cloud)",
 ];
 
-const VAULT_CARDS = [
-  {
-    title: "🔒 Cryptographic Payloads & AES-256 Isolation Protocol",
-    subtitle: "Technical Whitepaper v1.2",
-  },
-  {
-    title: "💼 Underwriting & SLA Liability Coverage Framework",
-    subtitle: "Multi-Syndicate Placement Structure — Chubb, AIG, Lloyd's",
-  },
-  {
-    title: "📊 DeRiskFi Sovereign Architecture Blueprint",
-    subtitle: "Decentralized Risk & Compute Scoring Engine Overview",
-  },
-];
-
 function validateEmail(v: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 }
