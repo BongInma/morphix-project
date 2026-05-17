@@ -322,7 +322,7 @@ function ProviderForm({ onSuccess }: { onSuccess: (counters: Counters) => void }
         disabled={loading}
         className="w-full py-3.5 rounded-lg text-sm font-bold tracking-[0.12em] uppercase bg-[#3B82F6] text-white hover:bg-[#2563EB] transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_36px_rgba(59,130,246,0.55)] disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {loading ? "Submitting..." : "REGISTER HARDWARE CAPACITY"}
+        {loading ? "Submitting..." : "REGISTER PROVIDER INTEREST"}
       </button>
     </form>
   );
