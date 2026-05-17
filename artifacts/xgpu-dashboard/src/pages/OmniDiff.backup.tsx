@@ -314,6 +314,7 @@ function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { 
   return (
     <form onSubmit={submit} className="grid gap-4 w-full">
       {fld("entityName", "Company / Franchise Entity Name")}
+-      {fld("address", "Primary Infrastructure Address")}
       {fld("contactName", "Contact Person Name")}
       {fld("email", "Corporate Email", "email")}
       <select
@@ -527,8 +528,8 @@ export default function OmniDiff() {
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
-                    <span className="min-w-0">Institutional Founders Claimed</span>
-                    <span className="font-mono text-[#10B981] whitespace-nowrap">{renterCounter.toLocaleString()} / 500</span>
+                    <span>Institutional Founders Claimed</span>
+                    <span className="font-mono text-[#10B981]">{renterCounter.toLocaleString()} / 500</span>
                   </div>
                   <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
                     <div
@@ -580,8 +581,8 @@ export default function OmniDiff() {
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
-                    <span className="min-w-0">Verified Regional GPUs Reserved</span>
-                    <span className="font-mono text-[#3B82F6] whitespace-nowrap">{gpuCounter.toLocaleString()} / 15,000</span>
+                    <span>Verified Regional GPUs Reserved</span>
+                    <span className="font-mono text-[#3B82F6]">{gpuCounter.toLocaleString()} / 15,000</span>
                   </div>
                   <div className="mt-3 h-2 rounded-full bg-[#1F2937] overflow-hidden">
                     <div
@@ -766,7 +767,6 @@ export default function OmniDiff() {
         </div>
       </section>
 
-      {/* Compliance Vault Modal */}
       {vaultOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center px-3 sm:px-4 py-6 sm:py-8" onClick={() => setVaultOpen(false)}>
           <div className="absolute inset-0 bg-black/70 backdrop-blur-xl" />
@@ -806,7 +806,6 @@ export default function OmniDiff() {
         </div>
       )}
 
-      {/* Footer */}
       <section className="border-t border-[#1F2937] px-4 sm:px-6 py-8">
         <div className="max-w-7xl mx-auto">
           <p className="text-center text-[#6B7280] text-xs font-mono">
