@@ -210,7 +210,7 @@ function RenterForm({ onSuccess }: { onSuccess: (counters: Counters) => void }) 
   );
 }
 
-function ProviderForm({ onSuccess }: { onSuccess: (counters: Counters) => void }) {
+function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { onSuccess: (counters: Counters) => void; ctaLabel?: string }) {
   const gpuModels = ["NVIDIA A100", "NVIDIA H100", "NVIDIA RTX 4090", "NVIDIA RTX 3090", "AMD MI300X", "Other"];
   const [fields, setFields] = useState({ entityName: "", address: "", contactName: "", email: "", estimatedGpus: "", idleWindow: "" });
   const [gpuModelsSelected, setGpuModelsSelected] = useState<string[]>([]);
@@ -322,7 +322,7 @@ function ProviderForm({ onSuccess }: { onSuccess: (counters: Counters) => void }
         disabled={loading}
         className="w-full py-3.5 rounded-lg text-sm font-bold tracking-[0.12em] uppercase bg-[#3B82F6] text-white hover:bg-[#2563EB] transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_36px_rgba(59,130,246,0.55)] disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {loading ? "Submitting..." : "REGISTER PROVIDER INTEREST"}
+        {loading ? "Submitting..." : ctaLabel}
       </button>
     </form>
   );
@@ -555,7 +555,7 @@ export default function OmniDiff() {
                     <SuccessCard type="provider" onClose={() => setProviderDone(false)} />
                   ) : (
                     <>
-                      <ProviderForm onSuccess={onProviderSuccess} />
+                      <ProviderForm onSuccess={onProviderSuccess} ctaLabel="REGISTER PROVIDER INTEREST" />
                       <p className="text-center text-[10px] md:text-[11px] font-mono text-white/60">
                         🔒 Non-Binding / Zero Hardware Allocation Commitment
                       </p>
