@@ -132,9 +132,12 @@ function RenterForm({ onSuccess }: { onSuccess: (counters: Counters) => void }) 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(fields),
       });
-      const data = await r.json();
+      const data = (await r.json()) as Partial<Counters> | null;
       setLoading(false);
-      onSuccess(data);
+      onSuccess({
+        renterCounter: typeof data?.renterCounter === "number" ? data.renterCounter : 435,
+        gpuCounter: typeof data?.gpuCounter === "number" ? data.gpuCounter : 12420,
+      });
     } catch {
       setLoading(false);
     }
@@ -237,9 +240,12 @@ function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...fields, gpuModels: gpuModelsSelected }),
       });
-      const data = await r.json();
+      const data = (await r.json()) as Partial<Counters> | null;
       setLoading(false);
-      onSuccess(data);
+      onSuccess({
+        renterCounter: typeof data?.renterCounter === "number" ? data.renterCounter : 435,
+        gpuCounter: typeof data?.gpuCounter === "number" ? data.gpuCounter : 12420,
+      });
     } catch {
       setLoading(false);
     }
