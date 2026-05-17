@@ -427,7 +427,7 @@ export default function OmniDiff() {
               OmniDiff bridges enterprise AI workloads with sovereign, localized GPU infrastructure.
               Zero latency. Zero lock-in. Powered by Morphix Systems Inc.
             </p>
-            <div className="flex flex-wrap justify-center gap-6 mt-6">
+            <div className="flex flex-wrap justify-center gap-6 mt-6 mb-8">
               <div className="flex flex-col items-center">
                 <span className="text-4xl font-bold font-mono text-[#10B981]">{counters.renterCounter.toLocaleString()}</span>
                 <span className="text-[#4B5563] text-xs uppercase tracking-[0.15em] mt-1">Institutional Founders</span>
