@@ -429,7 +429,7 @@ export default function OmniDiff() {
   };
 
   return (
-    <div className="min-h-screen overflow-y-auto scroll-smooth snap-y snap-mandatory text-white" style={{ backgroundColor: "#0B0C0E", fontFamily: "'Inter', sans-serif", scrollPaddingTop: "4rem" }}>
+    <div className="min-h-screen overflow-y-auto scroll-smooth text-white" style={{ backgroundColor: "#0B0C0E", fontFamily: "'Inter', sans-serif", scrollPaddingTop: "4rem" }}>
       <SectionHeader scrollTo={scrollTo} />
 
       {/* Hero */}
