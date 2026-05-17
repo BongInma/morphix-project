@@ -133,6 +133,7 @@ function RenterForm({ onSuccess }: { onSuccess: (counters: Counters) => void }) 
         body: JSON.stringify(fields),
       });
       const data = await r.json();
+      setLoading(false);
       onSuccess(data);
     } catch {
       setLoading(false);
@@ -237,6 +238,7 @@ function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { 
         body: JSON.stringify({ ...fields, gpuModels: gpuModelsSelected }),
       });
       const data = await r.json();
+      setLoading(false);
       onSuccess(data);
     } catch {
       setLoading(false);
