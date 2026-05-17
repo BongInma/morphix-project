@@ -394,7 +394,7 @@ export default function OmniDiff() {
   const [counters, setCounters] = useState<Counters>({ renterCounter: 435, gpuCounter: 12420 });
   const [renterDone, setRenterDone] = useState(false);
   const [providerDone, setProviderDone] = useState(false);
-  const [hardwareTier, setHardwareTier] = useState<HardwareTier>("NVIDIA H100 Cluster");
+  const [hardwareTier, setHardwareTier] = useState<HardwareTier>("NVIDIA A100 Cluster");
   const [monthlyHours, setMonthlyHours] = useState(1200);
   const [nodeTick, setNodeTick] = useState(0);
   const [ledgerTick, setLedgerTick] = useState(0);
@@ -469,7 +469,7 @@ export default function OmniDiff() {
       <SectionHeader scrollTo={scrollTo} />
 
       {/* Hero */}
-      <section id="hero" className="w-full scroll-mt-16 min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 sm:px-8 py-14 sm:py-20 box-border">
+      <section id="hero" className="w-full scroll-mt-16 min-h-[calc(100vh-4rem)] flex items-center justify-center px-4 sm:px-8 py-10 sm:py-20 box-border">
         <div className="w-full max-w-[1200px] flex flex-col justify-center items-center px-0">
           <div className="text-center w-full">
             <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full border border-[#1F2937] bg-[#10B981]/5 mb-5">
@@ -502,7 +502,7 @@ export default function OmniDiff() {
       {/* Cards */}
       <section id="cards" className="w-full flex justify-center overflow-x-clip px-4 sm:px-8 py-0 box-border" style={{ minHeight: "auto", marginTop: "0" }}>
         <div className="w-full max-w-[1200px] py-0 overflow-x-clip">
-          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-start min-w-0">
+          <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 items-start min-w-0">
             <div ref={renterRef} className="min-w-0 overflow-hidden rounded-2xl border border-[#1F2937] bg-[#0f1117] p-4 sm:p-5 md:p-6 flex flex-col scroll-mt-20">
               <div className="flex min-w-0 flex-col gap-4">
                 <div className="flex min-w-0 flex-col items-start">
@@ -612,18 +612,18 @@ export default function OmniDiff() {
 
       {/* Calculator */}
       <div className="w-full" style={{ breakBefore: "page", pageBreakBefore: "always", height: "2rem" }} />
-      <section id="calculator" className="w-full clear-both scroll-mt-16 flex items-start justify-center px-4 sm:px-8 py-10 box-border">
+      <section id="calculator" className="w-full clear-both scroll-mt-16 flex items-start justify-center px-4 sm:px-8 py-8 sm:py-10 box-border">
         <div className="w-full max-w-[1200px] flex flex-col justify-center items-center px-0">
-          <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-5 sm:p-8 md:p-12">
+          <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-4 sm:p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
-              <p className="text-[#10B981] text-[10px] uppercase tracking-[0.2em] font-mono">Institutional Arbitrage Calculator</p>
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Compute Arbitrage Calculator</h2>
+              <p className="text-[#10B981] text-[9px] sm:text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.2em] font-mono">Institutional Arbitrage Calculator</p>
+              <h2 className="text-lg sm:text-2xl md:text-3xl font-bold">Compute Arbitrage Calculator</h2>
             </div>
 
             <div className="flex justify-center w-full">
-              <div className="w-full max-w-[1120px] grid lg:grid-cols-[1.1fr_1.4fr] gap-6 mx-auto">
-                <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-4 sm:p-5 md:p-6">
-                  <div className="grid gap-5">
+              <div className="w-full max-w-[1120px] grid lg:grid-cols-[1.1fr_1.4fr] gap-4 sm:gap-6 mx-auto">
+                <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-3 sm:p-5 md:p-6">
+                  <div className="grid gap-4 sm:gap-5">
                     <div className="grid gap-2">
                       <label className="text-xs uppercase tracking-[0.12em] text-[#6B7280]">Hardware Tier</label>
                       <select
@@ -640,7 +640,7 @@ export default function OmniDiff() {
                       </select>
                     </div>
 
-                    <div className="grid gap-3">
+                    <div className="grid gap-2 sm:gap-3">
                       <div className="flex items-center justify-between gap-2 flex-wrap">
                         <label className="text-xs uppercase tracking-[0.12em] text-[#6B7280]">Monthly Operational Hours</label>
                         <span className="font-mono text-sm text-white">{monthlyHours.toLocaleString()} hrs</span>
@@ -660,23 +660,23 @@ export default function OmniDiff() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
-                      <div className="rounded-2xl border border-[#374151] bg-[#11131A] p-3 sm:p-4">
+                    <div className="grid grid-cols-2 gap-2 sm:gap-4">
+                      <div className="rounded-2xl border border-[#374151] bg-[#11131A] p-2.5 sm:p-4">
                         <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] text-[#94A3B8] mb-2">Legacy Cloud Cost</p>
                         <p className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-[#E5E7EB]">{formatMoney(legacyMonthlyCost)}</p>
-                        <p className="text-xs text-[#6B7280] mt-2 hidden sm:block">AWS / Azure baseline monthly</p>
+                        <p className="text-[11px] text-[#6B7280] mt-1.5 hidden sm:block">AWS / Azure baseline monthly</p>
                       </div>
-                      <div className="rounded-2xl border border-[#10B981]/40 bg-[#07130F] p-3 sm:p-4">
+                      <div className="rounded-2xl border border-[#10B981]/40 bg-[#07130F] p-2.5 sm:p-4">
                         <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] text-[#10B981] mb-2">OmniDiff Cost</p>
                         <p className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-[#10B981]">{formatMoney(omnidiffMonthlyCost)}</p>
-                        <p className="text-xs text-[#6B7280] mt-2 hidden sm:block">40%-60% below legacy rates</p>
+                        <p className="text-[11px] text-[#6B7280] mt-1.5 hidden sm:block">40%-60% below legacy rates</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-4 sm:p-5 md:p-6 flex flex-col justify-between gap-5">
-                  <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="rounded-2xl border border-[#1F2937] bg-[#0B0C0E] p-3 sm:p-5 md:p-6 flex flex-col justify-between gap-4 sm:gap-5">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-4">
                     <div className="rounded-2xl border border-[#374151] bg-[#11131A] p-3 sm:p-4">
                       <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] text-[#94A3B8] mb-2">Legacy Rate</p>
                       <p className="text-xl sm:text-2xl font-bold font-mono text-white truncate">{formatRate(legacyRate)}/hr</p>
@@ -687,13 +687,13 @@ export default function OmniDiff() {
                     </div>
                   </div>
 
-                  <div className="rounded-2xl border border-[#1F2937] bg-[#0F1117] p-4 sm:p-5">
-                    <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280] mb-3">
+                  <div className="rounded-2xl border border-[#1F2937] bg-[#0F1117] p-3 sm:p-5">
+                    <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280] mb-2.5">
                       <span>Annual Capital Saved</span>
                       <span className="font-mono text-[#10B981]">Real-time</span>
                     </div>
                     <div className="text-center">
-                      <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-[#6B7280] mb-2">Estimated Annual Corporate Capital Saved</p>
+                      <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.16em] text-[#6B7280] mb-1.5">Estimated Annual Corporate Capital Saved</p>
                       <p className="text-3xl sm:text-4xl md:text-5xl font-bold font-mono text-[#10B981]">{formatMoney(annualSavings)}</p>
                     </div>
                   </div>
