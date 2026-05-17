@@ -705,39 +705,44 @@ export default function OmniDiff() {
         </div>
       </section>
 
-      {/* Compliance / Footer */}
-      <section id="compliance" ref={complianceRef} className="border-t border-[#1F2937] snap-start scroll-mt-24 min-h-[calc(100vh-4rem)] flex items-center justify-center px-6 py-12" style={{ marginTop: "-3rem" }}>
-        <div className="max-w-7xl mx-auto w-full">
-          <div className="rounded-2xl border border-[#1F2937] bg-[#0f1117] p-8">
-            <div className="flex items-center gap-2 mb-4">
-              <span className="text-[#10B981] text-[10px] tracking-[0.2em] uppercase font-mono">Sovereign Compliance</span>
+      {vaultOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8" onClick={() => setVaultOpen(false)}>
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-xl" />
+          <div
+            className="relative z-10 w-full max-w-5xl overflow-hidden rounded-3xl border border-[#1F2937] bg-[#0B0C0E]/95 shadow-[0_0_80px_rgba(0,0,0,0.65)]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4 border-b border-[#1F2937] px-6 py-5">
+              <div>
+                <p className="text-[#10B981] text-[10px] tracking-[0.2em] uppercase font-mono">Institutional Due Diligence & Compliance Vault</p>
+                <h2 className="text-2xl md:text-3xl font-bold mt-2">Compliance Vault</h2>
+              </div>
+              <button
+                onClick={() => setVaultOpen(false)}
+                className="h-10 w-10 rounded-full border border-[#1F2937] text-[#D1D5DB] hover:text-white hover:border-[#10B981] transition-colors"
+                aria-label="Close compliance vault"
+              >
+                ✕
+              </button>
             </div>
-            <h3 className="text-xl font-bold mb-3">Trusted Execution. Hardware-Level Privacy.</h3>
-            <p className="text-[#6B7280] text-sm leading-relaxed max-w-2xl">
-              OmniDiff operates within Trusted Execution Environments (TEE) that create a hardware-level sandbox.
-              The network only sees encrypted task payloads — it is architecturally impossible for a renter
-              to access a provider's local drives, personal data, or infrastructure configuration.
-              All submissions are governed by Morphix Systems Inc. enterprise data handling protocols.
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+            <div className="grid gap-4 md:grid-cols-3 p-6">
               {[
-                { label: "Data Encryption", value: "AES-256-GCM" },
-                { label: "Attestation", value: "TEE Verified" },
-                { label: "Egress Policy", value: "Zero Cost" },
-                { label: "Uptime SLA", value: "99.95%" },
-              ].map(({ label, value }) => (
-                <div key={label} className="border border-[#1F2937] rounded-xl p-4 text-center">
-                  <p className="text-[#10B981] font-mono font-bold text-sm">{value}</p>
-                  <p className="text-[#4B5563] text-[10px] uppercase tracking-[0.1em] mt-1">{label}</p>
+                { title: "🔒 Cryptographic Payloads & AES-256 Isolation Protocol", subtitle: "Technical Whitepaper v1.2", body: "Encrypted task payloads are isolated from provider hardware with zero-access controls and attested execution boundaries." },
+                { title: "💼 Underwriting & SLA Liability Coverage Framework", subtitle: "Multi-Syndicate Placement Structure — Chubb, AIG, Lloyd's", body: "Coverage structures and operational safeguards are designed for enterprise procurement review without changing page flow." },
+                { title: "📊 DeRiskFi Sovereign Architecture Blueprint", subtitle: "Decentralized Risk & Compute Scoring Engine Overview", body: "Architecture, risk scoring, and compliance notes are presented in a modal so the landing sections stay stable." },
+              ].map((card) => (
+                <div key={card.title} className="rounded-2xl border border-[#1F2937] bg-[#11131A] p-5 flex flex-col gap-4">
+                  <div>
+                    <h3 className="text-lg font-bold leading-snug">{card.title}</h3>
+                    <p className="text-xs uppercase tracking-[0.14em] text-[#6B7280] mt-2">{card.subtitle}</p>
+                  </div>
+                  <p className="text-sm text-[#D1D5DB] leading-6">{card.body}</p>
                 </div>
               ))}
             </div>
           </div>
-          <p className="text-center text-[#374151] text-xs mt-8 font-mono">
-            © 2026 Morphix Systems Inc. — OmniDiff Platform. All expressions of interest are non-binding EOIs.
-          </p>
         </div>
-      </section>
+      )}
     </div>
   );
 }
