@@ -461,11 +461,11 @@ export default function OmniDiff() {
       </section>
 
       {/* Cards */}
-      <section id="cards" className="w-full flex justify-center px-8 py-0 box-border" style={{ minHeight: "auto", paddingTop: "1.5rem" }}>
+      <section id="cards" className="w-full flex justify-center px-8 py-0 box-border" style={{ minHeight: "auto" }}>
         <div className="w-full max-w-[1200px] py-0">
           <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch self-center">
-            <div ref={renterRef} className="h-full rounded-2xl border border-[#1F2937] bg-[#0f1117] p-6 flex flex-col scroll-mt-20">
-              <div className="grid grid-rows-[auto_1fr_auto_auto] gap-4 md:gap-5 self-stretch">
+            <div ref={renterRef} className="h-full rounded-2xl border border-[#1F2937] bg-[#0f1117] p-5 md:p-6 flex flex-col scroll-mt-20">
+              <div className="grid grid-rows-[auto_1fr_auto_auto] gap-3 md:gap-4 self-stretch">
                 <div className="flex flex-col items-start">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="w-2 h-2 rounded-full bg-[#10B981] animate-pulse" />
@@ -478,7 +478,7 @@ export default function OmniDiff() {
                   </p>
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
-                  <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
+                  <ul className="space-y-2 text-sm leading-5 text-[#D1D5DB]">
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand local GPU processing at a 40%–60% cost reduction compared to legacy AWS, Microsoft Azure, and Google Cloud pricing models.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>Plug-and-play architecture optimized for AI Inference/Training, Financial Backtesting, Risk Simulations, and Heavy Data Pipelines.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>On-demand deployment with no corporate procurement bureaucracy or restrictive multi-year contracts.</span></li>
@@ -486,7 +486,7 @@ export default function OmniDiff() {
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
                   </ul>
                 </div>
-                <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
+                <div className="rounded-xl border border-[#1F2937] p-3 md:p-4 bg-[#0B0C0E]">
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
                     <span>Institutional Founders Claimed</span>
                     <span className="font-mono text-[#10B981]">{counters.renterCounter.toLocaleString()} / 500</span>
@@ -498,8 +498,8 @@ export default function OmniDiff() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col items-center gap-3">
-                  <p className="text-center text-[11px] font-mono text-[#10B981]/70">
+                <div className="flex flex-col items-center gap-2">
+                  <p className="text-center text-[10px] md:text-[11px] font-mono text-[#10B981]/70">
                     ⚡ First 500 organizations lock in a Guaranteed 15% Lifetime Discount on baseline contract capacities.
                   </p>
                   {renterDone ? (
@@ -507,7 +507,7 @@ export default function OmniDiff() {
                   ) : (
                     <>
                       <RenterForm onSuccess={onRenterSuccess} />
-                      <p className="text-center text-[11px] font-mono text-white/60">
+                      <p className="text-center text-[10px] md:text-[11px] font-mono text-white/60">
                         🔒 Non-Binding / Zero Financial Commitment
                       </p>
                     </>
@@ -516,8 +516,8 @@ export default function OmniDiff() {
               </div>
             </div>
 
-            <div ref={providerRef} className="h-full rounded-2xl border border-[#1F2937] bg-[#0f1117] p-6 flex flex-col scroll-mt-20">
-              <div className="grid grid-rows-[auto_1fr_auto_auto] gap-4 md:gap-5 self-stretch">
+            <div ref={providerRef} className="h-full rounded-2xl border border-[#1F2937] bg-[#0f1117] p-5 md:p-6 flex flex-col scroll-mt-20">
+              <div className="grid grid-rows-[auto_1fr_auto_auto] gap-3 md:gap-4 self-stretch">
                 <div className="flex flex-col items-start">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
@@ -530,7 +530,7 @@ export default function OmniDiff() {
                   </p>
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
-                  <ul className="space-y-3 text-sm leading-6 text-[#D1D5DB]">
+                  <ul className="space-y-2 text-sm leading-5 text-[#D1D5DB]">
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Monetize idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Complete flexibility: Monetize night-time idle windows (12 AM–8 AM) to offset local Meralco spikes, or dedicate clusters 24/7 for maximum revenue yield.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Lock in an elite 90% gross payout split for your first 12 months of deployment before resetting to our standard 80% tier.</span></li>
@@ -538,7 +538,7 @@ export default function OmniDiff() {
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
                   </ul>
                 </div>
-                <div className="rounded-xl border border-[#1F2937] p-4 bg-[#0B0C0E]">
+                <div className="rounded-xl border border-[#1F2937] p-3 md:p-4 bg-[#0B0C0E]">
                   <div className="flex items-center justify-between text-xs uppercase tracking-[0.12em] text-[#6B7280]">
                     <span>Verified Regional GPUs Reserved</span>
                     <span className="font-mono text-[#3B82F6]">{counters.gpuCounter.toLocaleString()} / 15,000</span>
@@ -550,13 +550,13 @@ export default function OmniDiff() {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col items-center gap-3">
+                <div className="flex flex-col items-center gap-2">
                   {providerDone ? (
                     <SuccessCard type="provider" onClose={() => setProviderDone(false)} />
                   ) : (
                     <>
                       <ProviderForm onSuccess={onProviderSuccess} />
-                      <p className="text-center text-[11px] font-mono text-white/60">
+                      <p className="text-center text-[10px] md:text-[11px] font-mono text-white/60">
                         🔒 Non-Binding / Zero Hardware Allocation Commitment
                       </p>
                     </>
