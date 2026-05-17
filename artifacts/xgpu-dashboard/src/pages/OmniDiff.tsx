@@ -611,7 +611,8 @@ export default function OmniDiff() {
       </section>
 
       {/* Calculator */}
-      <section id="calculator" className="w-full clear-both scroll-mt-16 flex items-start justify-center px-4 sm:px-8 py-10 box-border" style={{ marginTop: "4rem" }}>
+      <div className="w-full" style={{ breakBefore: "page", pageBreakBefore: "always", height: "2rem" }} />
+      <section id="calculator" className="w-full clear-both scroll-mt-16 flex items-start justify-center px-4 sm:px-8 py-10 box-border">
         <div className="w-full max-w-[1200px] flex flex-col justify-center items-center px-0">
           <div className="w-full rounded-3xl border border-[#1F2937] bg-[#0f1117]/90 backdrop-blur-xl p-5 sm:p-8 md:p-12">
             <div className="flex flex-col gap-2 mb-6 text-center">
