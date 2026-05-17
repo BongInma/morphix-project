@@ -542,6 +542,8 @@ export default function OmniDiff() {
                     ⚡ First 500 organizations lock in a Guaranteed 15% Lifetime Discount on initial contracted capacities.
                   </p>
                   <span className="block h-2 sm:h-3" />
+                  <span className="block h-2 sm:h-3" />
+                  <span className="block h-2 sm:h-3" />
                   {renterDone ? (
                     <SuccessCard type="renter" onClose={() => setRenterDone(false)} />
                   ) : (
