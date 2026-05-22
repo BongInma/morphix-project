@@ -237,14 +237,13 @@ function RenterForm({ onSuccess }: { onSuccess: (counters: Counters) => void }) 
 
 function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { onSuccess: (counters: Counters) => void; ctaLabel?: string }) {
   const gpuModels = ["NVIDIA A100", "NVIDIA H100", "NVIDIA RTX 4090", "NVIDIA RTX 3090", "AMD MI300X", "Other"];
-  const [fields, setFields] = useState({ entityName: "", address: "", contactName: "", email: "", estimatedGpus: "", idleWindow: "" });
+  const [fields, setFields] = useState({ entityName: "", contactName: "", email: "", estimatedGpus: "", idleWindow: "" });
   const [gpuModelsSelected, setGpuModelsSelected] = useState<string[]>([]);
   const [fs, setFs] = useState<Record<string, FieldState>>({});
   const [loading, setLoading] = useState(false);
 
   const rules: Record<string, (v: string) => boolean> = {
     entityName: (v) => v.trim().length > 1,
-    address: (v) => v.trim().length > 5,
     contactName: (v) => v.trim().length > 1,
     email: validateEmail,
     estimatedGpus: (v) => v !== "",
