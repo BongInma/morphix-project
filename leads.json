@@ -84,6 +84,15 @@
       "gpuCount": 100,
       "message": "Morphix | Grass Residences Tower 3 Unit 4054 | Flexible / Custom Schedule",
       "timestamp": "2026-05-17T09:24:03.301Z"
+    },
+    {
+      "name": "ROBERTO TIANGCO MATA",
+      "contactName": "ROBERTO TIANGCO MATA",
+      "email": "rtmata@zohomail.com",
+      "gpuModel": "NVIDIA A100, NVIDIA RTX 4090",
+      "gpuCount": 50,
+      "message": "morphix | Dedicated 24/7 Allocation",
+      "timestamp": "2026-05-22T13:45:14.537Z"
     }
   ],
   "renterCounter": 438,
