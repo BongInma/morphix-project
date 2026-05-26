@@ -575,7 +575,6 @@ export default function OmniDiff() {
                   <ul className="space-y-3 text-sm leading-5 text-[#D1D5DB]">
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Monetize Global Nighttime Idle Windows: Automatically lease out your hardware's idle/off-peak hours to offset your local Meralco electricity bills and generate predictable PHP revenue streams.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Absolute Operational Flexibility: Choose to dedicate your enterprise clusters 24/7 to capture maximum network yields or monetize specific off-peak windows.</span></li>
-                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>First 15K Nodes: 90% Payout share in the first year then 85% lifetime share thereafter. After priority 15K nodes, 80% Payout share.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your GPU clusters against workload-induced operational risks.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
                   </ul>
@@ -592,6 +591,9 @@ export default function OmniDiff() {
                     />
                   </div>
                 </div>
+                <p className="text-center text-[10px] sm:text-[11px] font-mono text-[#3B82F6]/70">
+                  ⚡ First 15K Nodes: 90% Payout share in the first year then 85% lifetime share thereafter. After priority 15K nodes, 80% Payout share.
+                </p>
                 <div className="flex min-w-0 flex-col items-center gap-3">
                   {providerDone ? (
                     <SuccessCard type="provider" onClose={() => setProviderDone(false)} />
