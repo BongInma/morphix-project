@@ -1,0 +1,67 @@
+Please locate our entire Core Pillars grid component wrapper on the landing page layout. The card text has become too long and is disrupting our row balance. Let's refactor the entire section into a balanced 5-Pillar layout using a combined grid configuration (a 3-column top row followed by a balanced 2-column bottom row for the final blocks).
+
+Replace the old core pillars HTML wrapper section entirely with this updated, uncropped Tailwind CSS code structure:
+
+<!-- PILLAR 1: SECURITY -->
+<div class="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
+  <div class="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
+    Pillar 1
+  </div>
+  <h3 class="text-base font-bold text-white tracking-wide uppercase">
+    Ironclad Zero-Trust Security
+  </h3>
+  <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+    Workloads and proprietary model weights are isolated strictly inside hardware-encrypted Trusted Execution Environments (TEEs) using NVIDIA Confidential Computing, guaranteeing total confidentiality from host infrastructure exposure.
+  </p>
+</div>
+
+<!-- PILLAR 2: RESILIENCY & WIPING -->
+<div class="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
+  <div class="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
+    Pillar 2
+  </div>
+  <h3 class="text-base font-bold text-white tracking-wide uppercase">
+    Triad Redundancy & Active Erase
+  </h3>
+  <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+    Tasks execute across synchronized, parallel triple-node triads to prevent data loss during sudden power outages. Upon workload completion or eviction, an automated hardware sequence immediately wipes all residual data footprints from host RAM.
+  </p>
+</div>
+
+<!-- PILLAR 3: LATENCY -->
+<div class="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
+  <div class="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
+    Pillar 3
+  </div>
+  <h3 class="text-base font-bold text-white tracking-wide uppercase">
+    Ultra-Low Sub-50ms Latency
+  </h3>
+  <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+    Localized regional Grade A node routing leverages proprietary delta-sync telemetry and differential data (diff) processing, transmitting only active workload variations to eliminate geographical transit legs.
+  </p>
+</div>
+<!-- PILLAR 4: SOVEREIGNTY -->
+<div class="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
+  <div class="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
+    Pillar 4
+  </div>
+  <h3 class="text-base font-bold text-white tracking-wide uppercase">
+    Absolute Data Sovereignty
+  </h3>
+  <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+    Rigid geographical geofencing restricts computational routing data to designated national borders, ensuring compliance with strict statutory frameworks like the Philippine Data Privacy Act (RA 10173).
+  </p>
+</div>
+
+<!-- PILLAR 5: EFFICIENCY -->
+<div class="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
+  <div class="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
+    Pillar 5
+  </div>
+  <h3 class="text-base font-bold text-white tracking-wide uppercase">
+    Zero-CapEx Efficiency
+  </h3>
+  <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+    Dynamic orchestration transforms unutilized off-shift enterprise workstation capacity into highly scalable cloud infrastructure, slashing standard processing overhead by 65% to 80% versus legacy hyperscalers.
+  </p>
+</div>

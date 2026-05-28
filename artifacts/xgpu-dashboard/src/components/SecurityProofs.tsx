@@ -51,58 +51,77 @@ export default function SecurityProofs() {
         </p>
       </div>
 
-      {/* Four Core Pillars Grid */}
+      {/* Five Core Pillars Grid */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Top Row: 3 Columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
           {/* Pillar 1: Security */}
-          <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
+          <div className="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
             <div className="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
               Pillar 1
             </div>
-            <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
+            <h3 className="text-base font-bold text-white tracking-wide uppercase font-[family-name:var(--font-syne)]">
               Ironclad Zero-Trust Security
             </h3>
-            <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
-              Workloads and proprietary model weights are isolated inside hardware-encrypted Trusted Execution Environments (TEEs) utilizing NVIDIA Confidential Computing, guaranteeing total confidentiality from host infrastructure exposure. Backed by a high-availability triple-node redundancy framework, computational tasks execute across synchronized parallel node triads to ensure zero data loss and uninterrupted processing even during sudden host disconnects or physical power outages. Upon workload completion or eviction, an automated, hardware-level memory erase sequence triggers instantaneously, completely wiping all residual data footprints from the host machine's RAM to prevent side-channel leakage.
+            <p className="text-xs text-gray-400 mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+              Workloads and proprietary model weights are isolated strictly inside hardware-encrypted Trusted Execution Environments (TEEs) using NVIDIA Confidential Computing, guaranteeing total confidentiality from host infrastructure exposure.
             </p>
           </div>
 
-          {/* Pillar 2: Latency */}
-          <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
+          {/* Pillar 2: Resiliency & Wiping */}
+          <div className="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
             <div className="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
               Pillar 2
             </div>
-            <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
-              Ultra-Low Sub-50ms Latency
+            <h3 className="text-base font-bold text-white tracking-wide uppercase font-[family-name:var(--font-syne)]">
+              Triad Redundancy & Active Erase
             </h3>
-            <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
-              Localized regional Grade A node routing leverages proprietary delta-sync telemetry and differential data (diff) processing. By transmitting only active workload variations rather than massive redundant datasets, the network eliminates geographical transit legs to deliver rapid, real-time edge execution speeds tailored for heavy AI inference and automated financial risk simulations.
+            <p className="text-xs text-gray-400 mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+              Tasks execute across synchronized, parallel triple-node triads to prevent data loss during sudden power outages. Upon workload completion or eviction, an automated hardware sequence immediately wipes all residual data footprints from host RAM.
             </p>
           </div>
 
-          {/* Pillar 3: Sovereignty */}
-          <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
+          {/* Pillar 3: Latency */}
+          <div className="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
             <div className="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
               Pillar 3
             </div>
-            <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
+            <h3 className="text-base font-bold text-white tracking-wide uppercase font-[family-name:var(--font-syne)]">
+              Ultra-Low Sub-50ms Latency
+            </h3>
+            <p className="text-xs text-gray-400 mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+              Localized regional Grade A node routing leverages proprietary delta-sync telemetry and differential data (diff) processing, transmitting only active workload variations to eliminate geographical transit legs.
+            </p>
+          </div>
+
+        </div>
+
+        {/* Bottom Row: 2 Columns, Centered */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 max-w-4xl mx-auto">
+
+          {/* Pillar 4: Sovereignty */}
+          <div className="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
+            <div className="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
+              Pillar 4
+            </div>
+            <h3 className="text-base font-bold text-white tracking-wide uppercase font-[family-name:var(--font-syne)]">
               Absolute Data Sovereignty
             </h3>
-            <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+            <p className="text-xs text-gray-400 mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
               Rigid geographical geofencing restricts computational routing data to designated national borders, ensuring compliance with strict statutory frameworks like the Philippine Data Privacy Act (RA 10173).
             </p>
           </div>
 
-          {/* Pillar 4: Efficiency */}
-          <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
+          {/* Pillar 5: Efficiency */}
+          <div className="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
             <div className="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
-              Pillar 4
+              Pillar 5
             </div>
-            <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
+            <h3 className="text-base font-bold text-white tracking-wide uppercase font-[family-name:var(--font-syne)]">
               Zero-CapEx Efficiency
             </h3>
-            <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+            <p className="text-xs text-gray-400 mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
               Dynamic orchestration transforms unutilized off-shift enterprise workstation capacity into highly scalable cloud infrastructure, slashing standard processing overhead by 65% to 80% versus legacy hyperscalers.
             </p>
           </div>
