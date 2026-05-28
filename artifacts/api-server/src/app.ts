@@ -46,12 +46,12 @@ const waitlistLimiter = rateLimit({
   limit: 5,
   standardHeaders: "draft-8",
   legacyHeaders: false,
-  message: { success: false, error: "Too many submissions, please try again later." },
+  message: { success: false, error: "Too many registration attempts from this network. Please try again later." },
 });
 
 const telemetryLimiter = rateLimit({
-  windowMs: 60 * 1000,
-  limit: 20,
+  windowMs: 5 * 60 * 1000,
+  limit: 30,
   standardHeaders: "draft-8",
   legacyHeaders: false,
   message: { success: false, error: "Rate limit exceeded." },
@@ -76,8 +76,8 @@ app.use(
     },
   }),
 );
-app.use(express.json({ limit: "16kb" }));
-app.use(express.urlencoded({ extended: true, limit: "16kb" }));
+app.use(express.json({ limit: "10kb" }));
+app.use(express.urlencoded({ extended: true, limit: "10kb" }));
 
 app.use("/api/leads", leadSubmitLimiter);
 app.use("/api/waitlist", waitlistLimiter);
