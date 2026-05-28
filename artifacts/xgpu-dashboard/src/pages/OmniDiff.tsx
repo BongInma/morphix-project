@@ -7,9 +7,9 @@ type Counters = { renterCounter: number; gpuCounter: number };
 type HardwareTier = "NVIDIA H100 Cluster" | "NVIDIA A100 Cluster" | "NVIDIA RTX 4090 Node";
 
 const HARDWARE_RATES: Record<HardwareTier, number> = {
-  "NVIDIA H100 Cluster": 4.76,
-  "NVIDIA A100 Cluster": 2.21,
-  "NVIDIA RTX 4090 Node": 0.9,
+  "NVIDIA H100 Cluster": 4.00,
+  "NVIDIA A100 Cluster": 4.00,
+  "NVIDIA RTX 4090 Node": 4.00,
 };
 
 const INPUT =
@@ -406,7 +406,7 @@ export default function OmniDiff() {
   const renterProgress = Math.min((counters.renterCounter / 500) * 100, 100);
   const gpuProgress = Math.min((counters.gpuCounter / 15000) * 100, 100);
   const legacyRate = HARDWARE_RATES[hardwareTier];
-  const omnidiffRate = legacyRate * 0.4;
+  const omnidiffRate = 0.90;
   const legacyMonthlyCost = legacyRate * monthlyHours;
   const omnidiffMonthlyCost = omnidiffRate * monthlyHours;
   const annualSavings = (legacyMonthlyCost - omnidiffMonthlyCost) * 12;
