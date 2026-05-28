@@ -610,7 +610,7 @@ export default function OmniDiff() {
                   </div>
                 </div>
                 <p className="text-center text-[10px] sm:text-[11px] font-mono text-[#3B82F6]/70">
-                  ⚡ First 15K Nodes: 90% Payout share in the first year then 85% lifetime share thereafter. After priority 15K nodes, 80% Payout share.
+                  ⚡ First 15K Nodes: 90% Payout Share in the first year then 85% lifetime share thereafter. Signups after the priority 15K nodes, get 80% Payout Share.
                 </p>
                 <div className="flex min-w-0 flex-col items-center gap-3">
                   {providerDone ? (
