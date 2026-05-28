@@ -3,6 +3,7 @@ import healthRouter from "./health";
 import leadsRouter from "./leads";
 import waitlistRouter from "./waitlist";
 import telemetryRouter from "./telemetry";
+import adminRouter from "./admin";
 
 const router: IRouter = Router();
 
@@ -10,5 +11,6 @@ router.use(healthRouter);
 router.use(leadsRouter);
 router.use(waitlistRouter);
 router.use(telemetryRouter);
+router.use(adminRouter);
 
 export default router;
