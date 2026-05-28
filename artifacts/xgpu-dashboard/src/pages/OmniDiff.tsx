@@ -770,6 +770,17 @@ export default function OmniDiff() {
                 </div>
               </div>
             </div>
+
+            {/* Back to Morphix Systems */}
+            <div className="mt-8 flex justify-center">
+              <a
+                href="index.html"
+                className="inline-flex items-center gap-2 rounded-md border border-[#1F2937] bg-[#0B0C0E]/60 px-5 py-2.5 text-sm text-[#6B7280] transition-colors hover:border-[#00beff] hover:text-[#00beff]"
+              >
+                <span className="text-base">←</span>
+                Back to Morphix Systems
+              </a>
+            </div>
           </div>
         </div>
       </section>
