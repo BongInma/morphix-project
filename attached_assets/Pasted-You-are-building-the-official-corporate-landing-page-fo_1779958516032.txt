@@ -1,0 +1,52 @@
+You are building the official corporate landing page for Morphix Systems Inc. and its flagship product, OmniDiff. This is an institutional-grade website targeting Venture Capitalists, enterprise BPO providers, and high-volume AI/GPU renters. The visual standard must match Cloudflare, Palantir, or Vercel — not a startup template.
+
+--- TECH STACK ---
+- React (Vite) with Tailwind CSS v3
+- Google Fonts: Import "DM Mono" for monospace/data elements and "Syne" for display headings, "Inter" for body copy only
+- No external UI component libraries (no shadcn, no MUI). Hand-craft all components.
+- File structure:
+  src/
+    components/
+      Navbar.jsx
+      Hero.jsx
+      EOIForms.jsx
+      SecurityProofs.jsx
+      Governance.jsx
+      FinancialFooter.jsx
+    App.jsx
+    index.css (Tailwind directives only)
+
+--- BRAND DESIGN SYSTEM (implement as Tailwind config extensions in tailwind.config.js) ---
+Colors:
+  - bg-obsidian: #080C12 (primary background)
+  - bg-surface: #0D1421 (card/panel backgrounds)
+  - bg-border: #1A2540 (subtle dividers)
+  - accent-electric: #00C2FF (primary CTA, electric blue)
+  - accent-emerald: #00FF87 (system-online indicators, live status)
+  - accent-amber: #F5A623 (warning/secondary callouts)
+  - text-primary: #E8EDF5
+  - text-muted: #6B7A99
+  - text-mono: #A0B0CC (monospace data readouts)
+
+Typography rules:
+  - All section headings: font-family "Syne", font-weight 700
+  - All data telemetry / badges / code blocks: font-family "DM Mono"
+  - Body copy: font-family "Inter", weight 400/500 only
+
+--- TASK FOR PART 1 ---
+Build ONLY the following:
+
+1. tailwind.config.js — extend the theme with all custom colors above and font families: syne, dmmono.
+
+2. index.html — Link Google Fonts (Syne 700, DM Mono 400/500, Inter 400/500). Set background color to #080C12 on body.
+
+3. Navbar.jsx — A sticky top navigation bar with:
+   - Left: "MORPHIX" wordmark in Syne font, bold white, with a small superscript badge reading "SYSTEMS INC." in DM Mono, text-muted, size xs. Followed by a thin vertical divider then "OmniDiff" in accent-electric color.
+   - Center nav links (hidden on mobile, visible md+): [OmniDiff Network] [Enterprise Providers] [Corporate Governance] — all in Inter, text-muted, uppercase tracking-widest text-xs. Hover state: text-primary with accent-electric underline.
+   - Right: Two buttons: "Sign In" (ghost border style, border-bg-border, text-muted) and "Request Access" (solid accent-electric background, text-obsidian, font-semibold).
+   - The navbar background on scroll: use a useEffect to add a backdrop-blur-md and bg-obsidian/90 class after 50px scroll. On load it is fully transparent.
+   - A 1px bottom border in bg-border color.
+
+4. App.jsx — Import and render Navbar only for now. Add a placeholder <main> with bg-obsidian min-h-screen.
+
+Do not build Hero or any other section yet. Commit clean, annotated code only.
