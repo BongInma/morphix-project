@@ -50,12 +50,12 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <button className="rounded-md bg-electric px-6 py-3 font-[family-name:var(--font-inter)] font-semibold text-obsidian transition hover:brightness-110">
+          <a href="/omnidiff#omnidiff-portal" className="rounded-md bg-electric px-6 py-3 font-[family-name:var(--font-inter)] font-semibold text-obsidian transition hover:brightness-110">
             Rent Secure Compute
-          </button>
-          <button className="rounded-md border border-electric px-6 py-3 font-[family-name:var(--font-inter)] font-semibold text-electric transition hover:bg-electric/10">
+          </a>
+          <a href="/omnidiff#omnidiff-portal" className="rounded-md border border-electric px-6 py-3 font-[family-name:var(--font-inter)] font-semibold text-electric transition hover:bg-electric/10">
             Monetize Idle Workstations
-          </button>
+          </a>
         </div>
 
         {/* Micro-stats */}
