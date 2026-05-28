@@ -431,6 +431,19 @@ export default function OmniDiff() {
   }, []);
 
   useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
+    };
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
+
+  useEffect(() => {
     const nodeTimer = window.setInterval(() => setNodeTick((v) => (v + 1) % NODE_LOGS.length), 4000);
     const ledgerTimer = window.setInterval(() => setLedgerTick((v) => (v + 1) % LEDGER_LOGS.length), 3500);
     return () => {
