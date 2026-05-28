@@ -124,7 +124,7 @@ export default function FinancialFooter() {
               MARKET OPPORTUNITY
             </p>
             <h2 className="mt-2 font-[family-name:var(--font-syne)] text-3xl font-bold text-text-primary md:text-4xl">
-              Disrupting a $48B APAC Cloud Market Distortion.
+              Disrupting the $48 Billion APAC Market Inefficiency.
             </h2>
             <p className="mt-4 max-w-2xl font-[family-name:var(--font-inter)] text-sm text-text-muted">
               Regional enterprise workstations sit idle for a minimum of 33%+ of every 24-hour cycle. OmniDiff&apos;s zero-CapEx orchestration model converts this stranded compute capacity into institutional-grade cloud infrastructure&mdash;delivering a 65% to 80% cost reduction against legacy hyperscaler baselines.
