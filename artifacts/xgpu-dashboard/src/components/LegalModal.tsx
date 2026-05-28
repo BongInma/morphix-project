@@ -16,6 +16,8 @@ const TABS = [
   { id: "terms", label: "Terms of Service" },
   { id: "sec", label: "SEC Filing Records" },
   { id: "residency", label: "Data Residency" },
+  { id: "pricing", label: "Pricing & SLA" },
+  { id: "leadership", label: "About & Leadership" },
 ] as const;
 
 const TAB_CONTENT: Record<string, {
@@ -24,18 +26,24 @@ const TAB_CONTENT: Record<string, {
   body: string;
   tags: string[];
   cta?: { text: string; href: string };
+  headerBadge: string;
+  headerTitle: string;
 }> = {
   privacy: {
     label: "DATA PROTECTION",
     heading: "Zero-Trust Data Privacy Architecture",
     body: "OmniDiff operates under a rigorous Zero-Trust isolation protocol. Client data, model weights, and prompt processing streams are handled strictly within hardware-encrypted Trusted Execution Environments (TEEs) using NVIDIA Confidential Computing. Neither Morphix Systems Inc., host BPO infrastructure operators, nor unauthorized external telemetry layers can intercept, view, or log any processing memory registers. Your computational IP remains entirely air-gapped from all external observation vectors.",
     tags: ["NVIDIA CC ENFORCED", "AMD SEV-SNP", "ZERO TELEMETRY LOGGING", "AES-256 AT REST", "PDPA R.A. 10173 ALIGNED"],
+    headerBadge: "[LEGAL]",
+    headerTitle: "Legal & Compliance Documentation",
   },
   terms: {
     label: "SERVICE LEVEL AGREEMENT",
     heading: "Decentralized Compute SLA",
     body: "All computational leasing on the OmniDiff network is bound by our Sub-50ms Priority Return Eviction SLA. The platform guarantees that renting workloads are instantly evicted from host workstations the exact millisecond a local enterprise BPO operator activates any peripheral input device — mouse or keyboard — ensuring zero operational friction for primary business processes. Marketplace transaction fees, automated billing distributions, and off-peak scheduling windows are strictly governed by the terms of the executed provider or renter agreement.",
     tags: ["<50ms P99 SLA", "PERIPHERAL TELEMETRY ENFORCED", "OFF-PEAK WINDOW: 8HR", "SMART CONTRACT BILLING"],
+    headerBadge: "[LEGAL]",
+    headerTitle: "Legal & Compliance Documentation",
   },
   sec: {
     label: "CORPORATE REGISTRATION",
@@ -46,12 +54,32 @@ const TAB_CONTENT: Record<string, {
       text: "Request investor records → compliance@morphixsystems.com",
       href: "mailto:compliance@morphixsystems.com?subject=SEC%20Records%20Request",
     },
+    headerBadge: "[LEGAL]",
+    headerTitle: "Legal & Compliance Documentation",
   },
   residency: {
     label: "SOVEREIGNTY & GEOFENCING",
     heading: "Sovereign Geofencing & APAC Compliance",
     body: "To resolve critical data sovereignty barriers across the Asia-Pacific corridor, OmniDiff enforces hardware-level geographical geofencing at the orchestration layer. Compute tasks are cryptographically tagged with their geographic assignment at ingestion and are strictly routed to verified provider nodes residing within your specified national jurisdiction.\n\nThis architecture directly satisfies the stringent cross-border data transfer and accountability mandates of the Philippine Data Privacy Act of 2012 (RA 10173), NPC statutory frameworks, and regional APAC privacy protocols. By ensuring data workloads never exit localized boundaries, public sector entities and regulated financial institutions can leverage optimized edge computing in full alignment with BSP outsourcing guidelines without regulatory exposure.",
     tags: ["APAC COMPLIANT", "PH-DPA ALIGNED", "ZERO CROSS-BORDER EGRESS", "HARDWARE GEOFENCING", "PUBLIC SECTOR READY"],
+    headerBadge: "[LEGAL]",
+    headerTitle: "Legal & Compliance Documentation",
+  },
+  pricing: {
+    label: "PRICING FRAMEWORK",
+    heading: "Institutional Pricing Framework & SLA",
+    body: "Enterprise Renters on the OmniDiff network realize a 65% to 80% cost reduction compared to equivalent compute provisioning on AWS, Azure, or Google Cloud. This dramatic pricing advantage is achieved by eliminating hyperscaler markup, data-egress fees, and redundant infrastructure overhead — instead tapping directly into verified, idle enterprise-grade GPU workstations during off-peak hours.\n\nFor Enterprise Providers — BPOs, call centers, and corporate campuses with underutilized compute assets — OmniDiff delivers optimized monetization yields that convert idle CapEx into recurring revenue streams with zero operational disruption.\n\nOur hallmark Sub-50ms Priority Return Eviction SLA guarantees that the instant a local BPO operator activates any peripheral input device (mouse or keyboard), all rented workloads are instantly evicted from the host workstation. This ensures zero operational friction for primary business processes, protecting host productivity while maximizing compute utilization during idle periods.",
+    tags: ["65-80% COST REDUCTION", "AWS/Azure/GCP COMPETITIVE", "SUB-50MS EVICTION", "ZERO HOST DISRUPTION", "OFF-PEAK OPTIMIZATION"],
+    headerBadge: "[OMNIDIFF]",
+    headerTitle: "Network Documentation",
+  },
+  leadership: {
+    label: "EXECUTIVE TEAM",
+    heading: "Executive Leadership & Technical Core",
+    body: "Roberto T. Mata (Founder & CEO): Brings over 25 years of institutional corporate banking, risk management, and financial orchestration experience across cross-border markets, including extended senior tenures in Saudi Arabia and leading multinational corporate engines. Specialized in structured risk assessments, CFO-level experience, and systemic scalability, he directs the operational architecture and institutional governance models behind Morphix Systems Inc.\n\nOur Engineering Core (Elite Toptal Architecture Team): The technical infrastructure, secure container sandboxing, and node orchestration mechanisms of OmniDiff are engineered exclusively by an elite, vetted technical team sourced from top-tier Toptal recruits. Specializing in decentralized systems design, low-latency telemetry networks, and hardware-level cryptographic isolation, our engineering branch ensures that the network delivers enterprise-grade performance.",
+    tags: ["25+ YEARS BANKING EXPERIENCE", "CROSS-BORDER MARKETS", "TOP-TAL ELITE TEAM", "DECENTRALIZED SYSTEMS", "HARDWARE CRYPTOGRAPHIC ISOLATION"],
+    headerBadge: "[MORPHIX]",
+    headerTitle: "Corporate Documentation",
   },
 };
 
@@ -97,10 +125,10 @@ export default function LegalModal({ isOpen, initialTab, onClose }: LegalModalPr
         <div className="flex items-center justify-between px-6 py-4 border-b border-surface-border bg-obsidian flex-shrink-0">
           <div className="flex items-center">
             <span className="font-[family-name:var(--font-dmmono)] text-xs text-electric border border-electric/30 bg-electric/5 rounded px-2 py-1">
-              [LEGAL]
+              {content.headerBadge}
             </span>
             <span className="ml-3 font-[family-name:var(--font-syne)] font-semibold text-sm text-text-primary">
-              Legal & Compliance Documentation
+              {content.headerTitle}
             </span>
           </div>
           <button

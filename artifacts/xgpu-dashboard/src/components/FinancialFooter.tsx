@@ -89,13 +89,13 @@ export default function FinancialFooter() {
         { label: "Network Status", href: "/omnidiff#network-ledger", onClick: undefined as (() => void) | undefined },
         { label: "GPU Renter Portal", href: "#", onClick: undefined },
         { label: "Provider Onboarding", href: "#", onClick: undefined },
-        { label: "Pricing & SLA", href: "#", onClick: undefined },
+        { label: "Pricing & SLA", href: "#", onClick: () => openLegalModal("pricing") },
       ],
     },
     {
       header: "MORPHIX SYSTEMS",
       links: [
-        { label: "About & Leadership", href: "#", onClick: undefined },
+        { label: "About & Leadership", href: "#", onClick: () => openLegalModal("leadership") },
         { label: "Investor Relations", href: "#", onClick: () => openContactModal("Institutional Investment Inquiry") },
         { label: "Corporate Governance", href: "#corporate-governance-section", onClick: undefined },
         { label: "Contact", href: "#", onClick: () => openContactModal("General Corporate Inquiry") },
