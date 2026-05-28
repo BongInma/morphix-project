@@ -523,7 +523,7 @@ export default function OmniDiff() {
                 </div>
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
                   <ul className="space-y-3 text-sm leading-5 text-[#D1D5DB]">
-                    <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>On-demand local GPU processing at a 40%–60% cost reduction of your legacy cloud/data center costs with AWS, Microsoft Azure and Google Cloud.</span></li>
+                    <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>On-demand local GPU processing at a 65%–80% cost reduction of your legacy cloud/data center costs with AWS, Microsoft Azure and Google Cloud.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>Plug-and-play architecture optimized for your AI Inference/Training, Financial Backtesting, Heavy Data  Pipelines and Risk Simulations.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>On-demand deployment. No corporate procurement bureaucracy. No restrictive multi-year contracts. No vendor lock-in. No egress fees.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>Up to $1M SLA-backed liability insurance underwritten by Chubb & AIG syndicates, protecting your corporate data payloads against transmission failures or operational downtime.</span></li>
@@ -679,7 +679,7 @@ export default function OmniDiff() {
                       <div className="rounded-2xl border border-[#10B981]/40 bg-[#07130F] p-2.5 sm:p-4">
                         <p className="text-[10px] sm:text-[11px] uppercase tracking-[0.12em] text-[#10B981] mb-2">OmniDiff Cost</p>
                         <p className="text-2xl sm:text-3xl md:text-4xl font-bold font-mono text-[#10B981]">{formatMoney(omnidiffMonthlyCost)}</p>
-                        <p className="text-[11px] text-[#6B7280] mt-1.5 hidden sm:block">40%-60% below legacy rates</p>
+                        <p className="text-[11px] text-[#6B7280] mt-1.5 hidden sm:block">65%-80% below legacy rates</p>
                       </div>
                     </div>
                   </div>
