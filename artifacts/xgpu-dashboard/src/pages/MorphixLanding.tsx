@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import EOIForms from "@/components/EOIForms";
 import SecurityProofs from "@/components/SecurityProofs";
 import Governance from "@/components/Governance";
+import FinancialFooter from "@/components/FinancialFooter";
 
 export default function MorphixLanding() {
   useEffect(() => {
@@ -32,6 +33,7 @@ export default function MorphixLanding() {
       <div id="governance">
         <Governance />
       </div>
+      <FinancialFooter />
     </div>
   );
 }

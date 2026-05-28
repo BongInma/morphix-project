@@ -1,0 +1,78 @@
+Final part of the Morphix Systems Inc. / OmniDiff build. All previous sections are complete. Now build the Market Metrics banner and the Footer, then finalize the full page.
+
+--- MARKET METRICS BANNER (add inside FinancialFooter.jsx, upper half) ---
+Full-width section, bg-obsidian, py-20 px-6, border-t border-bg-border.
+Max-w-6xl mx-auto.
+
+Section label (DM Mono, text-xs, uppercase, tracking-widest, text-accent-electric): "MARKET OPPORTUNITY"
+Heading (Syne, text-3xl md:text-4xl, text-primary, mt-2): "Disrupting a $48B APAC Cloud Market Distortion."
+Sub (Inter, text-muted, max-w-2xl, mt-4, text-sm): "Regional enterprise workstations sit idle for an estimated 60–70% of every 24-hour cycle. OmniDiff's zero-CapEx orchestration model converts stranded compute capacity into institutional-grade cloud infrastructure — at a fraction of hyperscaler cost."
+
+Four metric cards (grid grid-cols-2 md:grid-cols-4 gap-6, mt-12):
+CARD STYLE: bg-surface border border-bg-border rounded-xl p-6 text-center
+
+Metric 1: 
+  Number: "95%" — Syne text-4xl font-bold text-accent-electric
+  Label: "Enterprise Workstation Idle Rate (Off-Shift)" — DM Mono text-xs text-muted mt-2
+
+Metric 2:
+  Number: "$48B" — text-accent-emerald
+  Label: "Estimated APAC Cloud Infrastructure Market (2025)"
+
+Metric 3:
+  Number: "65–80%" — text-accent-amber
+  Label: "Client Cost Reduction vs. Hyperscaler Baseline"
+
+Metric 4:
+  Number: "<50ms" — text-primary
+  Label: "Guaranteed SLA for Workload Eviction / Priority Return"
+
+--- FOOTER (lower half of FinancialFooter.jsx) ---
+Full-width, bg-surface border-t border-bg-border, pt-16 pb-10 px-6.
+Max-w-6xl mx-auto, grid grid-cols-1 md:grid-cols-4 gap-10.
+
+Column 1 — Brand:
+  - "MORPHIX" in Syne font-bold text-xl text-primary + "SYSTEMS INC." in DM Mono text-xs text-muted block
+  - "OmniDiff Network" below in text-accent-electric DM Mono text-xs
+  - Short tagline: "Zero-CapEx. Sovereign. Institutional." — Inter text-xs text-muted mt-3
+
+Column 2 — Product Links (Syne text-xs uppercase text-muted tracking-widest as header, then Inter text-sm text-muted links with hover:text-primary):
+  Header: "OMNIDIFF NETWORK"
+  Links: Network Status, GPU Renter Portal, Provider Onboarding, Pricing & SLA
+
+Column 3 — Company:
+  Header: "MORPHIX SYSTEMS"
+  Links: About & Leadership, Investor Relations, Corporate Governance, Contact
+
+Column 4 — Legal & Compliance:
+  Header: "LEGAL"
+  Links: Privacy Policy, Terms of Service, SEC Filing Records, Data Residency Framework
+
+Bottom bar (border-t border-bg-border mt-12 pt-8, flex flex-col md:flex-row justify-between items-center gap-4):
+
+Left: "© 2025 Morphix Systems Inc. All Rights Reserved. SEC-Registered Corporation, Philippines." — DM Mono text-xs text-muted
+
+Right (flex gap-6, DM Mono text-xs text-muted):
+  "OmniDiff™ is a trademark of Morphix Systems Inc."
+  |
+  "IPOPHL Provisional Patent Pending"
+  |  
+  "PDPA Compliant"
+
+--- FINAL APP.JSX ASSEMBLY ---
+Ensure App.jsx renders all sections in this exact order:
+1. <Navbar />
+2. <Hero />
+3. <EOIForms />
+4. <SecurityProofs />
+5. <Governance />
+6. <FinancialFooter />
+
+Add a smooth scroll behavior to the html element in index.css: html { scroll-behavior: smooth; }
+
+Final check — ensure:
+- No console errors
+- All Tailwind classes resolve correctly against the custom config
+- The page is fully responsive (mobile-first)
+- No placeholder "[TODO]" text anywhere — all copy is final as specified
+- Google Fonts are loading via the index.html <link> tag
