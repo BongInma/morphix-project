@@ -418,6 +418,21 @@ export default function OmniDiff() {
   const renterCounter = counters?.renterCounter ?? 435;
   const gpuCounter = counters?.gpuCounter ?? 12420;
 
+  useEffect(() => {
+    const body = {
+      selected_hardware_tier: hardwareTier,
+      monthly_operational_hours: monthlyHours,
+      calculated_legacy_cost: legacyMonthlyCost,
+      calculated_omnidiff_cost: omnidiffMonthlyCost,
+      estimated_annual_savings: annualSavings,
+    };
+    fetch(`${API}/telemetry/log-calculator`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).catch(() => {});
+  }, [hardwareTier, monthlyHours]);
+
   const refreshCounters = async () => {
     try {
       const r = await fetch(`${API}/counters`);

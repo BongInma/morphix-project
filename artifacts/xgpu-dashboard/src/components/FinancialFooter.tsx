@@ -31,7 +31,7 @@ export default function FinancialFooter() {
   const [organization, setOrganization] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error" | "email_exists">("idle");
 
   const [legalModalOpen, setLegalModalOpen] = useState(false);
   const [legalTab, setLegalTab] = useState("privacy");
@@ -57,18 +57,20 @@ export default function FinancialFooter() {
     setStatus("submitting");
     try {
       const payload = {
-        fullName,
-        email,
-        company: organization,
-        message: `[${modalTitle}] ${message}`,
+        full_name: fullName,
+        professional_email: email,
+        company_name: organization,
+        inquiry_type: modalTitle.includes("Investor") ? "Investor" : "General",
       };
-      const r = await fetch(`${API}/leads/renter`, {
+      const r = await fetch(`${API}/waitlist/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
       if (r.ok) {
         setStatus("success");
+      } else if (r.status === 409) {
+        setStatus("email_exists");
       } else {
         setStatus("error");
       }
@@ -327,9 +329,14 @@ export default function FinancialFooter() {
                   Please provide a valid name and email address.
                 </p>
               )}
+              {status === "email_exists" && (
+                <p className="font-[family-name:var(--font-dmmono)] text-xs text-amber-400">
+                  This professional email is already registered on our early-access waitlist.
+                </p>
+              )}
               <button
                 onClick={submitInquiry}
-                disabled={status === "submitting" || status === "success"}
+                disabled={status === "submitting" || status === "success" || status === "email_exists"}
                 className="w-full rounded-md bg-electric py-3 font-[family-name:var(--font-inter)] font-semibold text-obsidian transition hover:brightness-110 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {status === "submitting"
