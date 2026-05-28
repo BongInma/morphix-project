@@ -5,6 +5,21 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  /* Morphix Brand System */
+  --color-obsidian: #080C12;
+  --color-surface: #0D1421;
+  --color-surface-border: #1A2540;
+  --color-electric: #00C2FF;
+  --color-emerald: #00FF87;
+  --color-amber: #F5A623;
+  --color-text-primary: #E8EDF5;
+  --color-text-muted: #6B7A99;
+  --color-text-mono: #A0B0CC;
+
+  --font-syne: 'Syne', sans-serif;
+  --font-dmmono: 'DM Mono', monospace;
+  --font-inter: 'Inter', sans-serif;
+
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-border: hsl(var(--border));
@@ -201,6 +216,7 @@
       radial-gradient(circle at 15% 50%, rgba(0, 150, 255, 0.05) 0%, transparent 50%),
       radial-gradient(circle at 85% 30%, rgba(0, 255, 255, 0.03) 0%, transparent 50%);
     background-attachment: fixed;
+    background-color: #080C12;
   }
 }
 
