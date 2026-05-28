@@ -12,7 +12,7 @@ const WaitlistSchema = z.object({
   inquiry_type: z.string().max(50).optional(),
 });
 
-router.post("/api/waitlist/register", async (req, res) => {
+router.post("/waitlist/register", async (req, res) => {
   const parsed = WaitlistSchema.safeParse(req.body);
   if (!parsed.success) {
     req.log.warn({ errors: parsed.error.flatten() }, "waitlist validation failed");

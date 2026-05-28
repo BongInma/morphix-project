@@ -13,7 +13,7 @@ const TelemetrySchema = z.object({
   estimated_annual_savings: z.number().min(0),
 });
 
-router.post("/api/telemetry/log-calculator", async (req, res) => {
+router.post("/telemetry/log-calculator", async (req, res) => {
   const parsed = TelemetrySchema.safeParse(req.body);
   if (!parsed.success) {
     req.log.warn({ errors: parsed.error.flatten() }, "telemetry validation failed");
