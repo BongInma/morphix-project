@@ -1,0 +1,71 @@
+Continuing Morphix Systems Inc. build. Scaffold, Navbar, Hero, and EOI Forms are complete. Now build SecurityProofs.jsx and Governance.jsx.
+
+--- SECURITY PROOFS SECTION (SecurityProofs.jsx) ---
+Section label (DM Mono, uppercase, tracking-widest, text-xs, text-accent-electric): "INFRASTRUCTURE SECURITY ARCHITECTURE"
+Section heading (Syne, text-3xl md:text-4xl, text-primary): "Built for Enterprise Paranoia."
+Section sub (Inter, text-muted, max-w-2xl): "Every design decision in OmniDiff prioritizes host data sovereignty and renter workload confidentiality simultaneously."
+
+Three grid cards (grid grid-cols-1 md:grid-cols-3 gap-6, mt-12):
+
+CARD STYLE: bg-surface border border-bg-border rounded-xl p-8 relative overflow-hidden. Add a very subtle radial gradient in the top-right corner of each card in the accent color at 4% opacity.
+
+Card 1 — Hardware-Level Sandboxing:
+  - Icon area: A monogram badge "[TEE]" in DM Mono, text-accent-electric, text-xs, inside a small square border border-accent-electric/30 bg-accent-electric/5 rounded px-2 py-1
+  - Title (Syne, text-xl, text-primary): "Trusted Execution Environments"
+  - Body (Inter, text-muted, text-sm, leading-relaxed): "Guest workloads execute strictly inside encrypted hardware enclaves using NVIDIA Confidential Computing and AMD SEV-SNP. The host provider is cryptographically prevented from inspecting renter data. Renters have zero visibility into the host network topology."
+  - Bottom tag row (DM Mono text-xs): [NVIDIA CC] [AMD SEV-SNP] [AES-256] — each as small pills with border border-bg-border rounded-full px-3 py-1 text-muted
+
+Card 2 — Sub-50ms Eviction Protocol:
+  - Badge: "[SLA]" in accent-amber
+  - Title: "Priority Return Eviction"
+  - Body: "Continuous edge telemetry monitors peripheral input events across all provider nodes. Upon detection of mouse movement or keyboard input from the local operator, the OmniDiff orchestration layer executes a sub-50 millisecond workload preemption — fully transparent to the end user and guaranteed by contractual SLA."
+  - Bottom tags: [<50ms P99] [PERIPHERAL TELEMETRY] [ZERO FRICTION]
+
+Card 3 — Geofenced Data Sovereignty:
+  - Badge: "[GEO]" in accent-emerald
+  - Title: "Geofenced Sovereignty & Zero-Egress"
+  - Body: "All compute tasks are cryptographically tagged with their geographic assignment at ingestion. Workloads are strictly routed and executed within whitelisted national jurisdictions, ensuring full compliance with APAC data-residency frameworks, the Philippine Data Privacy Act, and any client-specific data localization mandates."
+  - Bottom tags: [APAC COMPLIANT] [PH-DPA] [ZERO EGRESS]
+
+--- GOVERNANCE SECTION (Governance.jsx) ---
+This section must feel like a legal/institutional trust anchor — clean, serious, minimal. No gradients or glows here.
+
+Background: a slightly lighter surface, bg-surface. Full-width. py-24 px-6.
+
+Layout: Two columns (md:grid-cols-2 gap-16) inside max-w-6xl mx-auto.
+
+LEFT COLUMN:
+  - Section label (DM Mono, text-xs, uppercase, tracking-widest, text-muted): "CORPORATE GOVERNANCE"
+  - Heading (Syne, text-3xl, text-primary): "Institutional Infrastructure. Not a Protocol."
+  - Body paragraph (Inter, text-muted, text-sm, leading-relaxed, mt-4):
+    "OmniDiff is a wholly owned infrastructure ecosystem developed, legally operated, and maintained by Morphix Systems Inc., an SEC-registered corporation domiciled in Quezon City, Philippines. Unlike decentralized or token-governed compute networks, OmniDiff operates under full legal accountability, enforceable enterprise contracts, and institutional compliance obligations."
+  - Below: a thin horizontal divider (border-t border-bg-border, mt-8 mb-8)
+  - Two stat blocks side by side:
+    Left stat: Big number "15" in Syne text-5xl accent-electric, label below in DM Mono text-xs text-muted: "MODULE SYSTEM OPERATIONS MANUAL"
+    Right stat: Big number "1" in Syne text-5xl accent-electric, label below: "PROVISIONAL PATENT FILED — IPOPHL"
+
+RIGHT COLUMN — Four compliance badges (grid grid-cols-1 gap-4):
+
+BADGE STYLE: flex items-start gap-4, bg-obsidian border border-bg-border rounded-lg p-5
+
+Badge 1: 
+  - Icon label "[SEC]" in DM Mono text-xs text-accent-electric in a small border box
+  - Title (Inter font-semibold text-primary text-sm): "SEC-Registered Corporation"
+  - Sub (Inter text-muted text-xs): "Morphix Systems Inc. is duly registered with the Philippine Securities and Exchange Commission. All operations, contracts, and financial disclosures are subject to SEC oversight."
+
+Badge 2:
+  - Icon "[IPOPHL]" in accent-amber
+  - Title: "Provisional Patent Protection"
+  - Sub: "Core OmniDiff orchestration frameworks and eviction mechanics are documented under a provisional patent application filed with the Intellectual Property Office of the Philippines."
+
+Badge 3:
+  - Icon "[FMEA]" in accent-emerald
+  - Title: "FMEA-Baseline Operations"
+  - Sub: "All operational procedures are engineered on a Failure Mode and Effects Analysis (FMEA) baseline, covering hardware failure cascades, network partition events, and SLA breach scenarios."
+
+Badge 4:
+  - Icon "[SOM]" in text-muted
+  - Title: "15-Module System Operations Manual"
+  - Sub: "A fully detailed Master SOM governs every operational, security, and compliance procedure across the OmniDiff infrastructure layer."
+
+Add both sections to App.jsx.

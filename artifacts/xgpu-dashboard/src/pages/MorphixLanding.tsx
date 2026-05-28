@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import EOIForms from "@/components/EOIForms";
+import SecurityProofs from "@/components/SecurityProofs";
+import Governance from "@/components/Governance";
 
 export default function MorphixLanding() {
   useEffect(() => {
@@ -23,6 +25,12 @@ export default function MorphixLanding() {
       <Hero />
       <div id="eoi">
         <EOIForms />
+      </div>
+      <div id="security">
+        <SecurityProofs />
+      </div>
+      <div id="governance">
+        <Governance />
       </div>
     </div>
   );
