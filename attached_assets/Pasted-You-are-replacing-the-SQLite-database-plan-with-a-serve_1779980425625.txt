@@ -1,0 +1,389 @@
+You are replacing the SQLite database plan with a serverless-
+compatible database architecture for the Morphix Systems Inc. / 
+OmniDiff project. The deployment target is Vercel or Netlify 
+with Cloudflare DNS. SQLite is not viable on these platforms — 
+the filesystem is ephemeral per function invocation.
+
+--- STEP 1: READ THE PROJECT FIRST ---
+
+Before writing anything, read:
+
+1. package.json — confirm module type (CJS or ESM), 
+   existing dependencies, and Node version.
+2. Any existing /db/ directory or database.js file — 
+   if the SQLite database.js was already created, 
+   you will be replacing it entirely.
+3. Any existing .env or .env.example file.
+4. The server entry point (server.js, api/, or similar) — 
+   confirm whether this project uses Express, Next.js API 
+   routes, or Netlify Functions.
+
+Report all findings before proceeding.
+
+--- STEP 2: THE CORRECT STACK FOR THIS DEPLOYMENT ---
+
+Use this architecture:
+
+  Database:     Supabase (PostgreSQL, hosted, free tier 
+                sufficient for launch)
+  ORM/Client:   @supabase/supabase-js (official client)
+  Auth layer:   Supabase Row Level Security (RLS) — 
+                configured via Supabase dashboard, 
+                not in code
+  Environment:  SUPABASE_URL and SUPABASE_ANON_KEY 
+                stored as environment variables in 
+                Vercel/Netlify dashboard AND in 
+                local .env file
+
+Why Supabase over alternatives:
+  - Postgres, not a proprietary query language
+  - Free tier: 500MB storage, 2GB bandwidth, 
+    50,000 monthly active users — sufficient for 
+    Morphix launch phase
+  - Built-in dashboard to inspect rows without 
+    writing admin routes
+  - Works identically on Vercel, Netlify, and local dev
+  - No connection pooling configuration needed at launch 
+    (Supabase handles it)
+  - If the project later moves to self-hosted infra, 
+    the SQL schema is portable standard PostgreSQL
+
+Do not use PlanetScale, Railway, or MongoDB.
+Do not use Prisma at this stage — adds complexity 
+without benefit for three tables.
+Do not use the Supabase REST auto-API directly from 
+the frontend — all DB access goes through server-side 
+API routes only.
+
+--- STEP 3: INSTALL THE DEPENDENCY ---
+
+Run: npm install @supabase/supabase-js
+
+Do not install better-sqlite3, sqlite3, or pg directly.
+
+--- STEP 4: CREATE THE DATABASE CLIENT FILE ---
+
+If a /db/ directory exists from the SQLite setup, 
+keep the directory but replace database.js entirely.
+If it does not exist, create it.
+
+Create: /db/database.js
+
+-- 4A: CLIENT INITIALIZATION --
+
+import { createClient } from '@supabase/supabase-js'
+
+Read SUPABASE_URL and SUPABASE_ANON_KEY from 
+process.env.
+
+Validate both on startup:
+  if (!process.env.SUPABASE_URL || 
+      !process.env.SUPABASE_ANON_KEY) {
+    console.error(
+      '[Morphix DB] FATAL: SUPABASE_URL and ' +
+      'SUPABASE_ANON_KEY must be set in environment.'
+    )
+    process.exit(1)
+  }
+
+Initialize the client:
+  const supabase = createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_ANON_KEY
+  )
+
+Log on success:
+  "[Morphix DB] Supabase client initialized."
+
+-- 4B: EXPORTED QUERY HELPERS --
+
+All helpers are async. All use try/catch AND check 
+the Supabase error object (Supabase returns 
+{ data, error } — always check error before data).
+
+Helper 1: insertWaitlistSubscriber(data)
+  Parameters: { full_name, company_name, 
+                professional_email, inquiry_type }
+  
+  Operation:
+    const { data, error } = await supabase
+      .from('waitlist_subscribers')
+      .insert([{
+        full_name,
+        company_name,
+        professional_email,
+        inquiry_type
+      }])
+      .select('id')
+      .single()
+
+  Error handling:
+    if (error) {
+      // Supabase returns code '23505' for unique violation
+      if (error.code === '23505') {
+        return { success: false, reason: 'EMAIL_EXISTS' }
+      }
+      console.error('[Morphix DB] insertWaitlistSubscriber:', 
+                    error.message)
+      return { success: false, reason: 'DB_ERROR', 
+               detail: error.message }
+    }
+    return { success: true, id: data.id }
+
+Helper 2: insertDataRoomRequest(data)
+  Parameters: { investor_email, firm_name, 
+                document_requested, access_token }
+  
+  Operation:
+    const { data, error } = await supabase
+      .from('investor_data_room_access')
+      .insert([{
+        investor_email,
+        firm_name,
+        document_requested,
+        access_token
+      }])
+      .select('id')
+      .single()
+
+  Same error handling pattern as Helper 1.
+  Unique violation on access_token returns:
+    { success: false, reason: 'TOKEN_EXISTS' }
+
+Helper 3: logCalculatorEvent(data)
+  Parameters: { selected_hardware_tier,
+                monthly_operational_hours,
+                calculated_legacy_cost,
+                calculated_omnidiff_cost,
+                estimated_annual_savings,
+                session_ip_hash }
+
+  Operation:
+    const { error } = await supabase
+      .from('calculator_telemetry_logs')
+      .insert([{ ...all fields }])
+
+  This helper must never throw to the caller.
+  On error: log silently, return { success: false }
+  On success: return { success: true }
+
+Helper 4: getWaitlistCount()
+  Operation:
+    const { count, error } = await supabase
+      .from('waitlist_subscribers')
+      .select('*', { count: 'exact', head: true })
+
+  Returns: { count } on success
+  Returns: { count: null, error: error.message } on failure
+
+-- 4C: EXPORT --
+
+export default supabase
+export { 
+  insertWaitlistSubscriber,
+  insertDataRoomRequest,
+  logCalculatorEvent,
+  getWaitlistCount
+}
+
+--- STEP 5: CREATE THE SUPABASE SCHEMA SQL FILE ---
+
+Create: /db/schema.sql
+
+This file is NOT executed by the application. It is 
+run ONCE manually in the Supabase SQL Editor 
+(dashboard.supabase.com → SQL Editor → New Query).
+
+Add a comment block at the top explaining this.
+
+Write the full schema:
+
+-- ================================================
+-- Morphix Systems Inc. — Supabase Schema
+-- Run this ONCE in Supabase SQL Editor
+-- Never run this from application code
+-- ================================================
+
+CREATE TABLE IF NOT EXISTS waitlist_subscribers (
+  id                  BIGSERIAL PRIMARY KEY,
+  full_name           TEXT NOT NULL,
+  company_name        TEXT,
+  professional_email  TEXT NOT NULL UNIQUE,
+  inquiry_type        TEXT NOT NULL DEFAULT 'General'
+                      CHECK (inquiry_type IN 
+                        ('General','Investor',
+                         'Renter','Provider')),
+  submission_timestamp TIMESTAMPTZ NOT NULL 
+                        DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS investor_data_room_access (
+  id                    BIGSERIAL PRIMARY KEY,
+  investor_email        TEXT NOT NULL,
+  firm_name             TEXT,
+  document_requested    TEXT NOT NULL,
+  access_token          TEXT NOT NULL UNIQUE,
+  has_downloaded        BOOLEAN NOT NULL DEFAULT FALSE,
+  last_active_timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS calculator_telemetry_logs (
+  id                          BIGSERIAL PRIMARY KEY,
+  selected_hardware_tier      TEXT NOT NULL,
+  monthly_operational_hours   NUMERIC(10,2) NOT NULL,
+  calculated_legacy_cost      NUMERIC(12,2) NOT NULL,
+  calculated_omnidiff_cost    NUMERIC(12,2) NOT NULL,
+  estimated_annual_savings    NUMERIC(12,2) NOT NULL,
+  session_ip_hash             TEXT,
+  calculation_timestamp       TIMESTAMPTZ NOT NULL 
+                              DEFAULT NOW()
+);
+
+-- Row Level Security: enable but allow 
+-- server-side service role full access.
+-- Anon key gets INSERT only on waitlist 
+-- and telemetry — no SELECT.
+ALTER TABLE waitlist_subscribers 
+  ENABLE ROW LEVEL SECURITY;
+ALTER TABLE investor_data_room_access 
+  ENABLE ROW LEVEL SECURITY;
+ALTER TABLE calculator_telemetry_logs 
+  ENABLE ROW LEVEL SECURITY;
+
+-- Waitlist: allow anonymous inserts only
+CREATE POLICY "anon_insert_waitlist"
+  ON waitlist_subscribers FOR INSERT
+  TO anon WITH CHECK (true);
+
+-- Telemetry: allow anonymous inserts only
+CREATE POLICY "anon_insert_telemetry"
+  ON calculator_telemetry_logs FOR INSERT
+  TO anon WITH CHECK (true);
+
+-- Data room: no anon access at all
+-- (handled server-side with service role key)
+
+Add this comment at the bottom of schema.sql:
+-- After running this schema, copy your 
+-- Project URL and anon public key from:
+-- Supabase Dashboard → Settings → API
+-- Add them to your .env file as:
+-- SUPABASE_URL=https://xxxx.supabase.co
+-- SUPABASE_ANON_KEY=eyJ...
+
+--- STEP 6: CREATE THE SETUP INSTRUCTIONS FILE ---
+
+Create: /db/SETUP.md
+
+Content:
+
+# Morphix Systems Inc. — Database Setup
+
+## One-Time Supabase Configuration
+
+### Step 1: Create Supabase Project
+1. Go to https://supabase.com
+2. Create new project: "morphix-core"
+3. Choose region: Southeast Asia (Singapore) 
+   — closest to PH, satisfies APAC latency
+
+### Step 2: Run the Schema
+1. Open Supabase Dashboard
+2. Go to SQL Editor → New Query
+3. Paste the full contents of /db/schema.sql
+4. Click Run
+5. Confirm all three tables appear in Table Editor
+
+### Step 3: Get Your API Keys
+1. Go to Settings → API
+2. Copy "Project URL" → SUPABASE_URL
+3. Copy "anon public" key → SUPABASE_ANON_KEY
+   (NOT the service_role key — that stays 
+   server-side only and is not needed yet)
+
+### Step 4: Set Environment Variables
+
+Local development (.env file):
+  SUPABASE_URL=https://your-project.supabase.co
+  SUPABASE_ANON_KEY=eyJhbGc...
+
+Vercel deployment:
+  Dashboard → Project → Settings → 
+  Environment Variables → Add both keys
+
+Netlify deployment:
+  Site → Site Settings → Environment Variables 
+  → Add both keys
+
+Cloudflare DNS (no env vars needed here — 
+DNS only, not compute):
+  Point your domain to Vercel/Netlify as normal.
+  Supabase connection is outbound from your 
+  functions — Cloudflare does not intercept it.
+
+### Step 5: Verify Connection
+After deploying, your server logs should show:
+  [Morphix DB] Supabase client initialized.
+
+If you see the FATAL error, check that both 
+environment variables are set in the deployment 
+dashboard and that the project is not paused 
+(Supabase pauses free-tier projects after 
+7 days of inactivity).
+
+## Supabase Free Tier Limits (at launch)
+- Storage: 500MB (sufficient for ~2M rows)
+- Bandwidth: 5GB/month
+- Edge Functions: 500K invocations/month
+- Projects pause after 7 days inactivity 
+  (upgrade to Pro at $25/mo to disable)
+
+--- STEP 7: UPDATE .env.example ---
+
+Replace any existing DB_PATH line with:
+  SUPABASE_URL=https://your-project.supabase.co
+  SUPABASE_ANON_KEY=your-anon-public-key-here
+
+Add this comment above them:
+  # Supabase credentials — get from:
+  # Supabase Dashboard → Settings → API
+  # Never commit real values to git
+
+--- STEP 8: UPDATE .gitignore ---
+
+Ensure the root .gitignore contains:
+  .env
+  .env.local
+  .env.production
+
+Remove any SQLite entries if they exist:
+  db/morphix_core.db
+  db/morphix_core.db-shm
+  db/morphix_core.db-wal
+
+--- STEP 9: OUTPUT RULES ---
+
+Output these files only:
+  1. /db/database.js (replaced)
+  2. /db/schema.sql (new)
+  3. /db/SETUP.md (new)
+  4. .env.example (updated)
+  5. .gitignore (updated if needed)
+
+Do not modify server.js, App.jsx, or any 
+route files. API routes come in the next phase.
+Do not install anything other than 
+@supabase/supabase-js.
+
+Add this comment block at the top of database.js:
+  // ================================================
+  // Morphix Systems Inc. — Core Database Module
+  // File: /db/database.js
+  // Engine: Supabase (PostgreSQL, hosted)
+  // Deployment: Vercel / Netlify serverless
+  // Tables: waitlist_subscribers,
+  //         investor_data_room_access,
+  //         calculator_telemetry_logs
+  // IP Policy: Raw IPs never stored — SHA-256 only
+  // Schema: Run /db/schema.sql in Supabase once
+  // ================================================
