@@ -45,7 +45,7 @@ export default function Hero() {
 
         {/* Sub-headline */}
         <p className="font-[family-name:var(--font-inter)] text-lg text-text-muted max-w-2xl mx-auto mt-6 md:text-xl">
-          Morphix Systems Inc. orchestrates underutilized enterprise hardware into a secure, localized, high-performance computing network for global AI and rendering workloads. Cut cloud costs by 65%–80% without ceding data sovereignty.
+          Morphix Systems Inc. orchestrates underutilized enterprise hardware into a secure, localized, high-performance computing network for global AI and rendering workloads. Cut cloud costs by 65%–80% without compromising data sovereignty.
         </p>
 
         {/* CTA Buttons */}
