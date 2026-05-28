@@ -57,8 +57,8 @@ export default function SecurityProofs() {
 
           {/* Pillar 1: Security */}
           <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
-            <div className="w-10 h-10 rounded-lg bg-electric/5 border border-electric/30 flex items-center justify-center mb-4 text-electric font-bold group-hover:bg-electric/10 transition-colors font-[family-name:var(--font-dmmono)]">
-              01
+            <div className="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
+              Pillar 1
             </div>
             <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
               Ironclad Zero-Trust Security
@@ -70,8 +70,8 @@ export default function SecurityProofs() {
 
           {/* Pillar 2: Latency */}
           <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
-            <div className="w-10 h-10 rounded-lg bg-electric/5 border border-electric/30 flex items-center justify-center mb-4 text-electric font-bold group-hover:bg-electric/10 transition-colors font-[family-name:var(--font-dmmono)]">
-              02
+            <div className="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
+              Pillar 2
             </div>
             <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
               Ultra-Low Sub-50ms Latency
@@ -83,8 +83,8 @@ export default function SecurityProofs() {
 
           {/* Pillar 3: Sovereignty */}
           <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
-            <div className="w-10 h-10 rounded-lg bg-electric/5 border border-electric/30 flex items-center justify-center mb-4 text-electric font-bold group-hover:bg-electric/10 transition-colors font-[family-name:var(--font-dmmono)]">
-              03
+            <div className="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
+              Pillar 3
             </div>
             <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
               Absolute Data Sovereignty
@@ -96,8 +96,8 @@ export default function SecurityProofs() {
 
           {/* Pillar 4: Efficiency */}
           <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
-            <div className="w-10 h-10 rounded-lg bg-electric/5 border border-electric/30 flex items-center justify-center mb-4 text-electric font-bold group-hover:bg-electric/10 transition-colors font-[family-name:var(--font-dmmono)]">
-              04
+            <div className="w-20 h-8 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold text-xs uppercase tracking-wider">
+              Pillar 4
             </div>
             <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
               Zero-CapEx Efficiency
