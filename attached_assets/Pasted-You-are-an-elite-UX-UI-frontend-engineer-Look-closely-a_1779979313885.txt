@@ -1,0 +1,41 @@
+You are an elite UX/UI frontend engineer. Look closely at image_cc41bd.png. The sub-footer layout is currently broken due to an unsightly block of massive blank space separating the trademark row and the compliance disclaimer, and the main layout content is overlapping awkwardly under the sticky top navbar. 
+
+Let's clean this up instantly. Please execute the following layout adjustments perfectly without truncating any text:
+
+1. FIX THE NAV COVER-UP (THE CROPPED TOP):
+- Go to the top of your main page container layout (just below the sticky header navbar component). Ensure the main content wrapper has an explicit, uniform top padding utility class (like class="pt-24 md:pt-28") so that no section elements or layout titles get cropped or tucked underneath the navbar.
+
+2. COMBINE THE TRADEMARKS AND DISCLAIMER INTO A SINGLE UNIFIED BLOCK:
+- Locate the entire bottom layout section of our page (below our main 4-column footer links). Replace the entire separated copyright row and disclaimer block with this single, tightly-spaced, beautifully integrated HTML component to eliminate the empty dead space completely:
+
+<!-- INTEGRATED COMPLIANCE SUB-FOOTER -->
+<div class="mt-8 pt-6 border-t border-gray-900 max-w-7xl mx-auto px-4 font-mono">
+  
+  <!-- ROW 1: BRANDING & PATENT METRICS (TIGHT SINGLE LINE) -->
+  <div class="flex flex-col md:flex-row justify-between items-center gap-2 text-[11px] text-gray-500 tracking-wide pb-4">
+    <div>
+      &copy; 2026 Morphix Systems Inc. All Rights Reserved. SEC-Registered Corporation, Philippines.
+    </div>
+    <div>
+      OmniDiff&trade; is a trademark of Morphix Systems Inc.
+    </div>
+    <div class="flex items-center space-x-3">
+      <span>IPOPHL Provisional Patent Pending</span>
+      <span class="text-gray-800">|</span>
+      <span>PDPA Compliant</span>
+    </div>
+  </div>
+
+  <!-- ROW 2: INTEGRATED REGULATORY DISCLAIMER (NO EXTRA GAP) -->
+  <div class="pt-3 border-t border-gray-950 text-[10px] text-gray-600 leading-relaxed text-justify font-sans space-y-1.5">
+    <p>
+      <span class="font-semibold text-gray-500">Disclaimer:</span> All pre-launch incentives, including early renter lifetime discounts and premium hardware provider revenue share allocations described herein, represent promotional expressions of interest frameworks only. Final terms, priority routing metrics, and yield percentages are strictly subject to execution of definitive corporate platform contracts, service level agreements (SLAs), and verified hardware enrollment compliance parameters. Void where prohibited.
+    </p>
+    <p>
+      All expressions of interest (EOIs) collected via invitation requests are non-binding. Morphix Systems Inc. reserves the right to modify network onboarding thresholds, hardware compatibility mandates, and geofencing routing protocols in accordance with regional compliance updates and localized data infrastructure statutes.
+    </p>
+  </div>
+
+</div>
+
+Please patch this component inside our workspace immediately. Ensure it is entirely seamless, perfectly centered, and matches our obsidian dark mode aesthetic without introducing massive spacer margins.
