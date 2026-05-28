@@ -1,148 +1,351 @@
-import React, { useState } from "react";
-import { Sidebar } from "@/components/layout/Sidebar";
-import { Header } from "@/components/layout/Header";
-import { BentoGrid } from "@/components/dashboard/BentoGrid";
+import { useState, useEffect, useCallback } from "react";
 
-type GridStatus = "offline" | "verifying" | "live" | "decommissioning";
+interface TelemetrySubscriber {
+  id: number;
+  full_name: string;
+  company_name: string | null;
+  professional_email: string;
+  inquiry_type: string;
+  submission_timestamp: string;
+}
+
+interface TelemetryAnalytics {
+  success: boolean;
+  timestamp: string;
+  waitlist: {
+    totalCount: number;
+    recentSubscribers: TelemetrySubscriber[];
+  };
+  telemetry: {
+    totalSessions: number;
+    recentSessions: unknown[];
+    aggregates: {
+      averageEstimatedAnnualSavings: number | null;
+      minEstimatedAnnualSavings: number | null;
+      maxEstimatedAnnualSavings: number | null;
+      totalLegacyCost: number | null;
+      totalOmnidiffCost: number | null;
+    };
+  };
+  errors?: string[];
+}
+
+function getInquiryTypeBadge(type: string) {
+  const t = type.toLowerCase();
+  if (t.includes("investor")) {
+    return "bg-emerald/10 text-emerald border-emerald/30";
+  }
+  if (t.includes("rent")) {
+    return "bg-electric/10 text-electric border-electric/30";
+  }
+  if (t.includes("provider")) {
+    return "bg-amber/10 text-amber border-amber/30";
+  }
+  return "bg-text-muted/10 text-text-muted border-text-muted/30";
+}
+
+function getInquiryTypeLabel(type: string) {
+  const t = type.toLowerCase();
+  if (t.includes("investor")) return "Investor";
+  if (t.includes("rent")) return "Renter";
+  if (t.includes("provider")) return "Provider";
+  return type;
+}
+
+function formatCurrency(value: number | null): string {
+  if (value === null || Number.isNaN(value)) return "—";
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(value);
+}
+
+function formatDate(ts: string): string {
+  if (!ts) return "—";
+  const d = new Date(ts);
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+}
 
 export default function Home() {
-  const [status, setStatus] = useState<GridStatus>("offline");
-  const [liveCredits, setLiveCredits] = useState("0.00");
-  const [sessionEarnings, setSessionEarnings] = useState("0.0000");
-  const [stressState, setStressState] = useState<"stable" | "critical">("stable");
-  const [activityLogs, setActivityLogs] = useState([
-    "[09:00:21] XGPU Agent Handshake: SUCCESS",
-    "[09:15:44] Workload ID #8821 assigned to Node-PH01",
-    "[10:30:12] Heartbeat check: STABLE (14ms)",
-  ]);
-  const [stats, setStats] = useState({
-    vramUsedGb: 0,
-    vramTotalGb: 12,
-    vramPercent: 0,
-    security: [
-      "Isolated Sandbox (TEE Verified)",
-      "AES-256 Memory Encryption: ACTIVE",
-      "Hardware Attestation: PASSED",
-    ],
-    connectivity: {
-      latency: "14ms",
-      egress: "Neutral/Unrestricted",
-      discovery: "Active",
+  const [token, setToken] = useState<string>("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [data, setData] = useState<TelemetryAnalytics | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string>("");
+  const [inputValue, setInputValue] = useState("");
+
+  const BASE = import.meta.env.BASE_URL?.replace(/\/$/, "") ?? "";
+
+  const fetchAnalytics = useCallback(
+    async (authToken: string) => {
+      setLoading(true);
+      setError("");
+      try {
+        const res = await fetch(
+          `${BASE}/api/internal/telemetry-analytics?token=${encodeURIComponent(authToken)}`,
+        );
+        const json = await res.json();
+        if (res.status === 401) {
+          setIsAuthenticated(false);
+          setError("Invalid administrative token. Access denied.");
+          return;
+        }
+        if (res.status === 503) {
+          setError("Telemetry endpoint is not configured.");
+          return;
+        }
+        if (!res.ok) {
+          setError(json.error || "Failed to load telemetry data.");
+          return;
+        }
+        setData(json);
+        setIsAuthenticated(true);
+      } catch {
+        setError("Network error. Could not reach telemetry server.");
+      } finally {
+        setLoading(false);
+      }
     },
-    yield: "0.00",
-  });
-  const [liveStatsSnapshot, setLiveStatsSnapshot] = useState({
-    vramUsedGb: 8.4,
-    vramTotalGb: 12,
-    vramPercent: 70,
-    security: [
-      "Isolated Sandbox (TEE Verified)",
-      "AES-256 Memory Encryption: ACTIVE",
-      "Hardware Attestation: PASSED",
-    ],
-    connectivity: {
-      latency: "14ms",
-      egress: "Neutral/Unrestricted",
-      discovery: "Active",
-    },
-    yield: "142.50",
-  });
-  const [pendingToggleTimeouts, setPendingToggleTimeouts] = useState<number[]>([]);
+    [BASE],
+  );
 
-  React.useEffect(() => {
-    if (status !== "live") return;
-    const interval = window.setInterval(() => {
-      setSessionEarnings((current) => (Number(current) + 0.0001).toFixed(4));
-    }, 1000);
-    return () => window.clearInterval(interval);
-  }, [status]);
-
-  const clearPendingToggleTimeouts = () => {
-    pendingToggleTimeouts.forEach((timeoutId) => window.clearTimeout(timeoutId));
-    setPendingToggleTimeouts([]);
-  };
-
-  const handleToggle = () => {
-    if (status === "verifying") return;
-    clearPendingToggleTimeouts();
-    if (status === "live") {
-      setStatus("decommissioning");
-      setActivityLogs((current) => [
-        ...current,
-        "[SYSTEM] Draining active workloads... Instant Eviction protocol initiated for all tenants.",
-      ]);
-      const shutdownTimeout = window.setTimeout(() => {
-        setStatus("offline");
-        setStats((current) => ({
-          ...current,
-          vramPercent: 0,
-          vramUsedGb: 0,
-        }));
-      }, 2000);
-      setPendingToggleTimeouts([shutdownTimeout]);
-      return;
+  useEffect(() => {
+    const saved = sessionStorage.getItem("admin_token");
+    if (saved) {
+      setToken(saved);
+      fetchAnalytics(saved);
     }
-    if (status !== "offline") return;
-    setStatus("verifying");
-    const firstTimeout = window.setTimeout(() => {
-      setStats((current) => ({
-        ...current,
-        security: current.security,
-      }));
-    }, 1500);
-    const secondTimeout = window.setTimeout(() => {
-      setStats((current) => ({
-        ...current,
-        security: current.security,
-      }));
-    }, 2500);
-    const finalTimeout = window.setTimeout(() => {
-      setStatus("live");
-      setLiveCredits("142.50");
-      setStats(liveStatsSnapshot);
-    }, 3000);
-    setPendingToggleTimeouts([firstTimeout, secondTimeout, finalTimeout]);
+  }, [fetchAnalytics]);
+
+  const handleLogin = () => {
+    if (!inputValue.trim()) return;
+    sessionStorage.setItem("admin_token", inputValue.trim());
+    setToken(inputValue.trim());
+    fetchAnalytics(inputValue.trim());
   };
 
-  const startHandshake = () => {
-    handleToggle();
+  const handleLogout = () => {
+    sessionStorage.removeItem("admin_token");
+    setToken("");
+    setInputValue("");
+    setIsAuthenticated(false);
+    setData(null);
+    setError("");
   };
 
-  const handleResilienceTest = () => {
-    if (stressState === "critical") return;
-    setStressState("critical");
-    setStats((current) => ({ ...current, vramPercent: 100 }));
-    setActivityLogs((current) => [
-      ...current,
-      "[CRITICAL] Host Signal Lost... Initiating Instant Eviction.",
-    ]);
-    setTimeout(() => {
-      setActivityLogs((current) => [
-        ...current,
-        "[SYSTEM] Instant Eviction Triggered: Workload 8821 migrated to Standby-Node-SG04 in 450ms.",
-      ]);
-      setStressState("stable");
-      setStats((current) => ({ ...current, vramPercent: status === "live" ? 70 : 0 }));
-    }, 1000);
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") handleLogin();
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex">
-      <Sidebar live={status === "live"} />
-      <main className={`flex-1 ml-[260px] flex flex-col min-h-screen overflow-x-hidden ${status === "decommissioning" ? "shadow-[inset_0_0_120px_rgba(251,146,60,0.18)]" : status === "live" ? "shadow-[inset_0_0_120px_rgba(34,197,94,0.16)]" : ""}`}>
-        <Header status={status === "decommissioning" ? "verifying" : status} onToggle={handleToggle} />
-        <div className="flex-1 overflow-auto">
-          <BentoGrid
-            stats={{ ...stats, yield: liveCredits }}
-            status={status === "decommissioning" ? "verifying" : status}
-            sessionEarnings={sessionEarnings}
-            stressState={stressState}
-            activityLogs={activityLogs}
-            onResilienceTest={handleResilienceTest}
-            onStartHandshake={startHandshake}
-          />
+    <div className="w-full bg-obsidian text-text-primary min-h-screen">
+      {/* SECURE AUTHORIZATION GATEWAY */}
+      {!isAuthenticated && (
+        <div className="w-full flex items-start justify-center px-6 py-20">
+          <div className="w-full max-w-md rounded-2xl border border-surface-border bg-surface p-8 shadow-[0_0_60px_rgba(0,0,0,0.6)]">
+            <div className="mb-6 text-center">
+              <span className="inline-block rounded border border-electric/30 bg-electric/5 px-2 py-1 font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.2em] text-electric">
+                [ADMIN PORTAL]
+              </span>
+              <h2 className="mt-4 font-[family-name:var(--font-syne)] text-2xl font-bold text-text-primary">
+                Telemetry Dashboard
+              </h2>
+              <p className="mt-2 font-[family-name:var(--font-inter)] text-sm text-text-muted leading-relaxed">
+                Secure access to Morphix internal analytics. Enter your administrative token to proceed.
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <div>
+                <label className="mb-1.5 block font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.15em] text-text-muted">
+                  Enter Administrative Telemetry Token
+                </label>
+                <input
+                  type="password"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Your secure access phrase..."
+                  className="w-full rounded-lg border border-surface-border bg-obsidian px-4 py-3 font-[family-name:var(--font-dmmono)] text-sm text-text-primary outline-none transition-all focus:border-electric focus:shadow-[0_0_12px_rgba(0,194,255,0.25)]"
+                />
+              </div>
+
+              {error && (
+                <div className="rounded-lg border border-red-500/30 bg-red-500/5 px-4 py-3 font-[family-name:var(--font-inter)] text-sm text-red-400">
+                  {error}
+                </div>
+              )}
+
+              <button
+                onClick={handleLogin}
+                disabled={loading || !inputValue.trim()}
+                className="w-full rounded-lg bg-electric px-6 py-3 font-[family-name:var(--font-dmmono)] text-sm font-bold text-obsidian transition-all hover:bg-electric/90 hover:shadow-[0_0_20px_rgba(0,194,255,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? "Authenticating..." : "Access Telemetry"}
+              </button>
+            </div>
+          </div>
         </div>
-      </main>
+      )}
+
+      {/* DASHBOARD CONTENT */}
+      {isAuthenticated && data && (
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-8">
+          {/* Header Bar */}
+          <div className="mb-8 flex items-center justify-between">
+            <div>
+              <span className="inline-block rounded border border-emerald/30 bg-emerald/5 px-2 py-1 font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.2em] text-emerald">
+                [LIVE ANALYTICS]
+              </span>
+              <h1 className="mt-2 font-[family-name:var(--font-syne)] text-2xl font-bold text-text-primary">
+                OmniDiff Telemetry Pipeline
+              </h1>
+              <p className="mt-1 font-[family-name:var(--font-dmmono)] text-xs text-text-muted">
+                Last synced: {data.timestamp ? formatDate(data.timestamp) : "—"}
+              </p>
+            </div>
+            <button
+              onClick={handleLogout}
+              className="rounded-lg border border-surface-border px-4 py-2 font-[family-name:var(--font-dmmono)] text-xs text-text-muted transition-all hover:border-red-500/50 hover:text-red-400"
+            >
+              Secure Logout
+            </button>
+          </div>
+
+          {/* LOGISTICAL METRIC CARDS — TOP ROW */}
+          <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {/* Card 1: Total Registered Leads */}
+            <div className="rounded-xl border border-surface-border bg-surface p-6">
+              <div className="mb-2 font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.15em] text-text-muted">
+                Total Registered Leads
+              </div>
+              <div className="font-[family-name:var(--font-syne)] text-3xl font-bold text-text-primary">
+                {data.waitlist.totalCount}
+              </div>
+              <div className="mt-2 font-[family-name:var(--font-inter)] text-xs text-text-muted">
+                Active waitlist subscribers
+              </div>
+            </div>
+
+            {/* Card 2: Calculator Session Traffic */}
+            <div className="rounded-xl border border-surface-border bg-surface p-6">
+              <div className="mb-2 font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.15em] text-text-muted">
+                Calculator Session Traffic
+              </div>
+              <div className="font-[family-name:var(--font-syne)] text-3xl font-bold text-electric">
+                {data.telemetry.totalSessions}
+              </div>
+              <div className="mt-2 font-[family-name:var(--font-inter)] text-xs text-text-muted">
+                Total telemetry sessions logged
+              </div>
+            </div>
+
+            {/* Card 3: Projected Annual Savings */}
+            <div className="rounded-xl border border-surface-border bg-surface p-6">
+              <div className="mb-2 font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.15em] text-text-muted">
+                Projected Annual Savings
+              </div>
+              <div className="font-[family-name:var(--font-syne)] text-3xl font-bold text-emerald">
+                {formatCurrency(data.telemetry.aggregates.averageEstimatedAnnualSavings)}
+              </div>
+              <div className="mt-2 font-[family-name:var(--font-inter)] text-xs text-text-muted">
+                Average per calculator session
+              </div>
+            </div>
+          </div>
+
+          {/* RECENT ACTIVITY DATA TABLE */}
+          <div className="w-full rounded-xl border border-surface-border bg-surface p-6">
+            <div className="mb-4 flex items-center justify-between">
+              <h3 className="font-[family-name:var(--font-syne)] text-lg font-bold text-text-primary">
+                Recent Waitlist Subscribers
+              </h3>
+              <span className="rounded border border-surface-border bg-obsidian px-2 py-1 font-[family-name:var(--font-dmmono)] text-[10px] text-text-muted">
+                {data.waitlist.recentSubscribers.length} / 20
+              </span>
+            </div>
+
+            <div className="w-full overflow-x-auto">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="border-b border-surface-border">
+                    <th className="px-4 py-3 text-left font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.15em] text-text-muted">
+                      Full Name
+                    </th>
+                    <th className="px-4 py-3 text-left font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.15em] text-text-muted">
+                      Company
+                    </th>
+                    <th className="px-4 py-3 text-left font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.15em] text-text-muted">
+                      Professional Email
+                    </th>
+                    <th className="px-4 py-3 text-left font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.15em] text-text-muted">
+                      Inquiry Type
+                    </th>
+                    <th className="px-4 py-3 text-right font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.15em] text-text-muted">
+                      Submitted
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.waitlist.recentSubscribers.length === 0 ? (
+                    <tr>
+                      <td
+                        colSpan={5}
+                        className="px-4 py-8 text-center font-[family-name:var(--font-inter)] text-sm text-text-muted"
+                      >
+                        No subscriber records found.
+                      </td>
+                    </tr>
+                  ) : (
+                    data.waitlist.recentSubscribers.map((sub) => (
+                      <tr
+                        key={sub.id}
+                        className="border-b border-surface-border/60 transition-colors hover:bg-obsidian/50"
+                      >
+                        <td className="px-4 py-3 font-[family-name:var(--font-inter)] text-sm text-text-primary">
+                          {sub.full_name}
+                        </td>
+                        <td className="px-4 py-3 font-[family-name:var(--font-inter)] text-sm text-text-muted">
+                          {sub.company_name || "—"}
+                        </td>
+                        <td className="px-4 py-3 font-[family-name:var(--font-dmmono)] text-sm text-text-mono">
+                          {sub.professional_email}
+                        </td>
+                        <td className="px-4 py-3">
+                          <span
+                            className={`inline-block rounded border px-2 py-0.5 font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-wider ${getInquiryTypeBadge(sub.inquiry_type)}`}
+                          >
+                            {getInquiryTypeLabel(sub.inquiry_type)}
+                          </span>
+                        </td>
+                        <td className="px-4 py-3 text-right font-[family-name:var(--font-dmmono)] text-xs text-text-muted">
+                          {formatDate(sub.submission_timestamp)}
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          {/* Footer Note */}
+          <div className="mt-6 text-center font-[family-name:var(--font-dmmono)] text-[10px] text-text-muted/60">
+            Data sourced from /api/internal/telemetry-analytics
+            &nbsp;&middot;&nbsp;
+            {data.errors && data.errors.length > 0
+              ? `Warnings: ${data.errors.join(", ")}`
+              : "All systems operational"}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
