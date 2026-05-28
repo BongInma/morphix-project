@@ -1,9 +1,9 @@
 export default function FinancialFooter() {
   const metrics = [
     {
-      number: "95%",
+      number: "33%+",
       color: "text-electric",
-      label: "Enterprise Workstation Idle Rate (Off-Shift)",
+      label: "Enterprise Workstation Idle Rate (Minimum)",
     },
     {
       number: "$48B",
