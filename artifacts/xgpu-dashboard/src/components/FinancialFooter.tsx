@@ -1,4 +1,5 @@
 import { useState } from "react";
+import LegalModal from "./LegalModal";
 
 export default function FinancialFooter() {
   const metrics = [
@@ -24,7 +25,7 @@ export default function FinancialFooter() {
     },
   ];
 
-  const [modalOpen, setModalOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
   const [modalTitle, setModalTitle] = useState("");
   const [fullName, setFullName] = useState("");
   const [organization, setOrganization] = useState("");
@@ -32,12 +33,15 @@ export default function FinancialFooter() {
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
+  const [legalModalOpen, setLegalModalOpen] = useState(false);
+  const [legalTab, setLegalTab] = useState("privacy");
+
   const BASE = import.meta.env.BASE_URL?.replace(/\/$/, "") ?? "";
   const API = `${BASE}/api`;
 
-  const openModal = (title: string) => {
+  const openContactModal = (title: string) => {
     setModalTitle(title);
-    setModalOpen(true);
+    setContactModalOpen(true);
     setStatus("idle");
     setFullName("");
     setOrganization("");
@@ -73,6 +77,11 @@ export default function FinancialFooter() {
     }
   };
 
+  const openLegalModal = (tab: string) => {
+    setLegalTab(tab);
+    setLegalModalOpen(true);
+  };
+
   const footerLinks = [
     {
       header: "OMNIDIFF NETWORK",
@@ -87,18 +96,18 @@ export default function FinancialFooter() {
       header: "MORPHIX SYSTEMS",
       links: [
         { label: "About & Leadership", href: "#", onClick: undefined },
-        { label: "Investor Relations", href: "#", onClick: () => openModal("Institutional Investment Inquiry") },
+        { label: "Investor Relations", href: "#", onClick: () => openContactModal("Institutional Investment Inquiry") },
         { label: "Corporate Governance", href: "#corporate-governance-section", onClick: undefined },
-        { label: "Contact", href: "#", onClick: () => openModal("General Corporate Inquiry") },
+        { label: "Contact", href: "#", onClick: () => openContactModal("General Corporate Inquiry") },
       ],
     },
     {
       header: "LEGAL",
       links: [
-        { label: "Privacy Policy", href: "#", onClick: undefined },
-        { label: "Terms of Service", href: "#", onClick: undefined },
-        { label: "SEC Filing Records", href: "#", onClick: undefined },
-        { label: "Data Residency Framework", href: "#", onClick: undefined },
+        { label: "Privacy Policy", href: "#", onClick: () => openLegalModal("privacy") },
+        { label: "Terms of Service", href: "#", onClick: () => openLegalModal("terms") },
+        { label: "SEC Filing Records", href: "#", onClick: () => openLegalModal("sec") },
+        { label: "Data Residency Framework", href: "#", onClick: () => openLegalModal("residency") },
       ],
     },
   ];
@@ -171,7 +180,7 @@ export default function FinancialFooter() {
                       {link.onClick ? (
                         <button
                           onClick={link.onClick}
-                          className="font-[family-name:var(--font-inter)] text-sm text-text-muted transition-colors hover:text-[#00beff] text-left"
+                          className="font-[family-name:var(--font-inter)] text-sm text-text-muted transition-colors hover:text-[#00beff] text-left cursor-pointer"
                         >
                           {link.label}
                         </button>
@@ -209,10 +218,10 @@ export default function FinancialFooter() {
       </footer>
 
       {/* Contact Modal */}
-      {modalOpen && (
+      {contactModalOpen && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center px-4"
-          onClick={() => setModalOpen(false)}
+          onClick={() => setContactModalOpen(false)}
         >
           <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" />
           <div
@@ -221,7 +230,7 @@ export default function FinancialFooter() {
           >
             {/* Close */}
             <button
-              onClick={() => setModalOpen(false)}
+              onClick={() => setContactModalOpen(false)}
               className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full border border-surface-border text-text-muted transition-colors hover:text-white hover:border-electric"
             >
               &#10005;
@@ -321,6 +330,12 @@ export default function FinancialFooter() {
           </div>
         </div>
       )}
+
+      <LegalModal
+        isOpen={legalModalOpen}
+        initialTab={legalTab}
+        onClose={() => setLegalModalOpen(false)}
+      />
     </>
   );
 }

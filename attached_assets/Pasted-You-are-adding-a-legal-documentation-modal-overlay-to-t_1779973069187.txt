@@ -1,0 +1,314 @@
+You are adding a legal documentation modal overlay to the existing 
+Morphix Systems Inc. / OmniDiff React project. This replaces the 
+four dead footer links in the LEGAL column with a tabbed modal 
+that opens in-place without any page navigation.
+
+--- STEP 1: READ EXISTING CODE FIRST ---
+
+Before writing anything, read these files:
+
+1. tailwind.config.js — confirm all custom color tokens and 
+   font family names (syne, dmmono, inter, obsidian, surface, 
+   bg-border, accent-electric, accent-emerald, text-primary, 
+   text-muted, text-mono).
+
+2. FinancialFooter.jsx — locate the LEGAL column exactly. 
+   Note the current link elements (Privacy Policy, Terms of 
+   Service, SEC Filing Records, Data Residency Framework) and 
+   their exact className strings. You will replace their href 
+   behavior, not their visual styling.
+
+3. App.jsx — confirm where FinancialFooter is rendered so you 
+   know where to place the modal in the component tree.
+
+Report the exact JSX of the four LEGAL links before proceeding.
+
+--- STEP 2: CREATE THE MODAL COMPONENT ---
+
+Create one new file: src/components/LegalModal.jsx
+
+The component accepts these props:
+  - isOpen: boolean
+  - initialTab: string (one of: "privacy", "terms", "sec", 
+    "residency")
+  - onClose: function
+
+-- MODAL SHELL --
+
+When isOpen is false: render nothing (return null).
+
+When isOpen is true: render a full-screen overlay:
+
+Overlay div:
+  fixed inset-0 z-50 flex items-center justify-center 
+  bg-black/80 backdrop-blur-sm p-4 md:p-8
+
+Inner modal container:
+  relative w-full max-w-5xl max-h-[90vh] flex flex-col
+  bg-surface border border-bg-border rounded-xl overflow-hidden
+
+-- MODAL HEADER BAR --
+
+flex items-center justify-between px-6 py-4 
+border-b border-bg-border bg-obsidian flex-shrink-0
+
+Left side:
+  - "[LEGAL]" badge: DM Mono text-xs text-accent-electric 
+    border border-accent-electric/30 bg-accent-electric/5 
+    rounded px-2 py-1
+  - "Legal & Compliance Documentation" text: 
+    Syne font-semibold text-primary text-sm ml-3
+
+Right side — Close button:
+  onClick: calls onClose()
+  Style: w-8 h-8 flex items-center justify-center 
+  border border-bg-border rounded-md text-muted 
+  hover:text-primary hover:border-accent-electric 
+  transition text-sm DM Mono
+  Content: "✕"
+
+-- TAB LAYOUT --
+
+Below the header, a flex row fills the remaining height:
+  flex flex-1 overflow-hidden
+
+LEFT SIDEBAR (tab navigation):
+  w-48 flex-shrink-0 border-r border-bg-border 
+  bg-obsidian py-4 flex flex-col gap-1 px-2
+
+  Four tab buttons, each:
+    w-full text-left px-3 py-3 rounded-md text-xs 
+    DM Mono uppercase tracking-wider transition-all 
+    duration-150
+
+  Active tab style:
+    bg-accent-electric/10 text-accent-electric 
+    border border-accent-electric/20
+
+  Inactive tab style:
+    text-muted hover:text-primary hover:bg-surface
+
+  Tab labels and their id values:
+    "privacy"   → "Privacy Policy"
+    "terms"     → "Terms of Service"
+    "sec"       → "SEC Filing Records"
+    "residency" → "Data Residency"
+
+  Below the four tabs, at the bottom of the sidebar 
+  (mt-auto px-3 pb-2):
+    DM Mono text-xs text-muted leading-relaxed:
+    "Morphix Systems Inc.
+     SEC-Registered Entity
+     Quezon City, PH"
+    A thin divider line above it: 
+    border-t border-bg-border pt-4 mt-4
+
+RIGHT CONTENT PANEL:
+  flex-1 overflow-y-auto p-8 bg-surface
+
+  Render one content block based on the active tab.
+  Each content block structure:
+
+  Top label (DM Mono text-xs uppercase tracking-widest 
+  text-accent-electric mb-4): the tab category name
+
+  Heading (Syne text-2xl font-bold text-primary mb-6):
+    the section headline
+
+  Body text (Inter text-sm text-muted leading-relaxed 
+  max-w-prose): the section body copy
+
+  A thin divider (border-t border-bg-border my-8)
+
+  A bottom metadata row (flex items-center gap-6 
+  flex-wrap DM Mono text-xs text-muted):
+    Varies per tab — see content specs below.
+
+-- TAB CONTENT SPECIFICATIONS --
+
+TAB: "privacy"
+  Label: "DATA PROTECTION"
+  Heading: "Zero-Trust Data Privacy Architecture"
+  Body: "OmniDiff operates under a rigorous Zero-Trust 
+    isolation protocol. Client data, model weights, and 
+    prompt processing streams are handled strictly within 
+    hardware-encrypted Trusted Execution Environments (TEEs) 
+    using NVIDIA Confidential Computing. Neither Morphix 
+    Systems Inc., host BPO infrastructure operators, nor 
+    unauthorized external telemetry layers can intercept, 
+    view, or log any processing memory registers. Your 
+    computational IP remains entirely air-gapped from all 
+    external observation vectors."
+  Metadata row tags:
+    [NVIDIA CC ENFORCED] [AMD SEV-SNP] [ZERO TELEMETRY LOGGING]
+    [AES-256 AT REST] [PDPA R.A. 10173 ALIGNED]
+
+TAB: "terms"
+  Label: "SERVICE LEVEL AGREEMENT"
+  Heading: "Decentralized Compute SLA"
+  Body: "All computational leasing on the OmniDiff network 
+    is bound by our Sub-50ms Priority Return Eviction SLA. 
+    The platform guarantees that renting workloads are 
+    instantly evicted from host workstations the exact 
+    millisecond a local enterprise BPO operator activates 
+    any peripheral input device — mouse or keyboard — ensuring 
+    zero operational friction for primary business processes. 
+    Marketplace transaction fees, automated billing 
+    distributions, and off-peak scheduling windows are 
+    strictly governed by the terms of the executed provider 
+    or renter agreement."
+  Metadata row tags:
+    [<50ms P99 SLA] [PERIPHERAL TELEMETRY ENFORCED] 
+    [OFF-PEAK WINDOW: 8HR] [SMART CONTRACT BILLING]
+
+TAB: "sec"
+  Label: "CORPORATE REGISTRATION"
+  Heading: "Corporate Registration & Transparency"
+  Body: "OmniDiff is a proprietary infrastructure ecosystem 
+    developed, legally owned, and operated under the corporate 
+    framework of Morphix Systems Inc., an SEC-registered entity 
+    domiciled in Quezon City, Philippines. All financial 
+    operational tracking, bilateral netting infrastructure 
+    models, and corporate registries are maintained 
+    transparently for institutional risk compliance under SEC 
+    oversight. True copies of active SEC compliance records 
+    are available upon request to verified venture capital 
+    partners via our secure Investor Relations channel. 
+    Early investment rounds are structured under SRC Section 
+    10.1(k) private placement exemptions."
+  Metadata row tags:
+    [SEC-REGISTERED PH] [SRC SECTION 10.1(k)] 
+    [QC DOMICILE] [VC DATA ROOM AVAILABLE]
+  
+  Below metadata, add a small CTA link:
+    Inter text-xs text-accent-electric 
+    hover:underline cursor-pointer mt-4 block
+    Text: "Request investor records → 
+           compliance@morphixsystems.com"
+    href: "mailto:compliance@morphixsystems.com
+      ?subject=SEC%20Records%20Request"
+
+TAB: "residency"
+  Label: "SOVEREIGNTY & GEOFENCING"
+  Heading: "Sovereign Geofencing & APAC Compliance"
+  Body: "To resolve critical data sovereignty barriers 
+    across the Asia-Pacific corridor, OmniDiff enforces 
+    hardware-level geographical geofencing at the 
+    orchestration layer. Compute tasks are cryptographically 
+    tagged with their geographic assignment at ingestion and 
+    are strictly routed to verified provider nodes residing 
+    within your specified national jurisdiction. This prevents 
+    cross-border data leakage and satisfies localized 
+    data-residency mandates, enabling public sector entities 
+    and regulated financial institutions to leverage 
+    optimized edge computing without regulatory exposure."
+  Metadata row tags:
+    [APAC COMPLIANT] [PH-DPA ALIGNED] [ZERO CROSS-BORDER EGRESS]
+    [HARDWARE GEOFENCING] [PUBLIC SECTOR READY]
+
+Metadata tag style (each tag):
+  DM Mono text-xs border border-bg-border rounded-full 
+  px-3 py-1 text-muted
+
+-- MODAL CLOSE BEHAVIOR --
+
+Three ways to close the modal:
+  1. The ✕ button in the header
+  2. Clicking the overlay backdrop (the outer fixed div), 
+     but NOT clicking inside the modal container itself.
+     Implement this with an onClick on the outer overlay 
+     div and stopPropagation on the inner container div.
+  3. Pressing the Escape key.
+     Add a useEffect that attaches a keydown listener 
+     for "Escape" when isOpen is true and removes it 
+     on cleanup.
+
+-- SCROLL LOCK --
+
+Add a useEffect in LegalModal.jsx:
+  When isOpen becomes true: 
+    document.body.style.overflow = 'hidden'
+  When isOpen becomes false or component unmounts: 
+    document.body.style.overflow = ''
+
+-- TAB STATE --
+
+Use useState inside LegalModal to track activeTab.
+Initialize it to the initialTab prop.
+Add a useEffect that syncs activeTab to initialTab 
+whenever initialTab changes:
+  useEffect(() => { setActiveTab(initialTab) }, [initialTab])
+
+--- STEP 3: UPDATE FINANCIALFOOTER.JSX ---
+
+Open FinancialFooter.jsx.
+
+Add at the top of the component:
+  const [modalOpen, setModalOpen] = useState(false)
+  const [activeTab, setActiveTab] = useState('privacy')
+  Import useState from react.
+  Import LegalModal from '../components/LegalModal'
+
+Replace the four LEGAL column links:
+
+  Current "Privacy Policy" link →
+    onClick: () => { setActiveTab('privacy'); setModalOpen(true) }
+    Change href="#" and add cursor-pointer
+
+  Current "Terms of Service" link →
+    onClick: () => { setActiveTab('terms'); setModalOpen(true) }
+
+  Current "SEC Filing Records" link →
+    onClick: () => { setActiveTab('sec'); setModalOpen(true) }
+
+  Current "Data Residency Framework" link →
+    onClick: () => { setActiveTab('residency'); setModalOpen(true) }
+
+For each: replace the <a> tag with a <button> tag.
+Preserve ALL existing Tailwind classes on these elements exactly.
+Add only: cursor-pointer to the className.
+Add: type="button" attribute.
+
+At the bottom of FinancialFooter's return statement, 
+just before the closing fragment or outer div, add:
+
+  <LegalModal
+    isOpen={modalOpen}
+    initialTab={activeTab}
+    onClose={() => setModalOpen(false)}
+  />
+
+--- STEP 4: MOBILE BEHAVIOR ---
+
+The left sidebar is hidden on screens smaller than md.
+On mobile (below md breakpoint), replace the sidebar with 
+a horizontal scrollable tab bar at the top of the content area:
+
+  flex md:hidden overflow-x-auto border-b border-bg-border 
+  bg-obsidian px-4 py-2 gap-2 flex-shrink-0
+
+  Each tab: DM Mono text-xs px-3 py-2 rounded-md whitespace-nowrap
+  Active: bg-accent-electric/10 text-accent-electric 
+          border border-accent-electric/20
+  Inactive: text-muted
+
+The left sidebar uses: hidden md:flex
+
+--- STEP 5: OUTPUT RULES ---
+
+Output these two files only:
+  1. src/components/LegalModal.jsx (new file)
+  2. src/components/FinancialFooter.jsx (updated file)
+
+Do not modify any other file.
+Do not install any packages.
+Do not change any Tailwind class on any element in 
+FinancialFooter.jsx except the four LEGAL links 
+(which get cursor-pointer added and tag changed 
+from <a> to <button>).
+
+Add this comment at the top of LegalModal.jsx:
+  // LegalModal.jsx — Morphix Systems Inc.
+  // Triggered by: FinancialFooter.jsx LEGAL column links
+  // Tabs: privacy | terms | sec | residency
+  // No router dependency — pure state-driven overlay
