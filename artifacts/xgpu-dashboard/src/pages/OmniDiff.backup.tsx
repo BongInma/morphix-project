@@ -563,9 +563,9 @@ export default function OmniDiff() {
                     <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
                     <span className="text-[#3B82F6] text-[10px] tracking-[0.2em] uppercase font-mono">Hardware Providers</span>
                   </div>
-                  <h2 className="text-xl sm:text-2xl font-bold mb-2 break-words">Monetize Your Idle GPUs.<br />Offset Meralco Spikes.<br /><span className="block h-2" /><span className="block h-2" /></h2>
+                  <h2 className="text-xl sm:text-2xl font-bold mb-2 break-words">Monetize Your Idle GPUs.<br />Offset Power Bill Hikes.<br /><span className="block h-2" /><span className="block h-2" /></h2>
                   <p className="text-[#6B7280] text-sm leading-relaxed">
-                    Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield PHP revenues
+                    Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield revenue
                     that could underwrite your future GPU replacement costs.
                   </p>
                   <span className="block h-2 sm:h-3" />
@@ -573,7 +573,7 @@ export default function OmniDiff() {
                 <div className="rounded-xl border border-[#1F2937] p-3 sm:p-4 bg-[#0B0C0E]">
                   <ul className="space-y-3 text-sm leading-5 text-[#D1D5DB]">
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Monetize your idle 12 AM – 8 AM hardware into predictable, high-yield revenue streams.</span></li>
-                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Complete flexibility: Monetize your night-time idle windows (12 AM–8 AM) to offset your Meralco electric bills, or dedicate clusters 24/7 for maximum revenue yield.</span></li>
+                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Complete flexibility: Monetize your night-time idle windows (12 AM–8 AM) to offset your power bills, or dedicate clusters 24/7 for maximum revenue yield.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Lock in an elite 90% gross payout split for your first 12 months of deployment before resetting to our standard 80% tier.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your GPU clusters against workload-induced operational risks.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>

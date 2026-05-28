@@ -586,9 +586,9 @@ export default function OmniDiff() {
                     <span className="w-2 h-2 rounded-full bg-[#3B82F6] animate-pulse" />
                     <span className="text-[#3B82F6] text-[10px] tracking-[0.2em] uppercase font-mono">Hardware Providers</span>
                   </div>
-                  <h2 className="text-xl sm:text-2xl font-bold mb-2 break-words">Monetize Your Idle GPUs.<br />Offset Meralco Spikes.<br /><span className="block h-2" /><span className="block h-2" /></h2>
+                  <h2 className="text-xl sm:text-2xl font-bold mb-2 break-words">Monetize Your Idle GPUs.<br />Offset Power Bill Hikes.<br /><span className="block h-2" /><span className="block h-2" /></h2>
                   <p className="text-[#6B7280] text-sm leading-relaxed">
-                    Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield PHP revenues
+                    Convert your idle nighttime hardware capacity (12 AM – 8 AM) into high-yield revenue
                     that could underwrite your future GPU replacement costs.
                   </p>
                   <span className="block h-2 sm:h-3" />
