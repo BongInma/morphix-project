@@ -202,17 +202,25 @@ export default function FinancialFooter() {
           </div>
 
           {/* Bottom bar */}
-          <div className="mx-auto mt-12 max-w-6xl border-t border-surface-border pt-8 flex flex-col items-center gap-4 md:flex-row md:justify-between">
-            <p className="font-[family-name:var(--font-dmmono)] text-xs text-text-muted">
-              \u00a9 2025 Morphix Systems Inc. All Rights Reserved. SEC-Registered Corporation, Philippines.
-            </p>
-            <div className="flex items-center gap-4 font-[family-name:var(--font-dmmono)] text-xs text-text-muted">
-              <span>OmniDiff\u2122 is a trademark of Morphix Systems Inc.</span>
-              <span className="hidden md:inline">|</span>
+          <div className="mt-12 pt-8 border-t border-surface-border flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-wide font-[family-name:var(--font-dmmono)] text-text-muted">
+
+            {/* Left Side Compliance */}
+            <div>
+              &copy; 2026 Morphix Systems Inc. All Rights Reserved. SEC-Registered Corporation, Philippines.
+            </div>
+
+            {/* Center Branding */}
+            <div>
+              OmniDiff&trade; is a trademark of Morphix Systems Inc.
+            </div>
+
+            {/* Right Side Regulatory badges */}
+            <div className="flex items-center space-x-4">
               <span>IPOPHL Provisional Patent Pending</span>
-              <span className="hidden md:inline">|</span>
+              <span className="text-text-muted/50">|</span>
               <span>PDPA Compliant</span>
             </div>
+
           </div>
         </div>
       </footer>
