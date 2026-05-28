@@ -37,7 +37,7 @@ export default function Navbar() {
           {[
             { label: "OmniDiff Network", href: "#" },
             { label: "Enterprise Providers", href: "#eoi" },
-            { label: "Corporate Governance", href: "#" },
+            { label: "Corporate Governance", href: "#corporate-governance" },
           ].map(({ label, href }) => (
             <a
               key={label}
