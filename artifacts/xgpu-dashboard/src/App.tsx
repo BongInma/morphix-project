@@ -16,8 +16,8 @@ const queryClient = new QueryClient();
 function Router() {
   return (
     <Switch>
-      <Route path="/" component={OmniDiff} />
-      <Route path="/morphix" component={MorphixLanding} />
+      <Route path="/" component={MorphixLanding} />
+      <Route path="/omnidiff" component={OmniDiff} />
       <Route path="/dashboard" component={Home} />
       <Route path="/join" component={Join} />
       <Route path="/grid-health" component={GridHealth} />
