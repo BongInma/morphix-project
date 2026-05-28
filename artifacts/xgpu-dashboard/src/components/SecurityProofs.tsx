@@ -64,7 +64,7 @@ export default function SecurityProofs() {
               Ironclad Zero-Trust Security
             </h3>
             <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
-              Workloads and proprietary model weights are isolated strictly inside hardware-encrypted Trusted Execution Environments (TEEs) using NVIDIA Confidential Computing, guaranteeing total confidentiality from host infrastructure exposure.
+              Workloads and proprietary model weights are isolated inside hardware-encrypted Trusted Execution Environments (TEEs) utilizing NVIDIA Confidential Computing, guaranteeing total confidentiality from host infrastructure exposure. Backed by a high-availability triple-node redundancy framework, computational tasks execute across synchronized parallel node triads to ensure zero data loss and uninterrupted processing even during sudden host disconnects or physical power outages. Upon workload completion or eviction, an automated, hardware-level memory erase sequence triggers instantaneously, completely wiping all residual data footprints from the host machine's RAM to prevent side-channel leakage.
             </p>
           </div>
 
