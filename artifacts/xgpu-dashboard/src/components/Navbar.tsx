@@ -35,7 +35,7 @@ export default function Navbar() {
         {/* Center Nav Links */}
         <div className="hidden items-center gap-8 md:flex">
           {[
-            { label: "OmniDiff Network", href: "#" },
+            { label: "OmniDiff Network", href: "/omnidiff" },
             { label: "Enterprise Providers", href: "#eoi" },
             { label: "Corporate Governance", href: "#corporate-governance" },
           ].map(({ label, href }) => (
