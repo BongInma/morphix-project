@@ -54,7 +54,7 @@ export default function EOIForms() {
               Monetize Idle Workstations
             </h3>
             <p className="mt-3 font-[family-name:var(--font-inter)] text-sm leading-relaxed text-text-muted">
-              Convert your idle enterprise hardware into revenue-generating GPU nodes. Retain 90% net compute revenue in the first year, then 85% lifetime.
+              First 15K Nodes: 90% Payout share in the first year then 85% lifetime share thereafter. After priority 15K nodes, 80% Payout share.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {["Zero-Day Install", "Peripheral Telemetry", "<50ms Eviction", "SEC-Registered Payouts"].map((tag) => (
