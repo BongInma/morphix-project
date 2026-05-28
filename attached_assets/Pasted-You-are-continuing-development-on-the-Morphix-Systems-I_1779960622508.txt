@@ -1,0 +1,107 @@
+You are continuing development on the Morphix Systems Inc. / OmniDiff landing page 
+that is already built in this project.
+
+Before writing a single line of new code, you MUST do the following:
+
+--- STEP 1: READ EXISTING CODE FIRST ---
+
+1. Open and read the existing EOIForms.jsx component in full.
+2. Open and read the existing backend route files. Look in:
+   - /server/routes/
+   - /api/
+   - /backend/routes/
+   - Or any file containing "signup", "renter", or "provider" in the filename.
+3. Open and read the existing database schema or model files. Look in:
+   - /server/models/
+   - /db/schema/
+   - /prisma/schema.prisma
+   - Or any file containing "Renter", "Provider", or "User" in the name.
+4. Read the existing environment config (.env or .env.example) to confirm 
+   the API base URL and any relevant keys.
+5. Check if there is an existing API utility file (e.g., api.js, axios.js, 
+   fetcher.js) that centralizes HTTP calls.
+
+Do NOT assume any field names, endpoint paths, or schema shapes. 
+Read them from the actual files before proceeding.
+
+--- STEP 2: INTEGRATION REQUIREMENTS ---
+
+Once you have confirmed the actual field names and endpoint paths from the 
+existing code, update EOIForms.jsx as follows:
+
+RENTER FORM (Card 1):
+- Wire the form's onSubmit handler to POST to the confirmed renter 
+  signup endpoint using async/await fetch (or the existing API utility).
+- Map form fields exactly to the confirmed database schema field names.
+- Manage three UI states: idle, loading, and success.
+- Loading state: disable the submit button and show a subtle spinner 
+  inside the button. Button text changes to "Submitting..." 
+  Keep all Tailwind styling intact.
+- Success state: replace the form with a clean confirmation panel:
+    - A checkmark icon (you can use an SVG inline, accent-emerald color)
+    - Heading (Syne font): "Request Received"
+    - Body (Inter, text-muted): "Thank you for your interest. An OmniDiff 
+      infrastructure specialist will contact you shortly to provision 
+      your secure environment."
+  This panel should match the card's bg-surface styling exactly.
+- Error state: show a non-blocking error bar below the submit button 
+  in a red-tinted style (bg-red-950 border border-red-800 text-red-400, 
+  rounded-md px-4 py-3 text-sm). Display the server's error message 
+  if available, otherwise: "Submission failed. Please try again or 
+  contact support@morphixsystems.com"
+
+PROVIDER FORM (Card 2):
+- Same pattern as above, but POST to the confirmed provider 
+  signup endpoint.
+- Map fields to confirmed provider schema field names.
+- Same three UI states: idle, loading, success.
+- Success panel body text: "Registration received. The Morphix Systems 
+  Inc. compliance team will reach out to schedule your node audit."
+- Same error bar pattern.
+
+--- STEP 3: FRONTEND VALIDATION ---
+
+Add validation that runs before the API call is made (not relying 
+on HTML5 validation alone):
+
+Renter Form:
+- Full Name: required, minimum 2 characters
+- Company Email: required, must match email regex 
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+- Target Workload: required, must not be the default empty/placeholder 
+  option
+- VRAM Tier: required, must not be the default empty/placeholder option
+
+Provider Form:
+- Corporate Name: required, minimum 2 characters
+- Contact Person: required, minimum 2 characters
+- Total Idle Workstations: required, must be a number greater than 0
+- GPU Models: required, must not be the default empty/placeholder option
+
+Display field-level validation errors inline, directly below each 
+field that fails. Style: text-xs text-red-400 mt-1 font-mono. 
+Clear each field's error the moment the user begins correcting it 
+(onChange clearing).
+
+--- STEP 4: STYLE PRESERVATION RULES ---
+
+These rules are non-negotiable:
+- Do NOT modify any Tailwind class on any element outside EOIForms.jsx
+- Do NOT change the card layout, grid, spacing, or accent bar colors
+- Do NOT change button base styling — only add loading/disabled state 
+  modifiers on top of existing classes
+- Do NOT add any new npm packages. Use native fetch API only.
+- All new JSX must use the same font class conventions already 
+  established: Syne for headings, DM Mono for labels/badges, 
+  Inter for body.
+
+--- STEP 5: OUTPUT ---
+
+Output only the updated EOIForms.jsx file.
+Do not output any other files unless a shared API utility file 
+needs to be created (only if no such file already exists).
+Add a comment block at the top of the updated file listing:
+  - The confirmed renter endpoint path you found
+  - The confirmed provider endpoint path you found
+  - The confirmed schema field names you mapped to
+This comment block is required for traceability.
