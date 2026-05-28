@@ -125,7 +125,7 @@ export default function FinancialFooter() {
               Disrupting a $48B APAC Cloud Market Distortion.
             </h2>
             <p className="mt-4 max-w-2xl font-[family-name:var(--font-inter)] text-sm text-text-muted">
-              Regional enterprise workstations sit idle for a minimum of 33%+ of every 24-hour cycle. OmniDiff&apos;s zero-CapEx orchestration model converts this stranded compute capacity into institutional-grade cloud infrastructure\u2014delivering a 65% to 80% cost reduction against legacy hyperscaler baselines.
+              Regional enterprise workstations sit idle for a minimum of 33%+ of every 24-hour cycle. OmniDiff&apos;s zero-CapEx orchestration model converts this stranded compute capacity into institutional-grade cloud infrastructure&mdash;delivering a 65% to 80% cost reduction against legacy hyperscaler baselines.
             </p>
 
             {/* Metric cards */}
