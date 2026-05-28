@@ -77,7 +77,7 @@ export default function FinancialFooter() {
     {
       header: "OMNIDIFF NETWORK",
       links: [
-        { label: "Network Status", href: "#", onClick: undefined as (() => void) | undefined },
+        { label: "Network Status", href: "/omnidiff", onClick: undefined as (() => void) | undefined },
         { label: "GPU Renter Portal", href: "#", onClick: undefined },
         { label: "Provider Onboarding", href: "#", onClick: undefined },
         { label: "Pricing & SLA", href: "#", onClick: undefined },
