@@ -1,0 +1,76 @@
+Please locate the core philosophy text section on our OmniDiff landing page that currently states: "Every design decision in OmniDiff prioritizes host data sovereignty..."
+
+Replace that text block and the layout space directly beneath it with this single, cohesive, fully written HTML and Tailwind CSS grid component. Do not leave out any words or use truncated placeholders.
+
+Here is the exact code to inject into the page layout:
+
+<!-- SYSTEM PHILOSOPHY SECTION -->
+<div class="max-w-4xl mx-auto text-center my-12 px-4">
+  <p class="text-lg md:text-xl text-gray-300 font-medium leading-relaxed tracking-wide">
+    Every design decision in <span class="text-white font-semibold">OmniDiff</span> 
+    prioritizes host data sovereignty and renter workload confidentiality simultaneously 
+    — engineered natively for maximum execution speed, zero-trust security, and 
+    sub-50ms network latency.
+  </p>
+</div>
+
+<!-- FOUR MAIN CORE PILLARS GRID -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+    <!-- PILLAR 1: SECURITY -->
+    <div class="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
+      <div class="w-10 h-10 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold group-hover:bg-[#00beff]/10 transition-colors">
+        01
+      </div>
+      <h3 class="text-base font-bold text-white tracking-wide uppercase">
+        Ironclad Zero-Trust Security
+      </h3>
+      <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+        Workloads and proprietary model weights are isolated strictly inside hardware-encrypted Trusted Execution Environments (TEEs) using NVIDIA Confidential Computing, guaranteeing total confidentiality from host infrastructure exposure.
+      </p>
+    </div>
+
+    <!-- PILLAR 2: LATENCY -->
+    <div class="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
+      <div class="w-10 h-10 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold group-hover:bg-[#00beff]/10 transition-colors">
+        02
+      </div>
+      <h3 class="text-base font-bold text-white tracking-wide uppercase">
+        Ultra-Low Sub-50ms Latency
+      </h3>
+      <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+        Localized regional Grade A node routing eliminates lengthy geographical transit legs, delivering rapid, real-time edge execution speeds tailored for heavy AI inference and automated financial risk simulations.
+      </p>
+    </div>
+
+    <!-- PILLAR 3: SOVEREIGNTY -->
+    <div class="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
+      <div class="w-10 h-10 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold group-hover:bg-[#00beff]/10 transition-colors">
+        03
+      </div>
+      <h3 class="text-base font-bold text-white tracking-wide uppercase">
+        Absolute Data Sovereignty
+      </h3>
+      <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+        Rigid geographical geofencing restricts computational routing data to designated national borders, ensuring compliance with strict statutory frameworks like the Philippine Data Privacy Act (RA 10173).
+      </p>
+    </div>
+
+    <!-- PILLAR 4: EFFICIENCY -->
+    <div class="group bg-gradient-to-b from-gray-950 to-black border border-gray-800 p-6 rounded-xl hover:border-[#00beff]/40 transition-all duration-300 shadow-xl">
+      <div class="w-10 h-10 rounded-lg bg-cyan-950/40 border border-cyan-900/50 flex items-center justify-center mb-4 text-[#00beff] font-bold group-hover:bg-[#00beff]/10 transition-colors">
+        04
+      </div>
+      <h3 class="text-base font-bold text-white tracking-wide uppercase">
+        Zero-CapEx Efficiency
+      </h3>
+      <p class="text-xs text-gray-400 mt-3 leading-relaxed">
+        Dynamic orchestration transforms unutilized off-shift enterprise workstation capacity into highly scalable cloud infrastructure, slashing standard processing overhead by 65% to 80% versus legacy hyperscalers.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+Ensure all card layouts render dynamically on both desktop and mobile views, maintaining our unified dark mode aesthetic with smooth transition scaling on card hover.

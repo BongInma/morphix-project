@@ -41,57 +41,73 @@ export default function SecurityProofs() {
         Built for Enterprise Paranoia.
       </h2>
 
-      {/* Sub */}
-      <p className="mt-4 max-w-2xl font-[family-name:var(--font-inter)] text-text-muted">
-        Every design decision in OmniDiff prioritizes host data sovereignty and
-        renter workload confidentiality simultaneously.
-      </p>
+      {/* Philosophy */}
+      <div className="mx-auto max-w-4xl text-center my-12 px-4">
+        <p className="font-[family-name:var(--font-inter)] text-lg md:text-xl text-text-muted font-medium leading-relaxed tracking-wide">
+          Every design decision in <span className="text-text-primary font-semibold">OmniDiff</span>{" "}
+          prioritizes host data sovereignty and renter workload confidentiality simultaneously
+          — engineered natively for maximum execution speed, zero-trust security, and
+          sub-50ms network latency.
+        </p>
+      </div>
 
-      {/* Cards grid */}
-      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-        {cards.map((card) => (
-          <div
-            key={card.badge}
-            className="relative overflow-hidden rounded-xl border border-surface-border bg-surface p-8"
-          >
-            {/* Subtle radial gradient top-right */}
-            <div
-              className="absolute -right-8 -top-8 h-32 w-32 rounded-full opacity-[0.04]"
-              style={{
-                background: `radial-gradient(circle, ${card.badgeColor === "text-electric" ? "#00C2FF" : card.badgeColor === "text-amber" ? "#F5A623" : "#00FF87"} 0%, transparent 70%)`,
-              }}
-            />
+      {/* Four Core Pillars Grid */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 my-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-            {/* Badge */}
-            <span
-              className={`inline-block rounded px-2 py-1 font-[family-name:var(--font-dmmono)] text-xs ${card.badgeColor} ${card.borderColor} ${card.bgColor} border`}
-            >
-              [{card.badge}]
-            </span>
-
-            {/* Title */}
-            <h3 className="mt-4 font-[family-name:var(--font-syne)] text-xl font-bold text-text-primary">
-              {card.title}
-            </h3>
-
-            {/* Body */}
-            <p className="mt-3 font-[family-name:var(--font-inter)] text-sm leading-relaxed text-text-muted">
-              {card.body}
-            </p>
-
-            {/* Tags */}
-            <div className="mt-6 flex flex-wrap gap-2">
-              {card.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-surface-border px-3 py-1 font-[family-name:var(--font-dmmono)] text-xs text-text-muted"
-                >
-                  {tag}
-                </span>
-              ))}
+          {/* Pillar 1: Security */}
+          <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
+            <div className="w-10 h-10 rounded-lg bg-electric/5 border border-electric/30 flex items-center justify-center mb-4 text-electric font-bold group-hover:bg-electric/10 transition-colors font-[family-name:var(--font-dmmono)]">
+              01
             </div>
+            <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
+              Ironclad Zero-Trust Security
+            </h3>
+            <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+              Workloads and proprietary model weights are isolated strictly inside hardware-encrypted Trusted Execution Environments (TEEs) using NVIDIA Confidential Computing, guaranteeing total confidentiality from host infrastructure exposure.
+            </p>
           </div>
-        ))}
+
+          {/* Pillar 2: Latency */}
+          <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
+            <div className="w-10 h-10 rounded-lg bg-electric/5 border border-electric/30 flex items-center justify-center mb-4 text-electric font-bold group-hover:bg-electric/10 transition-colors font-[family-name:var(--font-dmmono)]">
+              02
+            </div>
+            <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
+              Ultra-Low Sub-50ms Latency
+            </h3>
+            <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+              Localized regional Grade A node routing eliminates lengthy geographical transit legs, delivering rapid, real-time edge execution speeds tailored for heavy AI inference and automated financial risk simulations.
+            </p>
+          </div>
+
+          {/* Pillar 3: Sovereignty */}
+          <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
+            <div className="w-10 h-10 rounded-lg bg-electric/5 border border-electric/30 flex items-center justify-center mb-4 text-electric font-bold group-hover:bg-electric/10 transition-colors font-[family-name:var(--font-dmmono)]">
+              03
+            </div>
+            <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
+              Absolute Data Sovereignty
+            </h3>
+            <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+              Rigid geographical geofencing restricts computational routing data to designated national borders, ensuring compliance with strict statutory frameworks like the Philippine Data Privacy Act (RA 10173).
+            </p>
+          </div>
+
+          {/* Pillar 4: Efficiency */}
+          <div className="group rounded-xl border border-surface-border bg-surface p-6 hover:border-electric/40 transition-all duration-300 shadow-xl">
+            <div className="w-10 h-10 rounded-lg bg-electric/5 border border-electric/30 flex items-center justify-center mb-4 text-electric font-bold group-hover:bg-electric/10 transition-colors font-[family-name:var(--font-dmmono)]">
+              04
+            </div>
+            <h3 className="text-base font-bold text-text-primary tracking-wide uppercase font-[family-name:var(--font-syne)]">
+              Zero-CapEx Efficiency
+            </h3>
+            <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+              Dynamic orchestration transforms unutilized off-shift enterprise workstation capacity into highly scalable cloud infrastructure, slashing standard processing overhead by 65% to 80% versus legacy hyperscalers.
+            </p>
+          </div>
+
+        </div>
       </div>
     </section>
   );
