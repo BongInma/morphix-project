@@ -1,0 +1,118 @@
+You are adding two API route handlers to the existing Morphix 
+Systems Inc. / OmniDiff project. The database layer is Supabase 
+(PostgreSQL), implemented in /db/database.js using 
+@supabase/supabase-js. The deployment target is Vercel or 
+Netlify serverless.
+
+--- STEP 1: READ EXISTING CODE FIRST ---
+
+Before writing anything, read these files in full:
+
+1. /db/database.js — confirm the exact exported function 
+   names and their parameter shapes:
+   - insertWaitlistSubscriber({ full_name, company_name, 
+     professional_email, inquiry_type })
+   - logCalculatorEvent({ selected_hardware_tier,
+     monthly_operational_hours, calculated_legacy_cost,
+     calculated_omnidiff_cost, estimated_annual_savings,
+     session_ip_hash })
+   Note the exact return shapes: 
+   { success, id } or { success, reason, detail }
+
+2. package.json — confirm:
+   - Framework in use: Next.js, Express, or Netlify Functions
+   - Whether "type": "module" is set (ESM vs CJS)
+   - Existing dependencies (express, cors, dotenv, etc.)
+   - The "scripts" block to understand how the server starts
+
+3. Check for an existing server entry point:
+   - server.js or index.js (Express)
+   - /pages/api/ directory (Next.js)
+   - /netlify/functions/ directory (Netlify Functions)
+   - /api/ directory at project root (Vercel serverless)
+   Report exactly which pattern this project uses.
+
+4. Check if these packages are already installed:
+   - express
+   - cors  
+   - dotenv
+   - express-rate-limit
+   - validator
+   If any are missing, install them with npm install.
+   Do not install express if this is Next.js or 
+   Netlify Functions — it is not needed.
+
+Report all findings before writing any code.
+
+--- STEP 2: INSTALL MISSING DEPENDENCIES ---
+
+Based on Step 1 findings, install only what is missing.
+
+For an Express project, ensure these are present:
+  npm install express cors dotenv express-rate-limit validator
+
+For Next.js API routes:
+  npm install validator
+  (cors and rate limiting are handled differently — 
+  see Step 4 notes)
+
+For Netlify Functions:
+  npm install validator
+  (@netlify/functions should already be present)
+
+--- STEP 3: DETERMINE OUTPUT FILE LOCATIONS ---
+
+Based on the framework confirmed in Step 1, create 
+route files in the correct location:
+
+If Express (server.js / index.js pattern):
+  Create: /routes/waitlist.js
+  Create: /routes/telemetry.js
+  Update: server.js or index.js to mount the routes
+
+If Next.js (/pages/api/ pattern):
+  Create: /pages/api/waitlist/register.js
+  Create: /pages/api/telemetry/log-calculator.js
+  No server.js update needed — Next.js auto-routes these.
+
+If Netlify Functions (/netlify/functions/ pattern):
+  Create: /netlify/functions/waitlist-register.js
+  Create: /netlify/functions/telemetry-log-calculator.js
+  Update netlify.toml if it exists to confirm 
+  functions directory.
+
+If Vercel serverless (/api/ at root):
+  Create: /api/waitlist/register.js
+  Create: /api/telemetry/log-calculator.js
+
+All subsequent steps use [ROUTE FILE A] to refer to 
+the waitlist route file and [ROUTE FILE B] to refer 
+to the telemetry route file, regardless of location.
+
+--- STEP 4: BUILD SHARED MIDDLEWARE UTILITIES ---
+
+Create: /lib/apiUtils.js
+
+This file exports reusable utilities used by both 
+route handlers.
+
+-- 4A: IP HASHING UTILITY --
+
+import crypto from 'crypto' (built-in, no install needed)
+
+export function hashIp(rawIp) {
+  if (!rawIp || typeof rawIp !== 'string') {
+    return 'unknown'
+  }
+  // Strip port if present (e.g., "127.0.0.1:54321")
+  const cleanIp = rawIp.split(':')[0]  
+  return crypto
+    .createHash('sha256')
+    .update(cleanIp + process.env.IP_HASH_SALT || '')
+    .digest('hex')
+}
+
+// IP_HASH_SALT adds a pepper so the hash cannot be 
+// reversed via rainbow table against known IP ranges.
+// Add IP_HASH_SALT=<random-string> to .env
+// If not set, hashing still works but is less ha

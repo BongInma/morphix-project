@@ -41,6 +41,22 @@ const leadSubmitLimiter = rateLimit({
   message: { success: false, error: "Too many submissions, please try again later." },
 });
 
+const waitlistLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  limit: 5,
+  standardHeaders: "draft-8",
+  legacyHeaders: false,
+  message: { success: false, error: "Too many submissions, please try again later." },
+});
+
+const telemetryLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  limit: 20,
+  standardHeaders: "draft-8",
+  legacyHeaders: false,
+  message: { success: false, error: "Rate limit exceeded." },
+});
+
 app.use(
   pinoHttp({
     logger,
@@ -64,6 +80,8 @@ app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 
 app.use("/api/leads", leadSubmitLimiter);
+app.use("/api/waitlist", waitlistLimiter);
+app.use("/api/telemetry", telemetryLimiter);
 app.use("/api", router);
 
 export default app;

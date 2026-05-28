@@ -12,16 +12,19 @@
 
 import { createClient } from "@supabase/supabase-js";
 
-if (!process.env.SUPABASE_URL || !process.env.SUPABASE_ANON_KEY) {
-  console.error(
-    "[Morphix DB] FATAL: SUPABASE_URL and SUPABASE_ANON_KEY must be set in environment.",
-  );
-  process.exit(1);
+const supabaseUrl = process.env.SUPABASE_URL ?? "";
+const supabaseKey = process.env.SUPABASE_ANON_KEY ?? "";
+
+const supabase =
+  supabaseUrl && supabaseKey
+    ? createClient(supabaseUrl, supabaseKey)
+    : null;
+
+if (supabase) {
+  console.log("[Morphix DB] Supabase client initialized.");
+} else {
+  console.warn("[Morphix DB] SUPABASE_URL or SUPABASE_ANON_KEY not set. Supabase helpers will fail at runtime.");
 }
-
-const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY);
-
-console.log("[Morphix DB] Supabase client initialized.");
 
 // Helper 1: Insert waitlist subscriber
 async function insertWaitlistSubscriber(data: {
@@ -30,6 +33,9 @@ async function insertWaitlistSubscriber(data: {
   professional_email: string;
   inquiry_type?: string;
 }) {
+  if (!supabase) {
+    return { success: false, reason: "NOT_CONFIGURED", detail: "Supabase client not initialized" };
+  }
   const { full_name, company_name, professional_email, inquiry_type = "General" } = data;
   const { data: result, error } = await supabase
     .from("waitlist_subscribers")
@@ -61,6 +67,9 @@ async function insertDataRoomRequest(data: {
   document_requested: string;
   access_token: string;
 }) {
+  if (!supabase) {
+    return { success: false, reason: "NOT_CONFIGURED", detail: "Supabase client not initialized" };
+  }
   const { investor_email, firm_name, document_requested, access_token } = data;
   const { data: result, error } = await supabase
     .from("investor_data_room_access")
@@ -94,6 +103,9 @@ async function logCalculatorEvent(data: {
   estimated_annual_savings: number;
   session_ip_hash?: string;
 }) {
+  if (!supabase) {
+    return { success: false };
+  }
   try {
     const { error } = await supabase.from("calculator_telemetry_logs").insert([
       {
@@ -117,6 +129,9 @@ async function logCalculatorEvent(data: {
 
 // Helper 4: Get waitlist count
 async function getWaitlistCount() {
+  if (!supabase) {
+    return { count: null, error: "NOT_CONFIGURED" };
+  }
   const { count, error } = await supabase
     .from("waitlist_subscribers")
     .select("*", { count: "exact", head: true });
