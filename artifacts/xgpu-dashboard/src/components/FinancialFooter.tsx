@@ -25,15 +25,30 @@ export default function FinancialFooter() {
   const footerLinks = [
     {
       header: "OMNIDIFF NETWORK",
-      links: ["Network Status", "GPU Renter Portal", "Provider Onboarding", "Pricing & SLA"],
+      links: [
+        { label: "Network Status", href: "#" },
+        { label: "GPU Renter Portal", href: "#" },
+        { label: "Provider Onboarding", href: "#" },
+        { label: "Pricing & SLA", href: "#" },
+      ],
     },
     {
       header: "MORPHIX SYSTEMS",
-      links: ["About & Leadership", "Investor Relations", "Corporate Governance", "Contact"],
+      links: [
+        { label: "About & Leadership", href: "#" },
+        { label: "Investor Relations", href: "mailto:admin@omnidiff.it.com?subject=OmniDiff Investor Relations Inquiry" },
+        { label: "Corporate Governance", href: "#" },
+        { label: "Contact", href: "mailto:admin@omnidiff.it.com?subject=OmniDiff General Contact Inquiry" },
+      ],
     },
     {
       header: "LEGAL",
-      links: ["Privacy Policy", "Terms of Service", "SEC Filing Records", "Data Residency Framework"],
+      links: [
+        { label: "Privacy Policy", href: "#" },
+        { label: "Terms of Service", href: "#" },
+        { label: "SEC Filing Records", href: "#" },
+        { label: "Data Residency Framework", href: "#" },
+      ],
     },
   ];
 
@@ -100,12 +115,12 @@ export default function FinancialFooter() {
               </p>
               <ul className="mt-4 space-y-2">
                 {col.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
-                      className="font-[family-name:var(--font-inter)] text-sm text-text-muted transition-colors hover:text-text-primary"
+                      href={link.href}
+                      className="font-[family-name:var(--font-inter)] text-sm text-text-muted transition-colors hover:text-[#00beff]"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
