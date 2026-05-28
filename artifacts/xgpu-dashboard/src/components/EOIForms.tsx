@@ -22,7 +22,7 @@ export default function EOIForms() {
               Secure access to enterprise-grade GPU clusters for AI training, VFX rendering, and HPC workloads. Zero CapEx, APAC-compliant residency.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              {["LLM Training", "Fine-Tuning", "VFX Rendering", "3D Animation", "Simulation/HPC"].map((tag) => (
+              {["LLM Training", "Fine-Tuning", "VFX Rendering", "3D Animation", "Simulation/HPC", "Financial Back-Testing", "Risk Mitigation Sim", "LLM Inference Patches", "Confidential AI Workloads"].map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full border border-surface-border px-3 py-1 font-[family-name:var(--font-dmmono)] text-xs text-text-muted"
@@ -57,7 +57,7 @@ export default function EOIForms() {
               First 15K Nodes: 90% Payout Share in the first year then 85% lifetime share thereafter. Signups after the priority 15K nodes, get 80% Payout Share.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
-              {["Zero-Day Install", "Peripheral Telemetry", "<50ms Eviction", "BIR-Compliant EIS Payouts"].map((tag) => (
+              {["Zero-Day Install", "Peripheral Telemetry", "<50ms Eviction", "BIR-Compliant EIS Payouts", "Automated Monthly Settlement", "Full Ledger Transparency", "Zero-CapEx Deployment"].map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full border border-surface-border px-3 py-1 font-[family-name:var(--font-dmmono)] text-xs text-text-muted"
