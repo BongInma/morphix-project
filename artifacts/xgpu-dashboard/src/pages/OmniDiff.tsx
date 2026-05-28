@@ -61,11 +61,16 @@ function SectionHeader({ scrollTo }: { scrollTo: (id: string) => void }) {
   return (
     <header className="sticky top-0 z-50 border-b border-[#1F2937] bg-[#0B0C0E]/90 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-        <div className="flex flex-col leading-none">
+        <div className="flex items-center gap-3 leading-none">
           <span className="text-white font-bold text-lg tracking-tight">OmniDiff</span>
-          <span className="text-[#4B5563] text-[10px] sm:text-[11px] font-bold tracking-[0.08em] sm:tracking-[0.15em]" style={{ fontFamily: "'Inter', sans-serif", WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textTransform: "none", letterSpacing: "0.12em" }}>
-            <a href="index.html" className="transition-colors hover:text-[#00beff]">Powered by Morphix Systems Inc.</a>
-          </span>
+          <span className="text-[#4B5563] text-sm">/</span>
+          <a
+            href="/"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#1F2937] bg-gray-900/50 px-3 py-1 text-[10px] sm:text-[11px] font-medium text-[#9CA3AF] transition-colors hover:text-[#00beff]"
+          >
+            <span className="text-xs">&#8592;</span>
+            Morphix Systems
+          </a>
         </div>
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-medium tracking-[0.1em] uppercase text-[#6B7280]">
           {["Enterprise Renter View", "Hardware Provider View", "Sovereign Compliance"].map((label) => (
