@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "8cQpB9Br3Ailgr4MabHv4"
+uri = "file://morphix-project.tar.gz"
+type = "unspecified"
+title = "Morphix Project Archive"
