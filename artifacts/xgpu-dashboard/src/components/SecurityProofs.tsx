@@ -77,7 +77,7 @@ export default function SecurityProofs() {
               Ultra-Low Sub-50ms Latency
             </h3>
             <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
-              Localized regional Grade A node routing eliminates lengthy geographical transit legs, delivering rapid, real-time edge execution speeds tailored for heavy AI inference and automated financial risk simulations.
+              Localized regional Grade A node routing leverages proprietary delta-sync telemetry and differential data (diff) processing. By transmitting only active workload variations rather than massive redundant datasets, the network eliminates geographical transit legs to deliver rapid, real-time edge execution speeds tailored for heavy AI inference and automated financial risk simulations.
             </p>
           </div>
 
