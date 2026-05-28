@@ -88,7 +88,7 @@ export default function FinancialFooter() {
       links: [
         { label: "About & Leadership", href: "#", onClick: undefined },
         { label: "Investor Relations", href: "#", onClick: () => openModal("Institutional Investment Inquiry") },
-        { label: "Corporate Governance", href: "#", onClick: undefined },
+        { label: "Corporate Governance", href: "#corporate-governance-section", onClick: undefined },
         { label: "Contact", href: "#", onClick: () => openModal("General Corporate Inquiry") },
       ],
     },
@@ -178,7 +178,9 @@ export default function FinancialFooter() {
                       ) : (
                         <a
                           href={link.href}
-                          className="font-[family-name:var(--font-inter)] text-sm text-text-muted transition-colors hover:text-[#00beff]"
+                          className={`font-[family-name:var(--font-inter)] text-sm transition-colors hover:text-[#00beff] ${
+                            link.label === "Corporate Governance" ? "text-[#00beff]" : "text-text-muted"
+                          }`}
                         >
                           {link.label}
                         </a>

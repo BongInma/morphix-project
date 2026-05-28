@@ -30,7 +30,7 @@ export default function MorphixLanding() {
       <div id="security">
         <SecurityProofs />
       </div>
-      <div id="corporate-governance">
+      <div id="corporate-governance-section">
         <Governance />
       </div>
       <FinancialFooter />
