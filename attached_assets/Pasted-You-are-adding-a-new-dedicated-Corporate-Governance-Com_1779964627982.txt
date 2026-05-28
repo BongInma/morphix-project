@@ -1,0 +1,249 @@
+You are adding a new dedicated Corporate Governance & Compliance page 
+to the existing Morphix Systems Inc. / OmniDiff React project. 
+This page must match the established design system exactly.
+
+--- STEP 1: READ EXISTING CODE FIRST ---
+
+Before writing anything, read these files:
+
+1. tailwind.config.js — confirm all custom color tokens 
+   (obsidian, surface, border, accent-electric, accent-emerald, 
+   accent-amber, text-primary, text-muted, text-mono) and 
+   font families (syne, dmmono, inter).
+
+2. Navbar.jsx — note the exact class conventions used for the 
+   sticky nav so the governance page header is consistent.
+
+3. Governance.jsx — this is the existing governance SECTION 
+   on the main page. The new standalone page expands this 
+   content. Do not modify Governance.jsx. Read it for 
+   copy and style reference only.
+
+4. App.jsx or the router file — identify how routes are 
+   defined so you wire the new page into the existing 
+   router correctly.
+
+Report what router is in use (React Router, TanStack Router, 
+or none) before proceeding.
+
+--- STEP 2: CREATE THE PAGE FILE ---
+
+Create one new file: src/pages/GovernancePage.jsx
+
+Do not create a separate HTML file. This is a React project.
+
+--- STEP 3: BUILD THE PAGE SECTIONS ---
+
+The page has six sections. Build them in order.
+
+All sections share:
+- bg-obsidian base background
+- max-w-6xl mx-auto px-6 content width
+- Font conventions: Syne for all headings, DM Mono for all 
+  badges/labels/tags, Inter for all body copy
+
+-- SECTION A: PAGE HEADER (sticky, same pattern as Navbar.jsx) --
+
+Left side:
+- "MORPHIX" in Syne font-bold text-xl text-primary
+- "SYSTEMS INC." in DM Mono text-xs text-muted, block, below
+- Thin vertical divider
+- "OmniDiff" in accent-electric DM Mono text-sm
+
+Right side:
+- A single bordered link button: "← Return to Network Hub"
+  Style: border border-bg-border text-muted text-xs px-4 py-2 
+  rounded-md hover:text-primary hover:border-accent-electric 
+  transition DM Mono uppercase tracking-widest
+  href: "/" (or the confirmed root route from Step 1)
+
+Header style: sticky top-0 z-50 border-b border-bg-border 
+bg-obsidian/95 backdrop-blur-md py-4
+
+-- SECTION B: INSTITUTIONAL HERO BAND --
+
+py-20, border-b border-bg-border
+
+Status badge (same pill style as main Hero):
+  ● MORPHIX SYSTEMS INC. | REGULATORY & COMPLIANCE FRAMEWORK
+  Dot in accent-emerald with CSS pulse animation.
+  DM Mono text-xs text-mono, border border-bg-border 
+  bg-surface rounded-full px-4 py-1 inline-flex items-center gap-2
+
+Page title (Syne font-bold text-4xl md:text-5xl text-primary mt-8):
+  "Corporate Governance &
+   Transparency Portal"
+
+Corporate statement (Inter text-base text-muted max-w-3xl mt-6 
+leading-relaxed):
+  "OmniDiff is engineered with a risk-first paradigm. All 
+  operational vectors, data sovereignty boundaries, and 
+  intellectual property arrays are legally structured and 
+  maintained under Morphix Systems Inc. for enterprise-grade 
+  deployment and institutional venture scaling."
+
+Two inline trust indicators below (mt-8 flex gap-8 flex-wrap):
+  Each: DM Mono text-xs text-muted flex items-center gap-2
+  - A small [SEC] tag in accent-electric border box + 
+    "SEC-Registered Corporation — Philippines"
+  - A small [IPOPHL] tag in accent-amber border box + 
+    "Provisional Patent Filed & Tracked"
+
+-- SECTION C: THREE COMPLIANCE PILLARS --
+
+py-20, border-b border-bg-border
+
+Section label (DM Mono text-xs uppercase tracking-widest 
+text-accent-electric): "STRUCTURAL DE-RISKING FRAMEWORK"
+
+Section heading (Syne text-3xl text-primary mt-2):
+  "Three Core Pillars of Institutional Compliance"
+
+Three cards (grid grid-cols-1 md:grid-cols-3 gap-6 mt-12):
+
+CARD STYLE: bg-surface border border-bg-border rounded-xl p-8
+Each card has a 2px top border in its designated accent color.
+
+Card 1 — accent-electric top border:
+  Badge: "[CORP]" DM Mono text-xs text-accent-electric in 
+  small border border-accent-electric/30 bg-accent-electric/5 
+  rounded px-2 py-1
+  
+  Title (Syne text-xl text-primary mt-4):
+    "Corporate Structure & Securities Compliance"
+  
+  Body (Inter text-sm text-muted leading-relaxed mt-3):
+    "OmniDiff is a wholly owned infrastructure platform 
+    developed and operated by Morphix Systems Inc., a fully 
+    compliant corporate entity registered under the Securities 
+    and Exchange Commission (SEC) of the Philippines, domiciled 
+    in Quezon City. All early investment rounds are structured 
+    in compliance with SEC private placement regulations under 
+    SRC Section 10.1(k), ensuring full legal accountability 
+    for institutional venture participation."
+  
+  Bottom tags (flex flex-wrap gap-2 mt-6):
+    [SEC REGISTERED] [SRC 10.1(k)] [QC, PHILIPPINES]
+    Tag style: DM Mono text-xs border border-bg-border 
+    rounded-full px-3 py-1 text-muted
+
+Card 2 — accent-amber top border:
+  Badge: "[IP]" in accent-amber
+  
+  Title: "Intellectual Property & Defensive Enclaves"
+  
+  Body: "Proprietary core technology — including the automated 
+    compute-orchestration engine, hardware-level isolation 
+    protocols, and sub-50ms instant eviction algorithms — is 
+    protected under a provisional patent strategy actively 
+    tracked with the Intellectual Property Office of the 
+    Philippines (IPOPHL). All frameworks are documented and 
+    timestamped against third-party prior-art claims."
+  
+  Bottom tags: [IPOPHL FILED] [PROVISIONAL PATENT] [IP TRACKED]
+
+Card 3 — accent-emerald top border:
+  Badge: "[FMEA]" in accent-emerald
+  
+  Title: "Operational Integrity & Risk Mitigation"
+  
+  Body: "All system operations conform natively to a strict 
+    Failure Mode and Effects Analysis (FMEA) baseline, 
+    covering hardware failure cascades, network partition 
+    events, and SLA breach scenarios. Technical telemetry, 
+    bilateral netting protocols, and network isolation rules 
+    are codified across the 15-Module Master System Operations 
+    Manual (SOM), maintained in the secure institutional 
+    Data Room."
+  
+  Bottom tags: [FMEA BASELINE] [15-MODULE SOM] [DATA ROOM]
+
+-- SECTION D: VC DATA ROOM ACCESS PANEL --
+
+py-20, border-b border-bg-border
+
+Single full-width panel:
+  bg-surface border border-bg-border rounded-xl p-10 md:p-16
+  Add a subtle radial gradient glow behind it in accent-electric 
+  at 3% opacity (use a wrapper div with a background radial 
+  gradient).
+
+  Top label (DM Mono text-xs uppercase tracking-widest 
+  text-accent-electric): "INSTITUTIONAL ACCESS"
+
+  Heading (Syne text-3xl md:text-4xl text-primary mt-3):
+    "Due Diligence & Data Room Access"
+
+  Body (Inter text-base text-muted max-w-2xl mt-4 leading-relaxed):
+    "Verified institutional venture funds, legal counsel, and 
+    enterprise BPO partners may request access to our complete 
+    corporate records — including subscriber agreements, BIR 
+    tax tracking documentation, SEC filing records, and the 
+    full 15-Module System Operations Manual."
+
+  Two-column detail row (grid grid-cols-2 md:grid-cols-4 gap-4 
+  mt-8 mb-10):
+    Four small info blocks, each DM Mono text-xs text-muted:
+    Label above in text-accent-electric text-xs: "INCLUDES"
+    Items: "SEC Filing Records" | "15-Module SOM" | 
+           "Subscriber Agreements" | "BIR Tax Documentation"
+
+  CTA Button:
+    <a href="mailto:compliance@morphixsystems.com
+      ?subject=Data%20Room%20Access%20Request
+      &body=Organization%3A%0ARole%3A%0AJurisdiction%3A">
+    Text: "Request Data Room Credentials →"
+    Style: inline-block bg-accent-electric text-obsidian 
+    font-semibold px-8 py-4 rounded-md hover:brightness-110 
+    active:scale-[0.98] transition-all duration-150 Syne text-sm
+
+  Below button (DM Mono text-xs text-muted mt-4):
+    "NDA execution required prior to full document release. 
+    Response within 2 business days."
+
+-- SECTION E: REGULATORY FOOTER --
+
+bg-surface border-t border-bg-border py-12 px-6
+
+Two rows:
+
+Row 1 — three compliance badges side by side 
+(flex flex-wrap gap-6 justify-center mb-10):
+
+  Each badge: bg-obsidian border border-bg-border rounded-lg 
+  px-6 py-4 text-center
+
+  Badge 1:
+    Label: "[BIR]" DM Mono text-xs text-accent-amber
+    Title (Inter font-semibold text-primary text-sm mt-2):
+      "BIR Tax Compliance"
+    Sub (Inter text-xs text-muted mt-1):
+      "Equity allocation and revenue recognition tracked 
+      under Philippine Bureau of Internal Revenue protocols."
+
+  Badge 2:
+    Label: "[DPA 2012]" in accent-electric
+    Title: "Data Privacy Act Alignment"
+    Sub: "All geofencing and data residency operations align 
+      with the Philippine Data Privacy Act of 2012 (R.A. 10173) 
+      and relevant APAC data localization frameworks."
+
+  Badge 3:
+    Label: "[SEC]" in accent-emerald
+    Title: "SEC Disclosure Obligations"
+    Sub: "Corporate disclosures, investor communications, and 
+      placement memoranda are maintained under SEC oversight 
+      and available upon verified request."
+
+Row 2 — legal bottom bar 
+(border-t border-bg-border pt-8 mt-4 
+flex flex-col md:flex-row justify-between 
+items-center gap-4 text-center):
+
+  Left (DM Mono text-xs text-muted):
+    "© 2025 Morphix Systems Inc. All Rights Reserved. 
+    SEC-Registered Corporation, Quezon City, Philippines."
+
+  Right (DM Mono text-xs text-muted flex flex-wrap gap-4 
+  justify-center):
+    "OmniDiff™ Trademark — Morphix Systems Inc."
