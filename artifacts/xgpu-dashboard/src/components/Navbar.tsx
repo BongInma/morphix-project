@@ -35,13 +35,13 @@ export default function Navbar() {
         {/* Center Nav Links */}
         <div className="hidden items-center gap-8 md:flex">
           {[
-            "OmniDiff Network",
-            "Enterprise Providers",
-            "Corporate Governance",
-          ].map((label) => (
+            { label: "OmniDiff Network", href: "#" },
+            { label: "Enterprise Providers", href: "#eoi" },
+            { label: "Corporate Governance", href: "#" },
+          ].map(({ label, href }) => (
             <a
               key={label}
-              href="#"
+              href={href}
               className="font-[family-name:var(--font-inter)] text-xs font-medium uppercase tracking-[0.12em] text-text-muted transition-colors hover:text-text-primary hover:underline hover:decoration-electric hover:underline-offset-4"
             >
               {label}

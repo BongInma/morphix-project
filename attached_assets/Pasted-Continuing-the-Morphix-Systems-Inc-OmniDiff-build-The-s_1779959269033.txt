@@ -1,0 +1,55 @@
+Continuing the Morphix Systems Inc. / OmniDiff build. The scaffold, Tailwind config, and Navbar are already complete. Now build the Hero and EOI Forms sections.
+
+--- HERO SECTION (Hero.jsx) ---
+Layout: Full viewport height (min-h-screen). Centered content with a subtle grid overlay background (use a CSS repeating-linear-gradient of very faint #1A2540 lines, 1px, spaced 40px apart, over the obsidian background). Add a large radial gradient glow in accent-electric at ~5% opacity centered behind the headline to create depth.
+
+Top of hero: A small pill-shaped status badge reading:
+  ● NETWORK ONLINE — 847 NODES ACTIVE  
+  (The ● dot is in accent-emerald, animated with a CSS pulse. The text is DM Mono, text-xs, text-mono. The pill has border border-bg-border bg-surface rounded-full px-4 py-1.)
+
+Main Headline (Syne, font-bold, text-5xl md:text-7xl, text-primary, leading-tight):
+  "The World's First
+   Zero-CapEx Neocloud."
+
+The word "Zero-CapEx" should render in accent-electric color.
+
+Sub-headline (Inter, text-lg md:text-xl, text-muted, max-w-2xl, mt-6):
+  "Morphix Systems Inc. orchestrates underutilized enterprise hardware into a secure, localized, high-performance computing network for global AI and rendering workloads. Cut cloud costs by 65%–80% without ceding data sovereignty."
+
+Two CTA Buttons (mt-10, flex gap-4 flex-wrap):
+  1. "Rent Secure Compute" — bg-accent-electric text-obsidian font-semibold px-6 py-3 rounded-md hover:brightness-110 transition
+  2. "Monetize Idle Workstations" — border border-accent-electric text-accent-electric px-6 py-3 rounded-md hover:bg-accent-electric/10 transition
+
+Below buttons, add three inline micro-stats in DM Mono, text-xs, text-muted separated by dividers:
+  65–80% Cost Reduction  |  <50ms Eviction SLA  |  APAC Data Residency Compliant
+
+--- EOI FORMS SECTION (EOIForms.jsx) ---
+Layout: Two cards side by side (grid grid-cols-1 md:grid-cols-2 gap-8) inside a max-w-6xl mx-auto section. Section has py-24 px-6. Add a small section label above in DM Mono uppercase tracking-widest text-accent-electric text-xs: "EXPRESSIONS OF INTEREST"
+
+Section heading (Syne, text-3xl, text-primary): "Join the OmniDiff Network"
+
+CARD STYLE for both: bg-surface border border-bg-border rounded-xl p-8. Add a top accent bar: a 2px top border in accent-electric for Card 1, accent-emerald for Card 2.
+
+Card 1 — "For AI & VFX Compute Renters":
+  - Card badge in DM Mono text-xs: "GPU RENTER / AI LAB / VFX STUDIO"
+  - Badge color: accent-electric
+  - Fields (all styled: bg-obsidian border border-bg-border rounded-md text-primary placeholder-text-muted focus:border-accent-electric):
+    * Full Name (text input)
+    * Company Email (email input)  
+    * Target Workload (select dropdown): LLM Training, Fine-Tuning, VFX Rendering, 3D Animation, Simulation/HPC
+    * Required VRAM Tier (select): 8–16GB (RTX 3080 class), 20–24GB (RTX 4090/A5000), 40–80GB (A100/H100), Flexible
+  - Submit button: "Submit Compute Request" — full width, bg-accent-electric text-obsidian font-semibold
+
+Card 2 — "For Infrastructure Providers":
+  - Card badge: "BPO / ENTERPRISE NETWORK OPERATOR" in accent-emerald
+  - Fields:
+    * Corporate Name
+    * Contact Person
+    * Total Idle Workstations/Nodes (number input)
+    * Primary GPU Models (select): RTX 3080/3090, RTX 4080/4090, Quadro/RTX A-Series, NVIDIA T4/A10, Mixed Fleet
+  - Submit button: "Submit Provider Application" — full width, bg-accent-emerald text-obsidian font-semibold
+
+All form fields use consistent label styling: text-xs text-muted uppercase tracking-wider DM Mono, mb-1.
+Forms are non-functional (no backend). Add a small disclaimer below each form in text-muted text-xs: "Your data is handled under Morphix Systems Inc. Privacy Policy. No spam."
+
+Add both sections to App.jsx.
