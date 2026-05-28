@@ -64,7 +64,7 @@ function SectionHeader({ scrollTo }: { scrollTo: (id: string) => void }) {
         <div className="flex flex-col leading-none">
           <span className="text-white font-bold text-lg tracking-tight">OmniDiff</span>
           <span className="text-[#4B5563] text-[10px] sm:text-[11px] font-bold tracking-[0.08em] sm:tracking-[0.15em]" style={{ fontFamily: "'Inter', sans-serif", WebkitFontSmoothing: "antialiased", MozOsxFontSmoothing: "grayscale", textTransform: "none", letterSpacing: "0.12em" }}>
-            Powered by Morphix Systems Inc.
+            <a href="index.html" className="transition-colors hover:text-[#00beff]">Powered by Morphix Systems Inc.</a>
           </span>
         </div>
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-medium tracking-[0.1em] uppercase text-[#6B7280]">
