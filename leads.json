@@ -132,6 +132,14 @@
       "email": "rtmata@zohomail.com",
       "message": "Submitted via Sign In modal — Private Alpha Access Request",
       "timestamp": "2026-05-28T18:15:33.689Z"
+    },
+    {
+      "name": "ROBERTO TIANGCO MATA",
+      "fullName": "ROBERTO TIANGCO MATA",
+      "email": "RTMDUBAI2003@YAHOO.COM",
+      "company": "Morpgix",
+      "message": "Ceo | Computer Vision | < 500 GPU-hrs",
+      "timestamp": "2026-05-29T06:08:41.748Z"
     }
   ],
   "provider_leads": [
@@ -213,6 +221,15 @@
       "email": "rtmata@zohomail.com",
       "message": "Submitted via Sign In modal — Private Alpha Access Request",
       "timestamp": "2026-05-28T12:39:16.366Z"
+    },
+    {
+      "name": "Roberto T. Mata",
+      "contactName": "Roberto T. Mata",
+      "email": "rtmata@zohomail.com",
+      "gpuModel": "NVIDIA A100, NVIDIA RTX 4090",
+      "gpuCount": 100,
+      "message": "Morphix Systems Inc. | Dedicated 24/7 Allocation",
+      "timestamp": "2026-05-29T06:09:40.917Z"
     }
   ],
   "renterCounter": 438,

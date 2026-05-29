@@ -210,7 +210,7 @@ export default function FinancialFooter() {
       <div className="mt-8 pt-6 border-t border-gray-900 max-w-7xl mx-auto px-4 font-[family-name:var(--font-dmmono)]">
 
         {/* ROW 1: BRANDING & PATENT METRICS (TIGHT SINGLE LINE) */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-[11px] text-gray-500 tracking-wide pb-4">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-2 text-[11px] text-text-muted tracking-wide pb-4">
           <div>
             &copy; 2026 Morphix Systems Inc. All Rights Reserved. SEC-Registered Corporation, Philippines.
           </div>
@@ -219,15 +219,15 @@ export default function FinancialFooter() {
           </div>
           <div className="flex items-center space-x-3">
             <span>IPOPHL Provisional Patent Pending</span>
-            <span className="text-gray-800">|</span>
+            <span className="text-surface-border">|</span>
             <span>PDPA Compliant</span>
           </div>
         </div>
 
         {/* ROW 2: INTEGRATED REGULATORY DISCLAIMER (NO EXTRA GAP) */}
-        <div className="pt-3 border-t border-gray-950 text-[10px] text-gray-600 leading-relaxed text-justify font-[family-name:var(--font-inter)] space-y-1.5">
+        <div className="pt-3 border-t border-surface-border text-[10px] text-text-muted leading-relaxed text-justify font-[family-name:var(--font-inter)] space-y-1.5">
           <p>
-            <span className="font-semibold text-gray-500">Disclaimer:</span> All pre-launch incentives, including early renter lifetime discounts and premium hardware provider revenue share allocations described herein, represent promotional expressions of interest frameworks only. Final terms, priority routing metrics, and yield percentages are strictly subject to execution of definitive corporate platform contracts, service level agreements (SLAs), and verified hardware enrollment compliance parameters. Void where prohibited.
+            <span className="font-semibold text-text-mono">Disclaimer:</span> All pre-launch incentives, including early renter lifetime discounts and premium hardware provider revenue share allocations described herein, represent promotional expressions of interest frameworks only. Final terms, priority routing metrics, and yield percentages are strictly subject to execution of definitive corporate platform contracts, service level agreements (SLAs), and verified hardware enrollment compliance parameters. Void where prohibited.
           </p>
           <p>
             All expressions of interest (EOIs) collected via invitation requests are non-binding. Morphix Systems Inc. reserves the right to modify network onboarding thresholds, hardware compatibility mandates, and geofencing routing protocols in accordance with regional compliance updates and localized data infrastructure statutes.

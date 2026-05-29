@@ -62,7 +62,7 @@ export default function SecurityProofs() {
           <h3 className="text-base font-bold text-white tracking-wide uppercase font-[family-name:var(--font-syne)]">
             Ironclad Zero-Trust Security
           </h3>
-          <p className="text-xs text-gray-400 mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+          <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
             Workloads and proprietary model weights are isolated strictly inside hardware-encrypted Trusted Execution Environments (TEEs) using NVIDIA Confidential Computing, guaranteeing total confidentiality from host infrastructure exposure.
           </p>
         </div>
@@ -75,7 +75,7 @@ export default function SecurityProofs() {
           <h3 className="text-base font-bold text-white tracking-wide uppercase font-[family-name:var(--font-syne)]">
             Triad Redundancy & Active Erase
           </h3>
-          <p className="text-xs text-gray-400 mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+          <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
             Tasks execute across synchronized, parallel triple-node triads to prevent data loss during sudden power outages. Upon workload completion or eviction, an automated hardware sequence immediately wipes all residual data footprints from host RAM.
           </p>
         </div>
@@ -88,7 +88,7 @@ export default function SecurityProofs() {
           <h3 className="text-base font-bold text-white tracking-wide uppercase font-[family-name:var(--font-syne)]">
             Ultra-Low Sub-50ms Latency
           </h3>
-          <p className="text-xs text-gray-400 mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+          <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
             Localized regional Grade A node routing leverages proprietary delta-sync telemetry and differential data (diff) processing, transmitting only active workload variations to eliminate geographical transit legs.
           </p>
         </div>
@@ -106,7 +106,7 @@ export default function SecurityProofs() {
           <h3 className="text-base font-bold text-white tracking-wide uppercase font-[family-name:var(--font-syne)]">
             Absolute Data Sovereignty
           </h3>
-          <p className="text-xs text-gray-400 mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+          <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
             Rigid geographical geofencing restricts computational routing data to designated national borders, ensuring compliance with strict statutory frameworks like the Philippine Data Privacy Act (RA 10173).
           </p>
         </div>
@@ -119,7 +119,7 @@ export default function SecurityProofs() {
           <h3 className="text-base font-bold text-white tracking-wide uppercase font-[family-name:var(--font-syne)]">
             Zero-CapEx Efficiency
           </h3>
-          <p className="text-xs text-gray-400 mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
+          <p className="text-xs text-text-muted mt-3 leading-relaxed font-[family-name:var(--font-inter)]">
             Dynamic orchestration transforms unutilized off-shift enterprise workstation capacity into highly scalable cloud infrastructure, slashing standard processing overhead by 65% to 80% versus legacy hyperscalers.
           </p>
         </div>
