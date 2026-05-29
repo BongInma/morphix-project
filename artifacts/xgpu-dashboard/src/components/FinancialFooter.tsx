@@ -118,12 +118,12 @@ export default function FinancialFooter() {
     <>
       <footer>
         {/* MARKET METRICS BANNER */}
-        <section className="border-t border-surface-border bg-obsidian py-20 px-6">
+        <section className="border-t border-surface-border bg-obsidian py-12 px-4 sm:py-20 sm:px-6">
           <div className="mx-auto max-w-6xl">
             <p className="font-[family-name:var(--font-dmmono)] text-xs font-medium uppercase tracking-[0.2em] text-electric">
               MARKET OPPORTUNITY
             </p>
-            <h2 className="mt-2 font-[family-name:var(--font-syne)] text-3xl font-bold text-text-primary md:text-4xl">
+            <h2 className="mt-2 font-[family-name:var(--font-syne)] text-2xl font-bold text-text-primary sm:text-3xl md:text-4xl">
               Disrupting the $48 Billion APAC Market Inefficiency.
             </h2>
             <p className="mt-4 max-w-2xl font-[family-name:var(--font-inter)] text-sm text-text-muted">
@@ -131,16 +131,16 @@ export default function FinancialFooter() {
             </p>
 
             {/* Metric cards */}
-            <div className="mt-12 grid grid-cols-2 gap-6 md:grid-cols-4">
+            <div className="mt-8 sm:mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
               {metrics.map((m) => (
                 <div
                   key={m.label}
-                  className="rounded-xl border border-surface-border bg-surface p-6 text-center"
+                  className="rounded-xl border border-surface-border bg-surface p-4 sm:p-6 text-center"
                 >
-                  <span className={`font-[family-name:var(--font-syne)] text-4xl font-bold ${m.color}`}>
+                  <span className={`font-[family-name:var(--font-syne)] text-2xl sm:text-4xl font-bold ${m.color}`}>
                     {m.number}
                   </span>
-                  <p className="mt-2 font-[family-name:var(--font-dmmono)] text-xs text-text-muted">
+                  <p className="mt-2 font-[family-name:var(--font-dmmono)] text-[10px] sm:text-xs text-text-muted">
                     {m.label}
                   </p>
                 </div>
@@ -150,8 +150,8 @@ export default function FinancialFooter() {
         </section>
 
         {/* FOOTER */}
-        <div className="border-t border-surface-border bg-surface pt-16 pb-10 px-6">
-          <div className="mx-auto max-w-6xl grid grid-cols-1 gap-10 md:grid-cols-4">
+        <div className="border-t border-surface-border bg-surface pt-12 pb-8 px-4 sm:pt-16 sm:pb-10 sm:px-6">
+          <div className="mx-auto max-w-6xl grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-4">
             {/* Column 1 \u2014 Brand */}
             <div>
               <div className="flex items-baseline gap-2">

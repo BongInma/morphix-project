@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [email, setEmail] = useState("");
   const [role, setRole] = useState<"renter" | "provider">("renter");
@@ -93,18 +94,67 @@ export default function Navbar() {
                 setStatus("idle");
                 setEmail("");
               }}
-              className="rounded border border-surface-border px-4 py-2 font-[family-name:var(--font-inter)] text-sm font-medium text-text-muted transition-colors hover:text-text-primary"
+              className="hidden rounded border border-surface-border px-4 py-2 font-[family-name:var(--font-inter)] text-sm font-medium text-text-muted transition-colors hover:text-text-primary sm:block"
             >
               Sign In
             </button>
             <a
               href="/omnidiff"
-              className="rounded bg-electric px-4 py-2 font-[family-name:var(--font-inter)] text-sm font-semibold text-obsidian transition-colors hover:bg-electric/90"
+              className="hidden rounded bg-electric px-4 py-2 font-[family-name:var(--font-inter)] text-sm font-semibold text-obsidian transition-colors hover:bg-electric/90 sm:block"
             >
               Request Access
             </a>
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="flex flex-col items-center justify-center gap-1.5 rounded p-2 sm:hidden"
+              aria-label="Toggle menu"
+            >
+              <span className={`block h-0.5 w-6 rounded bg-text-muted transition-transform ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`block h-0.5 w-6 rounded bg-text-muted transition-opacity ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`block h-0.5 w-6 rounded bg-text-muted transition-transform ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+            </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="border-t border-surface-border bg-obsidian/95 backdrop-blur-md px-4 py-4 sm:hidden">
+            {[
+              { label: "OmniDiff Network", href: "/omnidiff" },
+              { label: "Enterprise Providers", href: "#eoi" },
+              { label: "Corporate Governance", href: "#corporate-governance-section" },
+            ].map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                onClick={() => setMenuOpen(false)}
+                className="block py-3 font-[family-name:var(--font-inter)] text-sm font-medium uppercase tracking-[0.12em] text-text-muted transition-colors hover:text-text-primary"
+              >
+                {label}
+              </a>
+            ))}
+            <div className="mt-4 flex gap-3 border-t border-surface-border pt-4">
+              <button
+                onClick={() => {
+                  setMenuOpen(false);
+                  setModalOpen(true);
+                  setStatus("idle");
+                  setEmail("");
+                }}
+                className="flex-1 rounded border border-surface-border px-4 py-2 font-[family-name:var(--font-inter)] text-sm font-medium text-text-muted transition-colors hover:text-text-primary"
+              >
+                Sign In
+              </button>
+              <a
+                href="/omnidiff"
+                className="flex-1 rounded bg-electric px-4 py-2 text-center font-[family-name:var(--font-inter)] text-sm font-semibold text-obsidian transition-colors hover:bg-electric/90"
+              >
+                Request Access
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* Alpha Access Modal */}

@@ -1,6 +1,6 @@
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28">
+    <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-24 md:pt-28 pb-12">
       {/* Grid overlay background */}
       <div
         className="absolute inset-0 pointer-events-none"
@@ -37,33 +37,33 @@ export default function Hero() {
         </div>
 
         {/* Main headline */}
-        <h1 className="font-[family-name:var(--font-syne)] text-5xl font-bold text-text-primary leading-tight md:text-7xl">
+        <h1 className="font-[family-name:var(--font-syne)] text-3xl font-bold text-text-primary leading-tight sm:text-5xl md:text-7xl">
           The World's First
           <br />
           <span className="text-electric">Zero-CapEx</span> Neocloud.
         </h1>
 
         {/* Sub-headline */}
-        <p className="font-[family-name:var(--font-inter)] text-lg text-text-muted max-w-2xl mx-auto mt-6 md:text-xl">
+        <p className="font-[family-name:var(--font-inter)] text-base text-text-muted max-w-2xl mx-auto mt-6 sm:text-lg md:text-xl">
           Morphix Systems Inc. orchestrates underutilized enterprise hardware into a secure, localized, high-performance computing network for global AI and rendering workloads. Cut cloud costs by 65%–80% without compromising data sovereignty.
         </p>
 
         {/* CTA Buttons */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-          <a href="/omnidiff#omnidiff-portal" className="rounded-md bg-electric px-6 py-3 font-[family-name:var(--font-inter)] font-semibold text-obsidian transition hover:brightness-110">
+        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a href="/omnidiff#omnidiff-portal" className="w-full sm:w-auto rounded-md bg-electric px-6 py-3 text-center font-[family-name:var(--font-inter)] font-semibold text-obsidian transition hover:brightness-110">
             Rent Secure Compute
           </a>
-          <a href="/omnidiff#omnidiff-portal" className="rounded-md border border-electric px-6 py-3 font-[family-name:var(--font-inter)] font-semibold text-electric transition hover:bg-electric/10">
+          <a href="/omnidiff#omnidiff-portal" className="w-full sm:w-auto rounded-md border border-electric px-6 py-3 text-center font-[family-name:var(--font-inter)] font-semibold text-electric transition hover:bg-electric/10">
             Monetize Idle Workstations
           </a>
         </div>
 
         {/* Micro-stats */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3 font-[family-name:var(--font-dmmono)] text-xs text-text-muted">
+        <div className="mt-10 flex flex-col items-center justify-center gap-2 font-[family-name:var(--font-dmmono)] text-[10px] text-text-muted sm:flex-row sm:gap-3 sm:text-xs">
           <span>65–80% Cost Reduction</span>
-          <span className="h-3 w-px bg-surface-border" />
+          <span className="hidden h-3 w-px bg-surface-border sm:block" />
           <span>&lt;50ms Eviction SLA</span>
-          <span className="h-3 w-px bg-surface-border" />
+          <span className="hidden h-3 w-px bg-surface-border sm:block" />
           <span>APAC Data Residency Compliant</span>
         </div>
       </div>

@@ -30,20 +30,20 @@ export default function SecurityProofs() {
   ];
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
+    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
       {/* Section label */}
       <p className="mb-4 font-[family-name:var(--font-dmmono)] text-xs font-medium uppercase tracking-[0.2em] text-electric">
         INFRASTRUCTURE SECURITY ARCHITECTURE
       </p>
 
       {/* Heading */}
-      <h2 className="font-[family-name:var(--font-syne)] text-3xl font-bold text-text-primary md:text-4xl">
+      <h2 className="font-[family-name:var(--font-syne)] text-2xl font-bold text-text-primary sm:text-3xl md:text-4xl">
         Built for Enterprise Paranoia.
       </h2>
 
       {/* Philosophy */}
-      <div className="mx-auto max-w-4xl text-center my-12 px-4">
-        <p className="font-[family-name:var(--font-inter)] text-lg md:text-xl text-text-muted font-medium leading-relaxed tracking-wide">
+      <div className="mx-auto max-w-4xl text-center my-8 sm:my-12 px-2 sm:px-4">
+        <p className="font-[family-name:var(--font-inter)] text-base sm:text-lg md:text-xl text-text-muted font-medium leading-relaxed tracking-wide">
           Every design decision in <span className="text-text-primary font-semibold">OmniDiff</span>{" "}
           prioritizes host data sovereignty and renter workload confidentiality simultaneously
           — engineered natively for maximum execution speed, zero-trust security, and

@@ -35,8 +35,8 @@ export default function Governance() {
   ];
 
   return (
-    <section className="bg-surface py-24">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-16 px-6 md:grid-cols-2">
+    <section className="bg-surface py-16 sm:py-24">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 sm:gap-16 sm:px-6 md:grid-cols-2">
         {/* LEFT COLUMN */}
         <div>
           <p className="font-[family-name:var(--font-dmmono)] text-xs font-medium uppercase tracking-[0.2em] text-text-muted">

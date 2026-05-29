@@ -1,10 +1,10 @@
 export default function EOIForms() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24">
+    <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
       <p className="mb-4 font-[family-name:var(--font-dmmono)] text-xs font-medium uppercase tracking-[0.2em] text-electric">
         EXPRESSIONS OF INTEREST
       </p>
-      <h2 className="mb-12 font-[family-name:var(--font-syne)] text-3xl font-bold text-text-primary">
+      <h2 className="mb-8 sm:mb-12 font-[family-name:var(--font-syne)] text-2xl font-bold text-text-primary sm:text-3xl">
         Join the OmniDiff Network
       </h2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
