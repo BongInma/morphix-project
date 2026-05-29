@@ -140,6 +140,14 @@
       "company": "Morpgix",
       "message": "Ceo | Computer Vision | < 500 GPU-hrs",
       "timestamp": "2026-05-29T06:08:41.748Z"
+    },
+    {
+      "name": "ROBERTO TIANGCO MATA",
+      "fullName": "ROBERTO TIANGCO MATA",
+      "email": "RTMDUBAI2003@YAHOO.COM",
+      "company": "Morphix Systems Inc.",
+      "message": "Ceo | RAG / Vector Search | 2,000 – 10,000 GPU-hrs",
+      "timestamp": "2026-05-29T07:19:10.437Z"
     }
   ],
   "provider_leads": [
@@ -230,6 +238,15 @@
       "gpuCount": 100,
       "message": "Morphix Systems Inc. | Dedicated 24/7 Allocation",
       "timestamp": "2026-05-29T06:09:40.917Z"
+    },
+    {
+      "name": "Roberto T. Mata",
+      "contactName": "Roberto T. Mata",
+      "email": "rtmata@zohomail.com",
+      "gpuModel": "NVIDIA A100, NVIDIA RTX 4090, AMD MI300X, NVIDIA H100, NVIDIA RTX 3090, Other",
+      "gpuCount": 100,
+      "message": "Morphix Systems Inc. | Flexible / Custom Schedule",
+      "timestamp": "2026-05-29T07:19:35.924Z"
     }
   ],
   "renterCounter": 438,
