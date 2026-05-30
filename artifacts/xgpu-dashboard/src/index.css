@@ -223,6 +223,20 @@
     font-weight: 400;
   }
 
+  /* Font-display swap for faster perceived load */
+  @font-face {
+    font-family: 'Inter';
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Syne';
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'DM Mono';
+    font-display: swap;
+  }
+
   @media (max-width: 640px) {
     body {
       font-weight: 500;
