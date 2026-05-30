@@ -57,13 +57,12 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img
-              src="/assets/omnidiff-logo.jpg"
-              alt="OmniDiff - High-Performance GPU Orchestration Network"
-              className="h-10 object-contain"
-              style={{ imageRendering: 'crisp-edges' }}
-              draggable={false}
-            />
+            <span className="font-[family-name:var(--font-syne)] text-xl font-bold text-white">
+              MORPHIX
+            </span>
+            <span className="font-[family-name:var(--font-dmmono)] text-[10px] text-text-muted">
+              SYSTEMS INC.
+            </span>
             <span className="mx-2 h-4 w-px bg-surface-border" />
             <span className="font-[family-name:var(--font-syne)] text-sm font-bold text-electric">
               OmniDiff
