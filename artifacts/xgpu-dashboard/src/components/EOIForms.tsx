@@ -69,10 +69,10 @@ export default function EOIForms() {
           </div>
           <a
             href="/omnidiff"
-            className="mt-8 inline-flex w-full items-center justify-center rounded-md bg-emerald py-3 font-[family-name:var(--font-inter)] font-semibold text-obsidian transition hover:brightness-110"
+            className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md bg-emerald px-6 py-3 font-[family-name:var(--font-inter)] font-semibold text-obsidian transition hover:brightness-110"
           >
-            Monetize Idle Workstations
-            <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <span className="text-center">Monetize Idle Workstations</span>
+            <svg className="h-4 w-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>
           </a>
