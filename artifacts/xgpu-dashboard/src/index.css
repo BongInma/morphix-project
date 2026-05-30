@@ -217,6 +217,17 @@
       radial-gradient(circle at 85% 30%, rgba(0, 255, 255, 0.03) 0%, transparent 50%);
     background-attachment: fixed;
     background-color: #080C12;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+  }
+
+  @media (max-width: 640px) {
+    body {
+      font-weight: 500;
+      -webkit-font-smoothing: subpixel-antialiased;
+    }
   }
 }
 
