@@ -19,7 +19,7 @@ export default function EOIForms() {
               Rent Secure Compute
             </h3>
             <p className="mt-3 font-[family-name:var(--font-inter)] text-sm leading-relaxed text-text-muted">
-              Secure access to enterprise-grade GPU clusters for AI training, VFX rendering, and HPC workloads. Zero CapEx, APAC-compliant residency.
+              Secure access to enterprise-grade GPU clusters for AI training, VFX rendering, and HPC workloads. Zero CapEx, APAC-compliant residency. Workloads are protected by comprehensive liability structures backed by industry leaders including AIG, Lloyds of London, and Chubb.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {["LLM Training", "Fine-Tuning", "VFX Rendering", "3D Animation", "Simulation/HPC", "Financial Back-Testing", "Risk Mitigation Sim", "LLM Inference Patches", "Confidential AI Workloads"].map((tag) => (
@@ -54,7 +54,7 @@ export default function EOIForms() {
               Monetize Idle Workstations
             </h3>
             <p className="mt-3 font-[family-name:var(--font-inter)] text-sm leading-relaxed text-text-muted">
-              First 15K Nodes: 90% Payout Share in the first year then 85% lifetime share thereafter. Signups after the priority 15K nodes, get 80% Payout Share.
+              First 15K Nodes: 90% Payout Share in the first year then 85% lifetime share thereafter. Signups after the priority 15K nodes, get 80% Payout Share. Hardware assets are covered against operational anomalies under tailored insurance policies written through AIG, Lloyds of London, and Chubb.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {["Zero-Day Install", "Peripheral Telemetry", "<50ms Eviction", "BIR-Compliant EIS Payouts", "Automated Monthly Settlement", "Full Ledger Transparency", "Zero-CapEx Deployment"].map((tag) => (

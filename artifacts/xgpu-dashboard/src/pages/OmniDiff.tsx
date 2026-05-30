@@ -558,7 +558,7 @@ export default function OmniDiff() {
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>On-demand local GPU processing at a 65%–80% cost reduction of your legacy cloud/data center costs with AWS, Microsoft Azure and Google Cloud.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>Plug-and-play architecture optimized for your AI Inference/Training, Financial Backtesting, Heavy Data  Pipelines and Risk Simulations.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>On-demand deployment. No corporate procurement bureaucracy. No restrictive multi-year contracts. No vendor lock-in. No egress fees.</span></li>
-                    <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>Up to $1M SLA-backed liability insurance underwritten by Chubb & AIG syndicates, protecting your corporate data payloads against transmission failures or operational downtime.</span></li>
+                    <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>Up to $1M SLA-backed liability insurance underwritten by Chubb, AIG, and Lloyds of London syndicates, protecting your corporate data payloads against transmission failures or operational downtime.</span></li>
                     <li className="flex gap-3"><span className="text-[#10B981] font-bold flex-shrink-0">[✓]</span><span>500 free pilot compute hours allocated instantly to your organization upon launch.</span></li>
                   </ul>
                 </div>
@@ -612,7 +612,7 @@ export default function OmniDiff() {
                   <ul className="space-y-3 text-sm leading-5 text-[#D1D5DB]">
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Monetize Global Nighttime Idle Windows: Automatically lease out your hardware's idle/off-peak hours to offset your local power/electricity bills and generate predictable revenue streams.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Absolute Operational Flexibility: Choose to dedicate your enterprise clusters 24/7 to capture maximum network yields or monetize specific off-peak windows.</span></li>
-                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Lloyd's of London, underwriting your GPU clusters against workload-induced operational risks.</span></li>
+                    <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Up to $1M enterprise-grade asset liability coverage placed through Chubb, AIG, and Lloyds of London syndicates, underwriting your GPU clusters against workload-induced operational risks.</span></li>
                     <li className="flex gap-3"><span className="text-[#3B82F6] font-bold flex-shrink-0">[✓]</span><span>Turnkey deployment via our secure, lightweight background Node Daemon with zero daily IT maintenance.</span></li>
                   </ul>
                 </div>
