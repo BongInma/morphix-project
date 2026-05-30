@@ -66,10 +66,10 @@ function SectionHeader({ scrollTo }: { scrollTo: (id: string) => void }) {
           <span className="text-[#4B5563] text-sm">/</span>
           <a
             href="/"
-            className="inline-flex items-center gap-1.5 rounded-full border border-[#1F2937] bg-gray-900/50 px-3 py-1 text-[10px] sm:text-[11px] font-medium text-[#9CA3AF] transition-colors hover:text-[#00beff]"
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#1F2937] bg-gray-900/50 px-3 py-1 text-[10px] sm:text-[11px] font-medium text-[#00FF66] transition-colors hover:border-[#00FF66] hover:text-[#00FF66]"
           >
-            <span className="text-xs">&#8592;</span>
-            Morphix Systems
+            <span className="text-xs text-[#00FF66]">&#8592;</span>
+            Morphix Systems Inc.
           </a>
         </div>
         <nav className="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-medium tracking-[0.1em] uppercase text-[#6B7280]">
@@ -808,14 +808,14 @@ export default function OmniDiff() {
               </div>
             </div>
 
-            {/* Back to Morphix Systems */}
+            {/* Back to Morphix Systems Inc. */}
             <div className="mt-8 flex justify-center">
               <a
                 href="/"
-                className="inline-flex items-center gap-2 rounded-md border border-[#1F2937] bg-[#0B0C0E]/60 px-5 py-2.5 text-sm text-[#6B7280] transition-colors hover:border-[#00beff] hover:text-[#00beff]"
+                className="inline-flex items-center gap-2 rounded-md border border-[#1F2937] bg-[#0B0C0E]/60 px-5 py-2.5 text-sm text-[#00FF66] transition-colors hover:border-[#00FF66] hover:text-[#00FF66]"
               >
                 <span className="text-base">←</span>
-                Back to Morphix Systems
+                Morphix Systems Inc.
               </a>
             </div>
           </div>
