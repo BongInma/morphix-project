@@ -87,11 +87,13 @@ export default function Governance() {
               key={badge.icon}
               className="flex items-start gap-4 rounded-lg border border-surface-border bg-obsidian p-5"
             >
-              <span
-                className={`inline-block rounded px-2 py-1 font-[family-name:var(--font-dmmono)] text-xs ${badge.iconColor} ${badge.borderColor} ${badge.bgColor} border flex-shrink-0`}
-              >
-                [{badge.icon}]
-              </span>
+              <div className="flex w-[72px] flex-shrink-0 items-center justify-center">
+                <span
+                  className={`inline-block rounded px-2 py-1 font-[family-name:var(--font-dmmono)] text-xs ${badge.iconColor} ${badge.borderColor} ${badge.bgColor} border`}
+                >
+                  [{badge.icon}]
+                </span>
+              </div>
               <div>
                 <p className="font-[family-name:var(--font-inter)] text-sm font-semibold text-text-primary">
                   {badge.title}
