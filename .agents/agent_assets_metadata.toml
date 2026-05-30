@@ -12,3 +12,9 @@ id = "26c4DjDPo4z-kNW0r85DA"
 uri = "file://morphix-project.zip"
 type = "unspecified"
 title = "Morphix Project ZIP Archive"
+
+[[outputs]]
+id = "NtW6mELsNlK2b_F5RmVtq"
+uri = "file://project-export.zip"
+type = "unspecified"
+title = "Morphix Project Source (366KB)"
