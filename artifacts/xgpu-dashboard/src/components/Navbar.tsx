@@ -56,23 +56,19 @@ export default function Navbar() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
             <span className="font-[family-name:var(--font-syne)] text-xl font-bold text-white">
-              MORPHIX
+              OMNIDIFF
             </span>
             <span className="font-[family-name:var(--font-dmmono)] text-[10px] text-text-muted">
-              SYSTEMS INC.
-            </span>
-            <span className="mx-2 h-4 w-px bg-surface-border" />
-            <span className="font-[family-name:var(--font-syne)] text-sm font-bold text-electric">
-              OmniDiff
+              by Morphix Systems
             </span>
           </div>
 
           {/* Center Nav Links */}
           <div className="hidden items-center gap-8 md:flex">
             {[
-              { label: "OmniDiff Network", href: "/omnidiff" },
+              { label: "Protocol Network", href: "/omnidiff" },
               { label: "Enterprise Providers", href: "#eoi" },
               { label: "Corporate Governance", href: "#corporate-governance-section" },
             ].map(({ label, href }) => (
@@ -121,7 +117,7 @@ export default function Navbar() {
         {menuOpen && (
           <div className="border-t border-surface-border bg-obsidian/95 backdrop-blur-md px-4 py-4 sm:hidden">
             {[
-              { label: "OmniDiff Network", href: "/omnidiff" },
+              { label: "Protocol Network", href: "/omnidiff" },
               { label: "Enterprise Providers", href: "#eoi" },
               { label: "Corporate Governance", href: "#corporate-governance-section" },
             ].map(({ label, href }) => (
