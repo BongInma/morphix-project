@@ -56,13 +56,18 @@ export default function Navbar() {
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <span className="font-[family-name:var(--font-syne)] text-xl font-bold text-white">
               OMNIDIFF
             </span>
-            <span className="font-[family-name:var(--font-dmmono)] text-[10px] text-text-muted">
-              by Morphix Systems
-            </span>
+            <div className="flex flex-col justify-center">
+              <span className="font-[family-name:var(--font-dmmono)] text-[9px] text-text-muted leading-tight">
+                Powered by
+              </span>
+              <span className="font-[family-name:var(--font-dmmono)] text-[10px] text-[#00FF66] leading-tight">
+                Morphix Systems Inc.
+              </span>
+            </div>
           </div>
 
           {/* Center Nav Links */}
