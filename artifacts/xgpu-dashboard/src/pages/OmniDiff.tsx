@@ -3,8 +3,8 @@ import React, { useState, useEffect, useRef } from "react";
 const BASE = import.meta.env.BASE_URL?.replace(/\/$/, "") ?? "";
 const API = `${BASE}/api`;
 
-// Formspree external form handler — replace with your actual Formspree form ID
-const FORMSPREE_ID = "YOUR_FORMSPREE_FORM_ID";
+// Formspree external form handler — submit EOI forms to Formspree (no backend needed)
+const FORMSPREE_ID = "xaqkgeal";
 const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
 
 type Counters = { renterCounter: number; gpuCounter: number };
