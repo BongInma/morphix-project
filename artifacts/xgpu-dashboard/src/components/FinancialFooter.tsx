@@ -238,12 +238,12 @@ export default function FinancialFooter() {
       {/* Contact Modal */}
       {contactModalOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center px-4"
+          className="fixed inset-0 z-[100] flex items-start justify-center px-4 py-6 overflow-y-auto"
           onClick={() => setContactModalOpen(false)}
         >
           <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" />
           <div
-            className="relative z-10 w-full max-w-lg rounded-2xl border border-surface-border bg-surface p-8 shadow-[0_0_80px_rgba(0,0,0,0.65)]"
+            className="relative z-10 w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl border border-surface-border bg-surface p-4 sm:p-8 shadow-[0_0_80px_rgba(0,0,0,0.65)]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
@@ -268,7 +268,7 @@ export default function FinancialFooter() {
             </div>
 
             {/* Form */}
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4 pb-2">
               <div>
                 <label className="mb-1.5 block font-[family-name:var(--font-dmmono)] text-xs uppercase tracking-wider text-text-muted">
                   Full Name
@@ -281,7 +281,7 @@ export default function FinancialFooter() {
                     if (status === "error") setStatus("idle");
                   }}
                   placeholder="Full name"
-                  className="w-full rounded-lg border border-surface-border bg-obsidian px-4 py-3 font-[family-name:var(--font-inter)] text-sm text-white placeholder-text-muted/50 focus:border-electric focus:outline-none transition-colors"
+                  className="w-full rounded-lg border border-surface-border bg-obsidian px-3 py-2.5 sm:px-4 sm:py-3 font-[family-name:var(--font-inter)] text-sm text-white placeholder-text-muted/50 focus:border-electric focus:outline-none transition-colors"
                 />
               </div>
               <div>
@@ -293,7 +293,7 @@ export default function FinancialFooter() {
                   value={organization}
                   onChange={(e) => setOrganization(e.target.value)}
                   placeholder="Organization / Company"
-                  className="w-full rounded-lg border border-surface-border bg-obsidian px-4 py-3 font-[family-name:var(--font-inter)] text-sm text-white placeholder-text-muted/50 focus:border-electric focus:outline-none transition-colors"
+                  className="w-full rounded-lg border border-surface-border bg-obsidian px-3 py-2.5 sm:px-4 sm:py-3 font-[family-name:var(--font-inter)] text-sm text-white placeholder-text-muted/50 focus:border-electric focus:outline-none transition-colors"
                 />
               </div>
               <div>
@@ -308,7 +308,7 @@ export default function FinancialFooter() {
                     if (status === "error") setStatus("idle");
                   }}
                   placeholder="you@company.com"
-                  className="w-full rounded-lg border border-surface-border bg-obsidian px-4 py-3 font-[family-name:var(--font-inter)] text-sm text-white placeholder-text-muted/50 focus:border-electric focus:outline-none transition-colors"
+                  className="w-full rounded-lg border border-surface-border bg-obsidian px-3 py-2.5 sm:px-4 sm:py-3 font-[family-name:var(--font-inter)] text-sm text-white placeholder-text-muted/50 focus:border-electric focus:outline-none transition-colors"
                 />
               </div>
               <div>
@@ -319,8 +319,8 @@ export default function FinancialFooter() {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Describe your inquiry..."
-                  rows={4}
-                  className="w-full rounded-lg border border-surface-border bg-obsidian px-4 py-3 font-[family-name:var(--font-inter)] text-sm text-white placeholder-text-muted/50 focus:border-electric focus:outline-none transition-colors resize-none"
+                  rows={2}
+                  className="w-full rounded-lg border border-surface-border bg-obsidian px-3 py-2.5 sm:px-4 sm:py-3 font-[family-name:var(--font-inter)] text-sm text-white placeholder-text-muted/50 focus:border-electric focus:outline-none transition-colors resize-none"
                 />
               </div>
               {status === "error" && (
