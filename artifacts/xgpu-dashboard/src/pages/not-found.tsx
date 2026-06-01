@@ -1,21 +1,27 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { AlertCircle } from "lucide-react";
+import { useLocation } from "wouter";
 
 export default function NotFound() {
-  return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-gray-50">
-      <Card className="w-full max-w-md mx-4">
-        <CardContent className="pt-6">
-          <div className="flex mb-4 gap-2">
-            <AlertCircle className="h-8 w-8 text-red-500" />
-            <h1 className="text-2xl font-bold text-gray-900">404 Page Not Found</h1>
-          </div>
+  const [, setLocation] = useLocation();
 
-          <p className="mt-4 text-sm text-text-muted">
-            Did you forget to add the page to the router?
-          </p>
-        </CardContent>
-      </Card>
+  return (
+    <div className="min-h-screen w-full flex flex-col items-center justify-center bg-obsidian text-text-primary">
+      <div className="text-center">
+        <span className="font-[family-name:var(--font-dmmono)] text-xs text-electric border border-electric/30 bg-electric/5 rounded px-2 py-1">
+          [404 ERROR]
+        </span>
+        <h1 className="mt-6 font-[family-name:var(--font-syne)] text-4xl font-bold text-white">
+          Page Not Found
+        </h1>
+        <p className="mt-4 font-[family-name:var(--font-inter)] text-sm text-text-muted max-w-md mx-auto">
+          The requested page does not exist or may have been moved. Please navigate back to the dashboard.
+        </p>
+        <button
+          onClick={() => setLocation("/")}
+          className="mt-8 rounded-lg bg-electric px-6 py-3 font-[family-name:var(--font-inter)] text-sm font-semibold text-obsidian transition hover:brightness-110"
+        >
+          Return to Dashboard
+        </button>
+      </div>
     </div>
   );
 }
