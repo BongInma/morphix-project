@@ -39,6 +39,10 @@ export default function FinancialFooter() {
   const BASE = import.meta.env.BASE_URL?.replace(/\/$/, "") ?? "";
   const API = `${BASE}/api`;
 
+  // Formspree external form handler for Investor Relations / Contact
+  const FORMSPREE_ID = "xaqkgeal";
+  const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
+
   const openContactModal = (title: string) => {
     setModalTitle(title);
     setContactModalOpen(true);
@@ -56,24 +60,19 @@ export default function FinancialFooter() {
     }
     setStatus("submitting");
     try {
-      const payload = {
-        full_name: fullName,
-        professional_email: email,
-        company_name: organization,
-        inquiry_type: modalTitle.includes("Investor") ? "Investor" : "General",
-      };
-      const r = await fetch(`${API}/waitlist/register`, {
+      const formData = new FormData();
+      formData.append("name", fullName);
+      formData.append("email", email);
+      formData.append("company", organization || "N/A");
+      formData.append("message", message || modalTitle);
+      formData.append("inquiry_type", modalTitle.includes("Investor") ? "Investor" : "General");
+      formData.append("_subject", `Morphix Inquiry: ${modalTitle}`);
+      await fetch(FORMSPREE_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: formData,
+        headers: { Accept: "application/json" },
       });
-      if (r.ok) {
-        setStatus("success");
-      } else if (r.status === 409) {
-        setStatus("email_exists");
-      } else {
-        setStatus("error");
-      }
+      setStatus("success");
     } catch {
       setStatus("error");
     }

@@ -76,7 +76,7 @@ const TAB_CONTENT: Record<string, {
   leadership: {
     label: "EXECUTIVE TEAM",
     heading: "Executive Leadership & Technical Core",
-    body: "Roberto T. Mata (Founder & CEO): Brings over 25 years of institutional corporate banking, risk management, and financial orchestration experience spanning diverse international markets, with extended senior tenures in Saudi Arabia and the UAE. Specialized in structured risk assessments and having CFO-level experience for six years, he directs the operational architecture and institutional governance models behind Morphix Systems Inc.\n\nOur Engineering Core (Elite Toptal Architecture Team): The technical infrastructure, secure container sandboxing, and node orchestration mechanisms of OmniDiff are engineered exclusively by an elite, vetted technical team sourced from top-tier Toptal recruits. Specializing in decentralized systems design, low-latency telemetry networks, and hardware-level cryptographic isolation, our engineering branch ensures that the network delivers enterprise-grade performance.",
+    body: "**Roberto T. Mata** (Founder & CEO): Brings over 25 years of institutional corporate banking, risk management, and financial orchestration experience spanning diverse international markets, with extended senior tenures in Saudi Arabia and the UAE. Specialized in structured risk assessments and having CFO-level experience for six years, he directs the operational architecture and institutional governance models behind Morphix Systems Inc.\n\n**Our Engineering Core (Elite Toptal Architecture Team)**: The technical infrastructure, secure container sandboxing, and node orchestration mechanisms of OmniDiff are engineered exclusively by an elite, vetted technical team sourced from top-tier Toptal recruits. Specializing in decentralized systems design, low-latency telemetry networks, and hardware-level cryptographic isolation, our engineering branch ensures that the network delivers enterprise-grade performance.",
     tags: ["25+ YEARS BANKING EXPERIENCE", "CROSS-BORDER MARKETS", "TOP-TAL ELITE TEAM", "DECENTRALIZED SYSTEMS", "HARDWARE CRYPTOGRAPHIC ISOLATION"],
     headerBadge: "[MORPHIX]",
     headerTitle: "Corporate Documentation",
@@ -191,9 +191,25 @@ export default function LegalModal({ isOpen, initialTab, onClose }: LegalModalPr
                   {content.heading}
                 </h2>
                 <div className="font-[family-name:var(--font-inter)] text-sm text-text-muted leading-relaxed max-w-prose space-y-4">
-                  {content.body.split("\n\n").map((paragraph, i) => (
-                    <p key={i}>{paragraph}</p>
-                  ))}
+                  {content.body.split("\n\n").map((paragraph, i) => {
+                    // Render **bold** as neon green bold spans
+                    const parts = paragraph.split(/(\*\*.*?\*\*)/g);
+                    return (
+                      <p key={i}>
+                        {parts.map((part, j) => {
+                          if (part.startsWith("**") && part.endsWith("**")) {
+                            const text = part.slice(2, -2);
+                            return (
+                              <strong key={j} className="text-[#00ff88] font-bold">
+                                {text}
+                              </strong>
+                            );
+                          }
+                          return part;
+                        })}
+                      </p>
+                    );
+                  })}
                 </div>
                 <div className="border-t border-surface-border my-8" />
                 <div className="flex items-center gap-3 flex-wrap">
