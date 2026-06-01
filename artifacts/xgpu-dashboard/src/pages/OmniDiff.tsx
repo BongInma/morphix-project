@@ -421,27 +421,12 @@ export default function OmniDiff() {
   const renterCounter = counters?.renterCounter ?? 435;
   const gpuCounter = counters?.gpuCounter ?? 12420;
 
-  useEffect(() => {
-    const body = {
-      selected_hardware_tier: hardwareTier,
-      monthly_operational_hours: monthlyHours,
-      calculated_legacy_cost: legacyMonthlyCost,
-      calculated_omnidiff_cost: omnidiffMonthlyCost,
-      estimated_annual_savings: annualSavings,
-    };
-    fetch(`${API}/telemetry/log-calculator`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    }).catch(() => {});
-  }, [hardwareTier, monthlyHours]);
-
+  // Note: backend telemetry and counter endpoints are not available in static
+  // Vercel deployment. Counters display as static defaults. Future: wire to a
+  // live API or edge function if dynamic counters are needed.
   const refreshCounters = async () => {
-    try {
-      const r = await fetch(`${API}/counters`);
-      const d = await r.json();
-      setCounters(d);
-    } catch {}
+    // No-op: static site has no backend API for counters.
+    // Defaults (renterCounter=435, gpuCounter=12420) shown at mount.
   };
 
   useEffect(() => {
