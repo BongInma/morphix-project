@@ -193,12 +193,13 @@ function RenterForm({ onSuccess }: { onSuccess: (counters: Counters) => void }) 
     <div className="flex flex-col gap-1.5">
       <input
         type={type}
+        inputMode={name === "email" ? "email" : undefined}
         value={fields[name]}
         placeholder={placeholder}
         onChange={(e) => onChange(name, e.target.value)}
         className={fieldClass(fs[name] ?? "idle")}
         style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "16px" }}
-        autoComplete={type === "email" ? "email" : "off"}
+        autoComplete={name === "email" ? "email" : "off"}
       />
       {fs[name] === "error" && <p className="text-red-400 text-[11px] pl-1">Required / Invalid</p>}
     </div>
@@ -209,7 +210,7 @@ function RenterForm({ onSuccess }: { onSuccess: (counters: Counters) => void }) 
       {fld("fullName", "Full Name")}
       {fld("title", "Corporate Title")}
       {fld("company", "Company Name")}
-      {fld("email", "Corporate Email", "email")}
+      {fld("email", "Corporate Email", "text")}
       <select
         value={fields.useCase}
         onChange={(e) => onChange("useCase", e.target.value)}
@@ -305,12 +306,13 @@ function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { 
     <div className="flex flex-col gap-1.5">
       <input
         type={type}
+        inputMode={name === "email" ? "email" : undefined}
         value={fields[name]}
         placeholder={placeholder}
         onChange={(e) => onChange(name, e.target.value)}
         className={fieldClass(fs[name] ?? "idle")}
         style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "16px" }}
-        autoComplete={type === "email" ? "email" : "off"}
+        autoComplete={name === "email" ? "email" : "off"}
       />
       {fs[name] === "error" && <p className="text-red-400 text-[11px] pl-1">Required / Invalid</p>}
     </div>
@@ -320,7 +322,7 @@ function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { 
     <form onSubmit={submit} className="grid gap-4 w-full">
       {fld("entityName", "Company / Franchise Entity Name")}
       {fld("contactName", "Contact Person Name")}
-      {fld("email", "Corporate Email", "email")}
+      {fld("email", "Corporate Email", "text")}
       <select
         value={fields.estimatedGpus}
         onChange={(e) => onChange("estimatedGpus", e.target.value)}

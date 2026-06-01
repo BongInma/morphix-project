@@ -53,8 +53,11 @@ export default function FinancialFooter() {
     setMessage("");
   };
 
+  const validateEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
   const submitInquiry = async () => {
-    if (!fullName || !email || !email.includes("@")) {
+    const trimmedEmail = email.trim();
+    if (!fullName || !trimmedEmail || !validateEmail(trimmedEmail)) {
       setStatus("error");
       return;
     }
@@ -301,7 +304,9 @@ export default function FinancialFooter() {
                   Professional Email
                 </label>
                 <input
-                  type="email"
+                  type="text"
+                  inputMode="email"
+                  autoComplete="email"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);

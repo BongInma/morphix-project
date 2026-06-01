@@ -161,12 +161,12 @@ export default function Navbar() {
       {/* Alpha Access Modal */}
       {modalOpen && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center px-4"
+          className="fixed inset-0 z-[100] flex items-start justify-center px-4 py-6 overflow-y-auto"
           onClick={() => setModalOpen(false)}
         >
           <div className="absolute inset-0 bg-black/80 backdrop-blur-xl" />
           <div
-            className="relative z-10 w-full max-w-md rounded-2xl border border-surface-border bg-surface p-8 shadow-[0_0_80px_rgba(0,0,0,0.65)]"
+            className="relative z-10 w-full max-w-md max-h-[85vh] overflow-y-auto rounded-2xl border border-surface-border bg-surface p-4 sm:p-8 shadow-[0_0_80px_rgba(0,0,0,0.65)]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
@@ -220,7 +220,9 @@ export default function Navbar() {
                 Corporate Email
               </label>
               <input
-                type="email"
+                type="text"
+                inputMode="email"
+                autoComplete="email"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
