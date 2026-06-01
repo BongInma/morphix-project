@@ -3,6 +3,10 @@ import React, { useState, useEffect, useRef } from "react";
 const BASE = import.meta.env.BASE_URL?.replace(/\/$/, "") ?? "";
 const API = `${BASE}/api`;
 
+// Formspree external form handler — replace with your actual Formspree form ID
+const FORMSPREE_ID = "YOUR_FORMSPREE_FORM_ID";
+const FORMSPREE_URL = `https://formspree.io/f/${FORMSPREE_ID}`;
+
 type Counters = { renterCounter: number; gpuCounter: number };
 type HardwareTier = "NVIDIA H100 Cluster" | "NVIDIA A100 Cluster" | "NVIDIA RTX 4090 Node";
 
@@ -165,22 +169,21 @@ function RenterForm({ onSuccess }: { onSuccess: (counters: Counters) => void }) 
     if (!allValid) return;
     setLoading(true);
     try {
-      const r = await fetch(`${API}/leads/renter`, {
+      const formData = new FormData();
+      formData.append("name", fields.fullName);
+      formData.append("email", fields.email);
+      formData.append("company", fields.company);
+      formData.append("title", fields.title);
+      formData.append("useCase", fields.useCase);
+      formData.append("monthlyDemand", fields.monthlyDemand);
+      formData.append("_subject", "OmniDiff Renter EOI");
+      await fetch(FORMSPREE_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: fields.fullName,
-          email: fields.email,
-          company: fields.company,
-          message: `${fields.title} | ${fields.useCase} | ${fields.monthlyDemand}`,
-        }),
+        body: formData,
+        headers: { Accept: "application/json" },
       });
-      const data = (await r.json()) as Partial<Counters> | null;
       setLoading(false);
-      onSuccess({
-        renterCounter: typeof data?.renterCounter === "number" ? data.renterCounter : 435,
-        gpuCounter: typeof data?.gpuCounter === "number" ? data.gpuCounter : 12420,
-      });
+      onSuccess({ renterCounter: 436, gpuCounter: 12421 });
     } catch {
       setLoading(false);
     }
@@ -278,23 +281,21 @@ function ProviderForm({ onSuccess, ctaLabel = "REGISTER PROVIDER INTEREST" }: { 
     if (!allValid) return;
     setLoading(true);
     try {
-      const r = await fetch(`${API}/leads/provider`, {
+      const formData = new FormData();
+      formData.append("name", fields.contactName);
+      formData.append("email", fields.email);
+      formData.append("entityName", fields.entityName);
+      formData.append("gpuModels", gpuModelsSelected.join(", "));
+      formData.append("estimatedGpus", fields.estimatedGpus);
+      formData.append("idleWindow", fields.idleWindow);
+      formData.append("_subject", "OmniDiff Provider EOI");
+      await fetch(FORMSPREE_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: fields.contactName,
-          email: fields.email,
-          gpuModel: gpuModelsSelected.join(", "),
-          gpuCount: Number.parseInt(fields.estimatedGpus, 10) || 1,
-          message: `${fields.entityName} | ${fields.idleWindow}`,
-        }),
+        body: formData,
+        headers: { Accept: "application/json" },
       });
-      const data = (await r.json()) as Partial<Counters> | null;
       setLoading(false);
-      onSuccess({
-        renterCounter: typeof data?.renterCounter === "number" ? data.renterCounter : 435,
-        gpuCounter: typeof data?.gpuCounter === "number" ? data.gpuCounter : 12420,
-      });
+      onSuccess({ renterCounter: 436, gpuCounter: 12421 });
     } catch {
       setLoading(false);
     }
