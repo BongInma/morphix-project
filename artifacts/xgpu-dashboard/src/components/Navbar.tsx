@@ -19,29 +19,29 @@ export default function Navbar() {
   const BASE = import.meta.env.BASE_URL?.replace(/\/$/, "") ?? "";
   const API = `${BASE}/api`;
 
+  const validateEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+
   const submitLead = async () => {
-    if (!email || !email.includes("@")) {
+    const trimmed = email.trim();
+    if (!trimmed || !validateEmail(trimmed)) {
       setStatus("error");
       return;
     }
     setStatus("submitting");
     try {
-      const endpoint = role === "renter" ? `${API}/leads/renter` : `${API}/leads/provider`;
-      const payload =
-        role === "renter"
-          ? { email, fullName: "Alpha Interest", message: "Submitted via Sign In modal — Private Alpha Access Request" }
-          : { email, contactName: "Alpha Interest", message: "Submitted via Sign In modal — Private Alpha Access Request" };
-      const r = await fetch(endpoint, {
+      const formData = new FormData();
+      formData.append("email", trimmed);
+      formData.append("role", role);
+      formData.append("fullName", "Alpha Interest");
+      formData.append("message", "Submitted via Sign In modal — Private Alpha Access Request");
+      formData.append("_subject", `Morphix Alpha Access Request: ${role.toUpperCase()}`);
+      await fetch("https://formspree.io/f/xaqkgeal", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: formData,
+        headers: { Accept: "application/json" },
       });
-      if (r.ok) {
-        setStatus("success");
-        setEmail("");
-      } else {
-        setStatus("error");
-      }
+      setStatus("success");
+      setEmail("");
     } catch {
       setStatus("error");
     }
