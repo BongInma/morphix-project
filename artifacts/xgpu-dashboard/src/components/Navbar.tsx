@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import OmniDiffLogo from "./OmniDiffLogo";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,9 +58,7 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <span className="font-[family-name:var(--font-syne)] text-xl font-bold text-white">
-              OMNIDIFF
-            </span>
+            <OmniDiffLogo size="sm" showWordmark={true} />
             <div className="flex flex-col justify-center">
               <span className="font-[family-name:var(--font-dmmono)] text-[9px] text-text-muted leading-tight">
                 Powered by

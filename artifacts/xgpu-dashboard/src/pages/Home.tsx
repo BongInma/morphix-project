@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import OmniDiffLogo from "@/components/OmniDiffLogo";
 
 interface TelemetrySubscriber {
   id: number;
@@ -201,10 +202,13 @@ export default function Home() {
           {/* Header Bar */}
           <div className="mb-8 flex items-center justify-between">
             <div>
-              <span className="inline-block rounded border border-emerald/30 bg-emerald/5 px-2 py-1 font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.2em] text-emerald">
-                [LIVE ANALYTICS]
-              </span>
-              <h1 className="mt-2 font-[family-name:var(--font-syne)] text-2xl font-bold text-text-primary">
+              <div className="mb-2 flex items-center gap-3">
+                <OmniDiffLogo size="sm" showWordmark={true} />
+                <span className="inline-block rounded border border-emerald/30 bg-emerald/5 px-2 py-1 font-[family-name:var(--font-dmmono)] text-[10px] uppercase tracking-[0.2em] text-emerald">
+                  [LIVE ANALYTICS]
+                </span>
+              </div>
+              <h1 className="font-[family-name:var(--font-syne)] text-2xl font-bold text-text-primary">
                 OmniDiff Telemetry Pipeline
               </h1>
               <p className="mt-1 font-[family-name:var(--font-dmmono)] text-xs text-text-muted">

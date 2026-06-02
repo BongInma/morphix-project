@@ -1,3 +1,5 @@
+import OmniDiffLogo from "./OmniDiffLogo";
+
 export default function Hero() {
   return (
     <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden pt-24 md:pt-28 pb-12">
@@ -25,6 +27,13 @@ export default function Hero() {
       />
 
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
+        {/* Logo */}
+        <div className="mb-6 flex justify-center">
+          <div style={{ filter: "drop-shadow(0 0 24px rgba(0, 201, 167, 0.4))" }}>
+            <OmniDiffLogo size="lg" />
+          </div>
+        </div>
+
         {/* Status badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-surface-border bg-surface px-4 py-1 mb-8">
           <span className="relative flex h-2 w-2">

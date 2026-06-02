@@ -1,6 +1,6 @@
-# [Project name]
+# OmniDiff Network
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A decentralized GPU marketplace across three regional sites: Philippines (xgpu-dashboard), UAE (gulf-eoi/ae), and KSA (gulf-eoi/sa). Users can rent GPU compute or monetize idle workstations.
 
 ## Run & Operate
 

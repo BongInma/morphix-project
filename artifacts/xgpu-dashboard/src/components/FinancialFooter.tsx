@@ -1,5 +1,6 @@
 import { useState } from "react";
 import LegalModal from "./LegalModal";
+import OmniDiffLogo from "./OmniDiffLogo";
 
 export default function FinancialFooter() {
   const metrics = [
@@ -156,17 +157,7 @@ export default function FinancialFooter() {
           <div className="mx-auto max-w-6xl grid grid-cols-1 gap-8 sm:gap-10 md:grid-cols-4">
             {/* Column 1 \u2014 Brand */}
             <div>
-              <div className="flex items-baseline gap-2">
-                <span className="font-[family-name:var(--font-syne)] text-xl font-bold text-text-primary">
-                  MORPHIX
-                </span>
-                <span className="font-[family-name:var(--font-dmmono)] text-xs text-text-muted">
-                  SYSTEMS INC.
-                </span>
-              </div>
-              <p className="mt-1 font-[family-name:var(--font-dmmono)] text-xs text-electric">
-                OmniDiff Network
-              </p>
+              <OmniDiffLogo size="sm" showWordmark={true} opacity={0.4} />
               <p className="mt-3 font-[family-name:var(--font-inter)] text-xs text-text-muted">
                 Zero-CapEx. Sovereign. Institutional.
               </p>
